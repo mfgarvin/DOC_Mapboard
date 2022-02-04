@@ -1,0 +1,59 @@
+{
+	"Our Lady of the Programmers": {
+		"ID": 1,
+		"Mass Times": {
+			"Saturday": 1600,
+			"Sunday": [
+				730,
+				900,
+				1100,
+				1700
+ 			],
+			"Monday": 800,
+			"Tuesday": 800,
+			"Wednesday": 800,
+			"Thursday": 800,
+			"Friday": 800
+		},
+		"Eucharistic Adoration": {
+			"is24hr": true,
+			"Saturday": null,
+			"Sunday": null,
+			"Monday": null,
+			"Tuesday": null,
+			"Wednesday": null,
+			"Thursday": null,
+			"Friday": null
+		},
+		"Confessions": {
+			"Saturday": null,
+			"Sunday": null,
+			"Monday": null,
+			"Tuesday": null,
+			"Wednesday": null,
+			"Thursday": null,
+			"Friday": null
+		},
+		"Rosary": {
+			"Saturday": null,
+			"Sunday": null,
+			"Monday": null,
+			"Tuesday": null,
+			"Wednesday": null,
+			"Thursday": null,
+			"Friday": null
+		},
+		"Holy Days": {
+			"Vigil": 1600,
+			"Day Of": [
+				900,
+				1200
+		]
+		},
+		"Website": "www.somesite.com",
+		"Notes": "Notes Go Brrr"
+	},
+	"SomeOtherChurch": {
+		"WillUpdateLater": true
+	}
+}
