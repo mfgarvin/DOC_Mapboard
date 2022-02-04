@@ -28,15 +28,8 @@ def setID():
 	for key, id in iddict.items(): 		# key = parish name
 		allocation[id - 1][0] = key
 		allocation[id - 1][1] = id
-	for key, led in leddict.items():
-		allocation[id - 1][2] = led
-	allocation[0][2] = leddict.get("Our Lady of the Programmers") ### BUG - for key, led isn't placing LED value in the first array
+		allocation[id - 1][2] = leddict.get(key)
 	print(allocation)
-
-# read both files (parish by LED and parish by ID), into two different vars
-# sort both by name ("Stringd")
-# append one to other, save as master dictionary
-
 
 ingest()
 #print(rawjson)
