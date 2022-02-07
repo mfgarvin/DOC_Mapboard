@@ -54,6 +54,43 @@
 		"Notes": "Notes Go Brrr"
 	},
 	"SomeOtherChurch": {
+		"ID": 2,
 		"WillUpdateLater": true
+	},
+	"St. Isidore": {
+		"ID": 3,
+		"Mass Times": {
+			"Saturday": 1700,
+			"Sunday": [
+				1000,
+				1100,
+				1200,
+				1500
+ 			],
+			"Monday": 900,
+			"Tuesday": 900,
+			"Wednesday": 900,
+			"Thursday": 900,
+			"Friday": 900
+		},
+		"Eucharistic Adoration": {
+			"is24hr": false,
+			"Saturday": null,
+			"Sunday": null,
+			"Monday": null,
+			"Tuesday": null,
+			"Wednesday": 900,
+			"Thursday": null,
+			"Friday": null
+		},
+		"Confessions": {
+			"Saturday": 1500,
+			"Sunday": null,
+			"Monday": null,
+			"Tuesday": null,
+			"Wednesday": 900,
+			"Thursday": null,
+			"Friday": null
+		}
 	}
 }
