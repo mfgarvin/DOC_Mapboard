@@ -95,6 +95,7 @@ def chronos():
 
 	try:
 		for parish in allocation.copy():
+			print(parish)
 			if hTime == masstime_database[parish[0]][weekday]:  #Check to see if they're having Mass
 				display(parish[1], "mass", liturgyDuration)
 			elif hTime == adoration_database[parish[0]][weekday]: #Check to see if Adoration is occuring
@@ -102,14 +103,15 @@ def chronos():
 			elif hTime == confession_database[parish[0]][weekday]: #Check to see if Confessions are being heard
 				display(parish[1], "confession", "TBD")
 			else:
-				print("Nothing Seems to be happening")
-				display("update", "update", "update")
+				print("Nothing is happening right now at", parish[0])
 	except KeyError as e:
 		if str(e) == "0":
 			print("Cycle Finished")
 			pass
 		else:
 			raise
+	#After everything, run the "update" command
+	display("update", "update", "update")
 
 def display(id, state, duration):
 	#This will be called by chronos individually for each ID.
@@ -119,12 +121,20 @@ def display(id, state, duration):
 	#Add logic to include some sort of a slow, randomized pulsing, so it's not just a static led display
 	#Read the actual LED status, determine whether or not to clear it before assigning a new status.
 	print(id, state, duration)
-	if id == "update":
-		pass
-		#Future me, cycle through all of the timeStop values. If expired, turn off light. remove id from ledStatus dictionary
-	else:
+	if id == "update": #Runs only when all parishes have been cycled through.
+		now = currentTime
+		for value in ledStatus:
+#			print(value, ledStatus[value][4])
+			endtime = ledStatus[value][4]
+			if now > endtime:
+				ledStatus.pop(value)
+				print("deleting ", value)
+			#FILLER FOR TURNING OFF LED AT EXPIRATION
+		#Future me, cycle through all of the timeStop values. (DONE) If expired, turn off light. (IN PROGRESS) remove id from ledStatus dictionary (DONE)
+	else:	# Runs with the ifs and elifs in the try clause under chronos():
 		timeStop = currentTime + timedelta(minutes=duration)
-		ledStatus[id] = [allocation[id - 1][2], state, currentTime.strftime("%-H%M"), duration, timeStop.strftime("%-H%M")]
+#		ledStatus[id] = [allocation[id - 1][2], state, currentTime.strftime("%-H%M"), duration, timeStop.strftime("%-H%M")]
+		ledStatus[id] = [allocation[id - 1][2], state, currentTime, duration, timeStop]
 		print(ledStatus)
 
 setID()
