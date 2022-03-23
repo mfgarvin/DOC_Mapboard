@@ -4,6 +4,7 @@
 import json
 import datetime
 import time
+from datetime import timedelta
 
 #Variables we need to set go here:
 JSON_LOCATION="./demo.json"
@@ -12,6 +13,7 @@ PARISH_ID="./ids.txt"
 DAYS=["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 WEEKDAYS=["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 WEEKEND=["Saturday", "Sunday"]
+ledStatus = {}
 #Functions? *Raises hand*
 def ingest():
 	readfile = open(JSON_LOCATION, "r")
@@ -74,7 +76,8 @@ def chronos():
 	#format should be something like: ID, State/color, duration. - DONE
 	#Add Logic to priortize status (probably should just use ifelse statements). - DONE
 	#will need to either be called every x minites, or run on a loop.
-
+	# Need to decide upon (and implement) how to encode time & duration with confession and adoration. Some sort of separating value? 
+	global currentTime
 	currentTime = datetime.datetime.now()
 	hTime = 900
 	if hTime != currentTime.strftime("%-H:%M"):
@@ -83,11 +86,13 @@ def chronos():
 	if weekday != currentTime.strftime("%A"):
 		print("Day Not Accurate - Testing Enabled")
 	print(weekday, hTime)
+
 	#Defining Duration
 	if weekday in WEEKDAYS:
 		liturgyDuration = 30
 	if weekday in WEEKEND:
 		liturgyDuration = 60
+
 	try:
 		for parish in allocation.copy():
 			if hTime == masstime_database[parish[0]][weekday]:  #Check to see if they're having Mass
@@ -96,6 +101,9 @@ def chronos():
 				display(parish[1], "adoration", "TBD")
 			elif hTime == confession_database[parish[0]][weekday]: #Check to see if Confessions are being heard
 				display(parish[1], "confession", "TBD")
+			else:
+				print("Nothing Seems to be happening")
+				display("update", "update", "update")
 	except KeyError as e:
 		if str(e) == "0":
 			print("Cycle Finished")
@@ -111,6 +119,13 @@ def display(id, state, duration):
 	#Add logic to include some sort of a slow, randomized pulsing, so it's not just a static led display
 	#Read the actual LED status, determine whether or not to clear it before assigning a new status.
 	print(id, state, duration)
+	if id == "update":
+		pass
+		#Future me, cycle through all of the timeStop values. If expired, turn off light. remove id from ledStatus dictionary
+	else:
+		timeStop = currentTime + timedelta(minutes=duration)
+		ledStatus[id] = [allocation[id - 1][2], state, currentTime.strftime("%-H%M"), duration, timeStop.strftime("%-H%M")]
+		print(ledStatus)
 
 setID()
 ingest()
