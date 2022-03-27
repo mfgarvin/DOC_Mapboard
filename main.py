@@ -5,6 +5,8 @@ import json
 import datetime
 import time
 from datetime import timedelta
+import asyncio
+import random
 
 #Variables we need to set go here:
 JSON_LOCATION="./demo.json"
@@ -14,6 +16,7 @@ DAYS=["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frida
 WEEKDAYS=["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 WEEKEND=["Saturday", "Sunday"]
 ledStatus = {}
+ledStatusStore = {}
 #Functions? *Raises hand*
 def ingest():
 	readfile = open(JSON_LOCATION, "r")
@@ -136,6 +139,38 @@ def display(id, state, duration):
 #		ledStatus[id] = [allocation[id - 1][2], state, currentTime.strftime("%-H%M"), duration, timeStop.strftime("%-H%M")]
 		ledStatus[id] = [allocation[id - 1][2], state, currentTime, duration, timeStop]
 		print(ledStatus)
+	#Check ledStatus and see what's new - In other words, look for a change and act accordingly.
+	if ledStatus != ledStatusStore:
+		for key in ledStatus:
+			# If not in the Store but in the active dictionary, copy it over
+			if ledStatusStore.setdefault(key) is None:
+				ledStatusStore[key] = ledStatus.get(key)
+				print("Compare these two!")
+				print(ledStatusStore[key])
+				print(ledStatus.get(key))
+				driver(ledStatus[key][0], ledStatus[key][1], key)
+				# Before I lose it, RIGHT HERE, run a command to start a thread with the set LED variables
+				# (or refer to a different function to do it for you, to keep it clean)
+				# Let this thread run, do the math, cycle the LED, etc.
+				# Then, when the time runs out, kill the thread.
+		for key in ledStatusStore:
+			# If in the store but not in the active directory (not M$), remove it
+			if ledStatus.setdefault(key) is None:
+				ledStatusStore.pop(key)
+				# Command to stop the thread with ID ___
+def driver(led, state, id):
+	#Pretend this is a thread, called individually. I think I can do that.
+	print ("starting ", state, " config on LED ", led)
+	while True:
+		if (state == "mass"):
+			#set LED to Mass color, fade, etc.
+			pass
+		if (state == "confession"):
+			# etc.
+			pass
+		if (state == "adoration"):
+			pass
+	
 
 setID()
 ingest()
@@ -156,6 +191,8 @@ LED Driver:
 	Different Colors
 	Different Durations
 	Different Animations (Pulsing, pusling on a offset, etc.)
+	Create a daemon function
+	Use a sine function to create pulsing effect?
 
 Down the line:
 SSH Callhome feature
