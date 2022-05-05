@@ -5,7 +5,11 @@ import json
 import datetime
 import time
 from datetime import timedelta
-import asyncio
+import threading
+import logging
+import board
+import neopixel
+import math
 import random
 
 #Variables we need to set go here:
@@ -17,6 +21,16 @@ WEEKDAYS=["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 WEEKEND=["Saturday", "Sunday"]
 ledStatus = {}
 ledStatusStore = {}
+pixels = neopixel.NeoPixel(board.D18, 100)
+quietLED = None
+stopLED = False
+
+#I'm gonna define LED colors here:
+blue = (0, 0, 255)
+purple = (100, 0, 255)
+gold = (255, 255, 51)
+off = (0, 0, 0)
+
 #Functions? *Raises hand*
 def ingest():
 	readfile = open(JSON_LOCATION, "r")
@@ -35,7 +49,6 @@ def digest():
 	adoration_database = {}
 	try:
 		for parish in allocation.copy():
-#								parishName = parish[0]
 			for day in DAYS: # Mass Times
 				db1[day] = rawjson[parish[0]]['Mass Times'][day]
 			masstime_database[parish[0]] = db1
@@ -98,7 +111,7 @@ def chronos():
 
 	try:
 		for parish in allocation.copy():
-			print(parish)
+			print("Parish Info:", parish)
 			if hTime == masstime_database[parish[0]][weekday]:  #Check to see if they're having Mass
 				display(parish[1], "mass", liturgyDuration)
 			elif hTime == adoration_database[parish[0]][weekday]: #Check to see if Adoration is occuring
@@ -109,21 +122,21 @@ def chronos():
 				print("Nothing is happening right now at", parish[0])
 	except KeyError as e:
 		if str(e) == "0":
-			print("Cycle Finished")
+			print("Cycled through all the parishes")
 			pass
 		else:
 			raise
-	#After everything, run the "update" command
+	#After everything, run the "update" command. Signals that the database has been updated.
 	display("update", "update", "update")
 
 def display(id, state, duration):
-	#This will be called by chronos individually for each ID.
-	#Must find LED assignment from key/id
-	#Assign a LED its color, and store its duration & start time in variables.
+	#This will be called by chronos individually for each ID. - DONE
+	#Must find LED assignment from key/id - DONE
+	#Assign a LED its color, and store its duration & start time in variables - DONE - Color assigned to driver().
 	#When time is up, turn off the led.
-	#Add logic to include some sort of a slow, randomized pulsing, so it's not just a static led display
-	#Read the actual LED status, determine whether or not to clear it before assigning a new status.
-	print(id, state, duration)
+	#Add logic to include some sort of a slow, randomized pulsing, so it's not just a static led display - Move to driver()!!!
+	#Read the actual LED status, determine whether or not to clear it before assigning a new status. - Done in driver() via  ledstore comparison
+	print("display() called:", id, state, duration)
 	if id == "update": #Runs only when all parishes have been cycled through.
 		now = currentTime
 		for value in ledStatus:
@@ -132,51 +145,90 @@ def display(id, state, duration):
 			if now > endtime:
 				ledStatus.pop(value)
 				print("deleting ", value)
-			#FILLER FOR TURNING OFF LED AT EXPIRATION
-		#Future me, cycle through all of the timeStop values. (DONE) If expired, turn off light. (IN PROGRESS) remove id from ledStatus dictionary (DONE)
+		#Future me, cycle through all of the timeStop values. (DONE) If expired, turn off light. (DONE - In driver()) remove id from ledStatus dictionary (DONE)
 	else:	# Runs with the ifs and elifs in the try clause under chronos():
 		timeStop = currentTime + timedelta(minutes=duration)
 #		ledStatus[id] = [allocation[id - 1][2], state, currentTime.strftime("%-H%M"), duration, timeStop.strftime("%-H%M")]
 		ledStatus[id] = [allocation[id - 1][2], state, currentTime, duration, timeStop]
-		print(ledStatus)
+		print("display() leddstatus:", ledStatus)
 	#Check ledStatus and see what's new - In other words, look for a change and act accordingly.
 	if ledStatus != ledStatusStore:
 		for key in ledStatus:
-			# If not in the Store but in the active dictionary, copy it over
+			# If not in the Store but in the active dictionary, copy it over, then run it.
 			if ledStatusStore.setdefault(key) is None:
 				ledStatusStore[key] = ledStatus.get(key)
-				print("Compare these two!")
-				print(ledStatusStore[key])
-				print(ledStatus.get(key))
-				driver(ledStatus[key][0], ledStatus[key][1], key)
-				# Before I lose it, RIGHT HERE, run a command to start a thread with the set LED variables
-				# (or refer to a different function to do it for you, to keep it clean)
-				# Let this thread run, do the math, cycle the LED, etc.
-				# Then, when the time runs out, kill the thread.
+				threading.Thread(target=driver, args=(ledStatus[key][0], ledStatus[key][1], key)).start()
+			#	driver(ledStatus[key][0], ledStatus[key][1], key)
+				# Before I lose it, RIGHT HERE, run a command to start a thread with the set LED variables - DONE
+				# (or refer to a different function to do it for you, to keep it clean) - DONE
+				# Let this thread run, do the math, cycle the LED, etc. - DONE
+				# Then, when the time runs out, kill the thread. - IN PROGRESS
 		for key in ledStatusStore:
 			# If in the store but not in the active directory (not M$), remove it
 			if ledStatus.setdefault(key) is None:
 				ledStatusStore.pop(key)
+				quietLED = key
 				# Command to stop the thread with ID ___
 def driver(led, state, id):
-	#Pretend this is a thread, called individually. I think I can do that.
-	print ("starting ", state, " config on LED ", led)
+	#This is a Thread
+	print ("Starting", state, "indicator on LED", led)
+	updated = False
+	randomint = random.randint(-7, 7)
+	if (state == "adoration"):
+		style = "pulse"
+		color = gold
+		pass
+	if (state == "mass"):
+		style = "solid"
+		color = blue
+		pass
+	if (state == "confession"):
+		style = "solid"
+		color = purple
+		pass
 	while True:
-		if (state == "mass"):
-			#set LED to Mass color, fade, etc.
+		time.sleep(0.01)
+		if (updated == True):
 			pass
-		if (state == "confession"):
-			# etc.
+		elif (style == "solid"):
+			pixels[led] = color
+			print("Color Set on", led, ":", color)
+			updated = True
+		elif (style == "pulse"):
+			cos = breathingEffect(randomint)
+			livecolor = (color[0] * cos, color[1] * cos, color[2] * cos)
+			print("Color Set on", led, ":", livecolor)
+			pixels[led] = livecolor
 			pass
-		if (state == "adoration"):
-			pass
-	
+		if quietLED == id or quietLED == "all":
+			pixel[led] = off
+#			quietLED = None
+			break
+			#turn off LED
+		if stopLED == True: #Called at program quit
+			pixel.fill(off)
+			break
 
-setID()
-ingest()
-digest()
-chronos()
+def breathingEffect(adjustment):
+	period = 15
+	omega = 2 * math.pi / period
+	phase = 0
+	offset = 0.5
+	amplitude = 0.5
+	timer = time.time() + adjustment
+	value = offset + amplitude * (math.cos((omega * timer) + phase))
+	return(value)
 
+try:
+	setID()
+	ingest()
+	digest()
+	chronos()
+except KeyboardInterrupt:
+	stopLED = True
+	print("Stopping...")
+	time.sleep(2)
+	sys.exit()
 
 '''
 To do:
