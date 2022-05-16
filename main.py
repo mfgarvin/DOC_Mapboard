@@ -2,15 +2,22 @@
 
 #Things we need to import go here:
 import json
-import datetime
+import datetime as dt
 import time
-from datetime import timedelta
+from datetime import timedelta, datetime
+#from datetime import datetime
 import threading
 import logging
 import board
 import neopixel
 import math
 import random
+
+# Easily accessible debug stuff
+# Set debugSet to True to enable manual time/weekday. Set to false for realtime.
+debugSet = True
+DEBUG_TIME_SET = 800
+DEBUG_DAY = "Monday"
 
 #Variables we need to set go here:
 JSON_LOCATION="./live.json"
@@ -113,14 +120,20 @@ def chronos():
 	#will need to either be called every x minites, or run on a loop.
 	# Need to decide upon (and implement) how to encode time & duration with confession and adoration. Some sort of separating value? 
 	global currentTime
-	currentTime = datetime.datetime.now()
-	hTime = currentTime.strftime("%-H%M")
-	if hTime != currentTime.strftime("%-H%M"):
-		print("Time Not Accurate - Testing Enabled")
-	weekday = currentTime.strftime("%A")
+	currentTime = dt.datetime.now()
+	if debugSet == True:
+		hTime = int(DEBUG_TIME.strftime("%-H%M"))
+		weekday = DEBUG_DAY
+		print("====== DEBUG MODE ON ======")
+		print("Day:", weekday, "Time:", hTime)
+	else:
+		hTime = int(currentTime.strftime("%-H%M"))
+		weekday = currentTime.strftime("%A")
+#	if hTime != currentTime.strftime("%-H%M"):
+#		print("Time Not Accurate - Testing Enabled")
 #	weekday = "Saturday"
-	if weekday != currentTime.strftime("%A"):
-		print("Day Not Accurate - Testing Enabled")
+#	if weekday != currentTime.strftime("%A"):
+#		print("Day Not Accurate - Testing Enabled")
 	print(weekday, hTime)
 
 	#Defining Duration
@@ -133,6 +146,7 @@ def chronos():
 		try:
 			if masstime_database[parish[0]][weekday] is not None:
 				for time in masstime_database[parish[0]][weekday].split(','):
+					print(hTime, int(time), hTime == int(time))
 					if hTime == int(time):
 						display(parish[1], "mass", liturgyDuration)
 						continue
@@ -189,7 +203,7 @@ def display(id, state, duration):
 	print("display() called:", id, state, duration)
 	if id == "update": #Runs only when all parishes have been cycled through.
 		now = currentTime
-		for value in ledStatus:
+		for value in list(ledStatus):
 #			print(value, ledStatus[value][4])
 			endtime = ledStatus[value][4]
 			if endtime != "24h":			#Future me - this will probably break things, e.g. indicating Mass on top of adoration
@@ -276,13 +290,24 @@ def breathingEffect(adjustment):
 
 def timeKeeper():
 	#This is a thread
-	storedTime = 0
-	while True:
-		if storedTime != datetime.datetime.now().strftime("%-H%M"):
-			storedTime = datetime.datetime.now().strftime("%-H%M")
+	storedTime = 0	
+	global DEBUG_TIME
+	DEBUG_TIME = datetime.strptime(str(DEBUG_TIME_SET), "%H%M")
+	while debugSet == False:
+		if storedTime != dt.datetime.now().strftime("%-H%M"):
+			storedTime = dt.datetime.now().strftime("%-H%M")
 			chronos()
 			time.sleep(1)
 			print("Time Keeper Cycled")
+	while debugSet == True:
+		input("Press Enter to advance the time")
+		chronos()
+		time.sleep(1)
+#		print(workingTime, type(workingTime))
+		DEBUG_TIME = DEBUG_TIME + timedelta(minutes=1)
+#		print(hTime, DEBUG_TIME)
+#		DEBUG_TIME = DEBUG_TIME + 
+#		hTime = hTime + timedelta(minutes=1)
 
 def startTimeKeeper():
 	threading.Thread(target=timeKeeper).start()
