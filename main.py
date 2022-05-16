@@ -20,7 +20,7 @@ WEEKDAYS=["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 WEEKEND=["Saturday", "Sunday"]
 ledStatus = {}
 ledStatusStore = {}
-pixels = neopixel.NeoPixel(board.D21, 200, pixel_order=neopixel.RGB, brightness=0.3)
+pixels = neopixel.NeoPixel(board.D21, 200, pixel_order=neopixel.RGB, brightness = 0.1)
 quietLED = None
 stopLED = False
 
@@ -157,7 +157,7 @@ def chronos():
 						display(parish[1], "adoration", length)
 						continue
 			else:
-				print("Nothing is happening right now at", parish[0])
+#				print("Nothing is happening right now at", parish[0])
 				pass
 		except AttributeError as e: #This is raised if I try to get the value from something which has no value (e.g., getting the time when there is no time)
 			if str(e) == "'NoneType' object has no attribute 'keys'":
@@ -250,8 +250,8 @@ def driver(led, state, id):
 			print("Color Set on", led, ":", color)
 			updated = True
 		elif (style == "pulse"):
-			cos = int(breathingEffect(randomint))
-			livecolor = (color[0] * cos, color[1] * cos, color[2] * cos)
+			cos = breathingEffect(randomint)
+			livecolor = (int(color[0] * cos), int(color[1] * cos), int(color[2] * cos))
 #			print("Color Set on", led, ":", livecolor)
 			pixels[led] = livecolor
 			pass
