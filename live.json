@@ -1,0 +1,7602 @@
+{
+   "Assumption, Broadview Heights": {
+      "ID": 1,
+      "Mass Times": {
+         "Saturday": "830, 1600",
+         "Sunday": "730, 930, 1130, 1800",
+         "Monday": "630, 830",
+         "Tuesday": "630, 830",
+         "Wednesday": "630, 830",
+         "Thursday": "630, 830",
+         "Friday": "630, 830"
+      },
+      "Holy Day": {
+         "Vigil": 1600,
+         "Day Of": "630, 900, 1200, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 1500, 45",
+         "Saturday": "1500, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "-",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Blessed Trinity, Akron": {
+      "ID": 2,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "830, 1100",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": "1730",
+         "Thursday": null,
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "MWF 6, 60",
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "1800, 60",
+         "Tuesday": null,
+         "Wednesday": "1800, 60",
+         "Thursday": null,
+         "Friday": "1800, 60"
+      },
+      "Adoration": {
+         "Placeholder": "MWF 6, 60",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "1800, 60",
+         "Tuesday": null,
+         "Wednesday": "1800, 60",
+         "Thursday": null,
+         "Friday": "1800, 60"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Blessed Trinity, Cleveland": {
+      "ID": 3,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "900, 1100",
+         "Monday": "1100",
+         "Tuesday": "830",
+         "Wednesday": "830",
+         "Thursday": null,
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "-",
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "-",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Cathedral of Saint John the Evangelist, Cleveland": {
+      "ID": 4,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "800, 1030, 1215, 1730",
+         "Monday": "715, 1200",
+         "Tuesday": "715, 1200",
+         "Wednesday": "715, 1200",
+         "Thursday": "715, 1200",
+         "Friday": "715, 1200"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "WkDay 630, 30, 1130, 60,",
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "630, 30, 1130, 60",
+         "Tuesday": "630, 30, 1130, 60",
+         "Wednesday": "630, 30, 1130, 60",
+         "Thursday": "630, 30, 1130, 60",
+         "Friday": "630, 30, 1130, 60"
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Communion of Saints, Cleveland Heights": {
+      "ID": 5,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "900, 1000, 1100",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "S 3-3:30PM",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "-",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Divine Word, Kirtland": {
+      "ID": 6,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "830, 1100",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": "830",
+         "Thursday": "830",
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "S 3-3:45PM",
+         "Saturday": "1500, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "-",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Gesu, University Heights": {
+      "ID": 7,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "800, 1000, 1130",
+         "Monday": "730, 830",
+         "Tuesday": "730",
+         "Wednesday": "730, 830",
+         "Thursday": "730",
+         "Friday": "730, 830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "S 3-4PM",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "-",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Guardian Angels, Copley": {
+      "ID": 8,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "900, 1100",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": null,
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "800, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "S 4PM-5PM",
+         "Saturday": "1600, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "-",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Holy Angels, Bainbridge": {
+      "ID": 9,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "900, 1100",
+         "Monday": "900",
+         "Tuesday": "700",
+         "Wednesday": "900",
+         "Thursday": null,
+         "Friday": "900"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "S 3P-4:30PM",
+         "Saturday": "1500, 90",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "FF 9:30AM - 3PM",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Holy Family, Parma": {
+      "ID": 10,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "730, 930, 1130",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": "830",
+         "Thursday": "830",
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "S 3-3:45PM",
+         "Saturday": "1500, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Su 7-9PM, W 1:30-3:30PM",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": "1900, 120",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1330, 120",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Holy Family, Stow": {
+      "ID": 11,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "730, 900, 1130",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "S 3-4PM",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "24/7",
+         "Is24hour": true,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Holy Martyrs, Medina": {
+      "ID": 12,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "930, 1130, 1700",
+         "Monday": "1200",
+         "Tuesday": "1200",
+         "Wednesday": "1200",
+         "Thursday": "1200",
+         "Friday": "1200"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "S 3-4PM",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "-",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Holy Name, Cleveland": {
+      "ID": 13,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "830, 1100, 1800",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "900, 1215, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "S 2:30-3:30",
+         "Saturday": "1430, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Tu 5PM",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": "1700, 60",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Holy Redeemer, Cleveland": {
+      "ID": 14,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "1030",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "800, 1930"
+      },
+      "Confessions": {
+         "Placeholder": "S 3-3:30PM",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Holy Rosary, Cleveland": {
+      "ID": 15,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "830, 1100, 2000",
+         "Monday": "1215",
+         "Tuesday": "1215",
+         "Wednesday": "1215",
+         "Thursday": null,
+         "Friday": "1215"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "W 6:30-7:30PM, S 3-3:45PM",
+         "Saturday": "1500, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1830, 60",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "1F 12:30-1:45PM, W 6:30-7:30",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1830, 60",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Holy Spirit, Avon Lake": {
+      "ID": 16,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "900, 1030, 1200",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": null,
+         "Thursday": "830",
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "830, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "S 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Th 6-8PM",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "1800, 120",
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Holy Spirit, Garfield Heights": {
+      "ID": 17,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "1030",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1830",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": 1830,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "W 5-6PM",
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1700, 60",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "-",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Holy Trinity, Avon": {
+      "ID": 18,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "730, 900, 1030, 1200",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": 1700,
+         "Day Of": "800, 1215, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "S 4-4:30PM",
+         "Saturday": "1600, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Th 10AM-3PM",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "1000, 300",
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Immaculate Conception, Akron": {
+      "ID": 19,
+      "Mass Times": {
+         "Saturday": "1730",
+         "Sunday": "830, 1100",
+         "Monday": "1730",
+         "Tuesday": null,
+         "Wednesday": "1730",
+         "Thursday": null,
+         "Friday": "1730"
+      },
+      "Holy Day": {
+         "Vigil": 1730,
+         "Day Of": "1000, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "S 9-10AM",
+         "Saturday": "900, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "-",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Immaculate Conception, Cleveland": {
+      "ID": 20,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "700, 800",
+         "Tuesday": "800 ",
+         "Wednesday": "700, 800",
+         "Thursday": "800 ",
+         "Friday": "800, 1800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "S 4-4:25PM",
+         "Saturday": "1600, 25",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "1F 8:30-9:30AM",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Immaculate Conception, Madison": {
+      "ID": 21,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "830",
+         "Tuesday": "1900",
+         "Wednesday": "830",
+         "Thursday": "1900",
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:45, 7:30-8, Sun 11-11:45",
+         "Saturday": "1500, 45, 1930, 30",
+         "Sunday": "1100, 45",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Sun 9-4",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "900, 420",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Immaculate Conception, Willoughby": {
+      "ID": 22,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "830, 1100",
+         "Monday": "730",
+         "Tuesday": "730",
+         "Wednesday": "730",
+         "Thursday": "730",
+         "Friday": "730"
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "730, 1200, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Fri 3-4",
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "1500, 60"
+      },
+      "Adoration": {
+         "Placeholder": "Perpetual",
+         "Is24hour": true,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Immaculate Heart of Mary, Cleveland": {
+      "ID": 23,
+      "Mass Times": {
+         "Saturday": "800 ",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "800 ",
+         "Tuesday": "800",
+         "Wednesday": "800 ",
+         "Thursday": "800 ",
+         "Friday": "800, 1900"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Immaculate Heart of Mary, Cuyahoga Falls": {
+      "ID": 24,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "800, 1000, 1630",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": 1630,
+         "Day Of": "800, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-4:00",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Wed 8:30-5",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "830, 510",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Mary Queen of Apostles, Brook Park": {
+      "ID": 25,
+      "Mass Times": {
+         "Saturday": "1600, 1700",
+         "Sunday": "900, 1100",
+         "Monday": "800 ",
+         "Tuesday": "800 ",
+         "Wednesday": "800 ",
+         "Thursday": "800 ",
+         "Friday": "800 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:45",
+         "Saturday": "1500, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Tu 8:30-12pm",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": "830, 210",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Mary Queen of Peace, Cleveland": {
+      "ID": 26,
+      "Mass Times": {
+         "Saturday": "800, 1630",
+         "Sunday": "630, 830, 1100",
+         "Monday": "800 ",
+         "Tuesday": "800 ",
+         "Wednesday": "800 ",
+         "Thursday": "800 ",
+         "Friday": "800 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Mon-Sat 8:30-9am",
+         "Saturday": "830, 30",
+         "Sunday": null,
+         "Monday": "830, 30",
+         "Tuesday": "830, 30",
+         "Wednesday": "830, 30",
+         "Thursday": "830, 30",
+         "Friday": "830, 30"
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Mother of Sorrows, Peninsula": {
+      "ID": 27,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "830, 1100",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": null,
+         "Thursday": "830",
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4-4:45",
+         "Saturday": "1600, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Nativity of the Blessed Virgin Mary, Lorain": {
+      "ID": 28,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "830, 1030",
+         "Monday": "815",
+         "Tuesday": null,
+         "Wednesday": "630",
+         "Thursday": "815",
+         "Friday": "815"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 2:30-3",
+         "Saturday": "1430, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Nativity of the Blessed Virgin Mary, South Amherst": {
+      "ID": 29,
+      "Mass Times": {
+         "Saturday": "1730",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": "800",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "M-F 7am-10pm",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "700, 900",
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Nativity of the Lord Jesus, Akron": {
+      "ID": 30,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "830, 1100",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-4:00",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Th 12-7pm",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "1200, 420",
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady Help of Christians, Litchfield": {
+      "ID": 31,
+      "Mass Times": {
+         "Saturday": "1800",
+         "Sunday": "900",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "900",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat after 6pm mass, Sun 8:15",
+         "Saturday": "1900, 60",
+         "Sunday": "815, 30",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady Help of Christians, Lodi": {
+      "ID": 32,
+      "Mass Times": {
+         "Saturday": null,
+         "Sunday": "830",
+         "Monday": "1800",
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sun 7:45am",
+         "Saturday": null,
+         "Sunday": "745, 30",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady Help of Christians, Nova": {
+      "ID": 33,
+      "Mass Times": {
+         "Saturday": null,
+         "Sunday": "1100",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sun after 11am mass",
+         "Saturday": null,
+         "Sunday": "1200, 30",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady Help of Christian, Seville": {
+      "ID": 34,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "1030",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:15, Sun after 10:30 mass",
+         "Saturday": "1515, 30",
+         "Sunday": "1130, 30",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady of Angels, Cleveland": {
+      "ID": 35,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "1000 ",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "800, 1900"
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady of Grace, Hinckley": {
+      "ID": 36,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "800, 1100",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "800, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:45",
+         "Saturday": "1500, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "M 830-2359, T 0-745",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "830, 929",
+         "Tuesday": "0, 465",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady of Guadalupe, Macedonia": {
+      "ID": 37,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "830, 1030",
+         "Monday": "1830",
+         "Tuesday": "830",
+         "Wednesday": null,
+         "Thursday": "830",
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "MW 9-8, TThF 9-4",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "900, 660",
+         "Tuesday": "900, 420",
+         "Wednesday": "900, 660",
+         "Thursday": "900, 420",
+         "Friday": "900, 420"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady of Hope, Bedford": {
+      "ID": 38,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "1100 ",
+         "Monday": "800 ",
+         "Tuesday": "800 ",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "800 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady of Lourdes, Cleveland": {
+      "ID": 39,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "1000, 1230",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "sAT 3:3-30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady of Mount Carmel, Cleveland": {
+      "ID": 40,
+      "Mass Times": {
+         "Saturday": "630, 1700",
+         "Sunday": "800, 1000, 1130, 1700",
+         "Monday": "630, 1800",
+         "Tuesday": "630, 1800",
+         "Wednesday": "630, 1800",
+         "Thursday": "630, 1800",
+         "Friday": "630, 1800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "630, 1800"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady of Mount Carmel, Wickliffe": {
+      "ID": 41,
+      "Mass Times": {
+         "Saturday": "830, 1600",
+         "Sunday": "730, 930, 1130",
+         "Monday": "700, 1900",
+         "Tuesday": "700, 830",
+         "Wednesday": "700 ",
+         "Thursday": "700, 830",
+         "Friday": "700, 830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "1F 3-4pm, Sat 3-3:45, 5-5:45",
+         "Saturday": "1500, 45, 1700, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "24h",
+         "Is24hour": true,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady of Peace, Cleveland": {
+      "ID": 42,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "1100, 1300",
+         "Monday": "1730 ",
+         "Tuesday": "800, 1730",
+         "Wednesday": "800, 1730",
+         "Thursday": "800, 1730",
+         "Friday": "800, 1730"
+      },
+      "Holy Day": {
+         "Vigil": 1730,
+         "Day Of": "800, 1730"
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady of the Lake, Euclid": {
+      "ID": 43,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "830, 1100",
+         "Monday": "900 ",
+         "Tuesday": "900 ",
+         "Wednesday": "900 ",
+         "Thursday": "900 ",
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "1600 "
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady of Victory, Tallmadge": {
+      "ID": 44,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "830, 1100",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": "830",
+         "Thursday": "830",
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 9-9:30",
+         "Saturday": "900, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Our Lady Queen of Peace, Grafton": {
+      "ID": 45,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "830, 1100",
+         "Monday": "900",
+         "Tuesday": "900",
+         "Wednesday": "1830",
+         "Thursday": "900",
+         "Friday": "900"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4",
+         "Saturday": "1530, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Wed 2:30-6:30",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1430, 240",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Prince of Peace, Norton": {
+      "ID": 46,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "800, 1030",
+         "Monday": null,
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "1830"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Resurrection of Our Lord, Solon": {
+      "ID": 47,
+      "Mass Times": {
+         "Saturday": "1730 ",
+         "Sunday": "900, 1100",
+         "Monday": "830 ",
+         "Tuesday": "830 ",
+         "Wednesday": "830 ",
+         "Thursday": "830 ",
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "830 "
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4:30-5:15p,",
+         "Saturday": "1630, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Sacred Heart, Oberlin": {
+      "ID": 48,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "1030",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "845",
+         "Friday": "845"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Sacred Heart Chapel, Lorain": {
+      "ID": 49,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "930, 1130",
+         "Monday": "930",
+         "Tuesday": "930",
+         "Wednesday": "1800",
+         "Thursday": null,
+         "Friday": "930"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Tu 1030-1145, Wed 630-715pm, Sat 330-430",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": "1030, 75",
+         "Wednesday": "630, 45",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Tu 10-12pm, Wed 6:30-7:30",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": "1000, 120",
+         "Wednesday": "1830, 60",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Sacred Heart of Jesus, South Euclid": {
+      "ID": 50,
+      "Mass Times": {
+         "Saturday": "645, 1600",
+         "Sunday": "800, 1000, 1130, 1700",
+         "Monday": "645, 1210",
+         "Tuesday": "645, 1210",
+         "Wednesday": "645, 1210",
+         "Thursday": "645, 1210",
+         "Friday": "645, 1210"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sun 9-9:45,M-F 11:30-12, Sat 2:30-3:30",
+         "Saturday": "1430, 60",
+         "Sunday": "900, 45",
+         "Monday": "1130, 30",
+         "Tuesday": "1130, 30",
+         "Wednesday": "1130, 30",
+         "Thursday": "1130, 30",
+         "Friday": "1130, 30"
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Sacred Heart of Jesus, Wadsworth": {
+      "ID": 51,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "800, 1030, 1700",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": null,
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 11-12",
+         "Saturday": "1100, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "24h",
+         "Is24hour": true,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Sagrada Familia, Cleveland": {
+      "ID": 52,
+      "Mass Times": {
+         "Saturday": "1700 ",
+         "Sunday": "1000, 1400",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1830 ",
+         "Thursday": "1830 ",
+         "Friday": "1830 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sun 9:15-9:45, Th 6-6:30, Sat 4:15-4:45pm",
+         "Saturday": "1615, 30",
+         "Sunday": "915, 30",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "1800, 30",
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "5:45-6:30PM",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "1730, 60",
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Adalbert, Berea": {
+      "ID": 53,
+      "Mass Times": {
+         "Saturday": "900, 1630",
+         "Sunday": "830, 1000, 1130, 1900",
+         "Monday": "830 ",
+         "Tuesday": "1830 ",
+         "Wednesday": "830 ",
+         "Thursday": "1830 ",
+         "Friday": "830, 1730"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Tu Th 5:30-6:15, Sat 3-4",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": "1730, 45",
+         "Wednesday": null,
+         "Thursday": "1730, 45",
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Tu 9-6:30",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": "900, 570",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Adalbert, Cleveland": {
+      "ID": 54,
+      "Mass Times": {
+         "Saturday": "1630 ",
+         "Sunday": "830, 1000, 1130",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "900 ",
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "1800 "
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Agnes - Our Lady of Fatima, Cleveland": {
+      "ID": 55,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "830, 1030",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "sat 4-4:30",
+         "Saturday": "1600, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Agnes, Elyria": {
+      "ID": 56,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "1000",
+         "Monday": "900",
+         "Tuesday": "900",
+         "Wednesday": "900",
+         "Thursday": null,
+         "Friday": "900"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4",
+         "Saturday": "1530, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Th 9-2",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "900, 300",
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Agnes, Orrville": {
+      "ID": 57,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "900, 1045, 1130",
+         "Monday": "815",
+         "Tuesday": "815",
+         "Wednesday": "815",
+         "Thursday": "815",
+         "Friday": "815"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Th 8:45-8:45",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "845, 720",
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Albert the Great, North Royalton": {
+      "ID": 58,
+      "Mass Times": {
+         "Saturday": "1600, 1730",
+         "Sunday": "730, 930, 1130, 1800",
+         "Monday": "715, 1845",
+         "Tuesday": "715, 1130",
+         "Wednesday": "715, 1130",
+         "Thursday": "715, 1130",
+         "Friday": "715 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "M-F 8-7",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "800, 660",
+         "Tuesday": "800, 660",
+         "Wednesday": "800, 660",
+         "Thursday": "800, 660",
+         "Friday": "800, 660"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Aloysius - St. Agatha, Cleveland": {
+      "ID": 59,
+      "Mass Times": {
+         "Saturday": null,
+         "Sunday": "1000",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sun 9-9:45am",
+         "Saturday": "900, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Ambrose, Brunswick": {
+      "ID": 60,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "730, 900, 1030, 1200, 500",
+         "Monday": "815",
+         "Tuesday": null,
+         "Wednesday": "815",
+         "Thursday": "1730",
+         "Friday": "815"
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "815, 1200,1900"
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Mon 8:45-8",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "845, 675",
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Andrew Kim, Cleveland": {
+      "ID": 61,
+      "Mass Times": {
+         "Saturday": "1000 ",
+         "Sunday": "1000 ",
+         "Monday": "1000 ",
+         "Tuesday": "1930 ",
+         "Wednesday": "1000 ",
+         "Thursday": "1900 ",
+         "Friday": "1000 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Andrew the Apostle, Norton": {
+      "ID": 62,
+      "Mass Times": {
+         "Saturday": "800, 1700",
+         "Sunday": "830, 1020, 1130",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:15",
+         "Saturday": "1530, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Angela Merici, Fairview Park": {
+      "ID": 63,
+      "Mass Times": {
+         "Saturday": "830, 1630",
+         "Sunday": "730, 930, 1130, 1730",
+         "Monday": "830 ",
+         "Tuesday": "830 ",
+         "Wednesday": "830 ",
+         "Thursday": "830 ",
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": 1730,
+         "Day Of": "630, 830, 1200, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Saturdays 3pm-4",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Anne, Rittman": {
+      "ID": 64,
+      "Mass Times": {
+         "Saturday": "1800",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Anselm, Chesterland": {
+      "ID": 65,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "900, 1100",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": "1900",
+         "Thursday": "830",
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 2:30-3:30",
+         "Saturday": "1430, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Anthony of Padua, Akron": {
+      "ID": 66,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "830, 1030",
+         "Monday": "1730",
+         "Tuesday": "1730",
+         "Wednesday": "730",
+         "Thursday": null,
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "M, T, S 5pm-5:30",
+         "Saturday": "1700, 30",
+         "Sunday": null,
+         "Monday": "1700, 30",
+         "Tuesday": "1700, 30",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Anthony of Padua, Fairport Harbor": {
+      "ID": 67,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "800, 1000",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "800",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3pm",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Mon 3-7",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "1500, 240",
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Anthony of Padua, Lorain": {
+      "ID": 68,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "1000",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3pm",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "M-F 800-1500",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "800, 420",
+         "Tuesday": "800, 420",
+         "Wednesday": "800, 420",
+         "Thursday": "800, 420",
+         "Friday": "800, 420"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Anthony of Padua, Parma": {
+      "ID": 69,
+      "Mass Times": {
+         "Saturday": "1630, 1800",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "800 ",
+         "Tuesday": "800 ",
+         "Wednesday": "800 ",
+         "Thursday": "800 ",
+         "Friday": "800 "
+      },
+      "Holy Day": {
+         "Vigil": 1730,
+         "Day Of": "700, 900, 1730, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Fri 3-4",
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "1500, 60"
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Augustine, Barberton": {
+      "ID": 70,
+      "Mass Times": {
+         "Saturday": "830, 1600",
+         "Sunday": "800, 1030, 1715",
+         "Monday": "830",
+         "Tuesday": "1715",
+         "Wednesday": "1205",
+         "Thursday": "1205",
+         "Friday": "1205"
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "830, 1205"
+      },
+      "Confessions": {
+         "Placeholder": "Mon 6, Sat 3",
+         "Saturday": "1500, 45",
+         "Sunday": null,
+         "Monday": "1800, 60",
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "24h",
+         "Is24hour": true,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Augustine, Cleveland": {
+      "ID": 71,
+      "Mass Times": {
+         "Saturday": "1615 ",
+         "Sunday": "830, 1100",
+         "Monday": "1730 ",
+         "Tuesday": "1730 ",
+         "Wednesday": "1730 ",
+         "Thursday": "1730 ",
+         "Friday": "1730 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "1000 "
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4pm",
+         "Saturday": "1530, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Barbara, Cleveland": {
+      "ID": 72,
+      "Mass Times": {
+         "Saturday": "1630 ",
+         "Sunday": "900, 1100",
+         "Monday": "730 ",
+         "Tuesday": "730 ",
+         "Wednesday": "730 ",
+         "Thursday": "730 ",
+         "Friday": "730 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:45-4:15, Sun 10:45-11",
+         "Saturday": "1545, 30",
+         "Sunday": "1045, 15",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Barnabas, Northfield": {
+      "ID": 73,
+      "Mass Times": {
+         "Saturday": "830, 1700",
+         "Sunday": "830, 1100, 1730",
+         "Monday": "000 ",
+         "Tuesday": "000 ",
+         "Wednesday": "000 ",
+         "Thursday": "000 ",
+         "Friday": "000 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Wednesday 6 through 7, Sat 9-930, 3:30-4:30",
+         "Saturday": "900, 30, 1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1800, 60",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "830am-11pm",
+         "Is24hour": null,
+         "Saturday": "900, 840",
+         "Sunday": "1200, 660",
+         "Monday": "830, 870",
+         "Tuesday": "830, 870",
+         "Wednesday": "830, 870",
+         "Thursday": "830, 870",
+         "Friday": "830, 870"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Bartholomew, Middleburg Heights": {
+      "ID": 74,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "900, 1100",
+         "Monday": "800 ",
+         "Tuesday": "800 ",
+         "Wednesday": "800 ",
+         "Thursday": null,
+         "Friday": "800 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Basil The Great, Brecksville": {
+      "ID": 75,
+      "Mass Times": {
+         "Saturday": "500, 1700",
+         "Sunday": "900, 1130, 1730",
+         "Monday": "800 ",
+         "Tuesday": "800 ",
+         "Wednesday": "800 ",
+         "Thursday": "800 ",
+         "Friday": "800 "
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "700, 900, 1200, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Bede the Venerable, Mentor": {
+      "ID": 76,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "900, 1100",
+         "Monday": "900",
+         "Tuesday": "900",
+         "Wednesday": "900",
+         "Thursday": null,
+         "Friday": "900"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4",
+         "Saturday": "1530, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Fri 9:30-4",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "930, 390"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Bernadette, Westlake": {
+      "ID": 77,
+      "Mass Times": {
+         "Saturday": "800, 1700",
+         "Sunday": "800, 945, 1130",
+         "Monday": "900 ",
+         "Tuesday": "800 ",
+         "Wednesday": "900 ",
+         "Thursday": "800 ",
+         "Friday": "900 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4-4:45",
+         "Saturday": "1600, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Bernard, Akron": {
+      "ID": 78,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "1000, 1200, 2000",
+         "Monday": "1210",
+         "Tuesday": "1210",
+         "Wednesday": "1210",
+         "Thursday": "1210",
+         "Friday": "1210"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Fri 3-4",
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "1500, 60"
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Boniface, Cleveland": {
+      "ID": 79,
+      "Mass Times": {
+         "Saturday": "800, 1700",
+         "Sunday": "1000 ",
+         "Monday": "800 ",
+         "Tuesday": "800 ",
+         "Wednesday": "800 ",
+         "Thursday": "800 ",
+         "Friday": "800 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sun 9:30-10, Sat 4:30-5",
+         "Saturday": "1630, 30",
+         "Sunday": "930, 30",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Brendan, North Olmsted": {
+      "ID": 80,
+      "Mass Times": {
+         "Saturday": "1700 ",
+         "Sunday": "900, 1130",
+         "Monday": "830 ",
+         "Tuesday": "830 ",
+         "Wednesday": "830 ",
+         "Thursday": "830 ",
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "830, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "M-F 1-8",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "1300, 420",
+         "Tuesday": "1300, 420",
+         "Wednesday": "1300, 420",
+         "Thursday": "1300, 420",
+         "Friday": "1300, 420"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Bridget of Kildare, Parma": {
+      "ID": 81,
+      "Mass Times": {
+         "Saturday": "1600, 1730",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "830 ",
+         "Tuesday": "830 ",
+         "Wednesday": "830 ",
+         "Thursday": "830 ",
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Casimir, Cleveland": {
+      "ID": 82,
+      "Mass Times": {
+         "Saturday": null,
+         "Sunday": "1130 ",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Casimir, Euclid": {
+      "ID": 83,
+      "Mass Times": {
+         "Saturday": "1700 ",
+         "Sunday": "830, 1100",
+         "Monday": "730 ",
+         "Tuesday": "730 ",
+         "Wednesday": "730 ",
+         "Thursday": "730 ",
+         "Friday": "730 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4-4:30",
+         "Saturday": "1600, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Charles Borromeo, Parma": {
+      "ID": 84,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "800, 1000, 1200, 1730",
+         "Monday": "700, 1900",
+         "Tuesday": "700, 830, 1900",
+         "Wednesday": "700, 1900",
+         "Thursday": "700, 830, 1900",
+         "Friday": "700, 1900"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "1Th 3-3:45, Sat 3-3:45, 5-5:30",
+         "Saturday": "1500, 45, 1700, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "24h",
+         "Is24hour": true,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Christopher, Rocky River": {
+      "ID": 85,
+      "Mass Times": {
+         "Saturday": "1700 ",
+         "Sunday": "830, 1000, 1130",
+         "Monday": "1100 ",
+         "Tuesday": "1100 ",
+         "Wednesday": "1100 ",
+         "Thursday": "1100 ",
+         "Friday": "1100 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4-4:30",
+         "Saturday": "1600, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Clare, Lyndhurst": {
+      "ID": 86,
+      "Mass Times": {
+         "Saturday": "1630 ",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "830 ",
+         "Tuesday": "830 ",
+         "Wednesday": "830 ",
+         "Thursday": "830 ",
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "830, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4",
+         "Saturday": "1530, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "9-4 M-F, Sat 9-12",
+         "Is24hour": null,
+         "Saturday": "900, 180",
+         "Sunday": null,
+         "Monday": "900, 420",
+         "Tuesday": "900, 420",
+         "Wednesday": "900, 420",
+         "Thursday": "900, 420",
+         "Friday": "900, 420"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Clarence, North Olmsted": {
+      "ID": 87,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": "830",
+         "Thursday": "830",
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "830"
+      },
+      "Confessions": {
+         "Placeholder": "sAT 4-4:30",
+         "Saturday": "1600, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Thursday 9-8",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "900, 660",
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Clement, Lakewood": {
+      "ID": 88,
+      "Mass Times": {
+         "Saturday": "800, 1600",
+         "Sunday": "900, 1100",
+         "Monday": "1715",
+         "Tuesday": "800",
+         "Wednesday": "1715",
+         "Thursday": "800",
+         "Friday": "1715"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "24h?",
+         "Is24hour": true,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Colette, Brunswick": {
+      "ID": 89,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "800, 1000, 1145",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1100",
+         "Thursday": null,
+         "Friday": "1100"
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "1200, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Colman, Cleveland": {
+      "ID": 90,
+      "Mass Times": {
+         "Saturday": "1700 ",
+         "Sunday": "900, 1100",
+         "Monday": "800 ",
+         "Tuesday": "800 ",
+         "Wednesday": null,
+         "Thursday": "800 ",
+         "Friday": "800 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "1300 "
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4:30-5pm",
+         "Saturday": "1630, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Columbkille, Parma": {
+      "ID": 91,
+      "Mass Times": {
+         "Saturday": "815, 1600",
+         "Sunday": "800, 1000, 1200, 1730",
+         "Monday": "815 ",
+         "Tuesday": "815 ",
+         "Wednesday": "815 ",
+         "Thursday": "815 ",
+         "Friday": "815 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "1T 7-8pm, Sat 2:30-3:30pm",
+         "Saturday": "1430, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Daily 9-9",
+         "Is24hour": null,
+         "Saturday": "900, 720",
+         "Sunday": "900, 720",
+         "Monday": "900, 720",
+         "Tuesday": "900, 720",
+         "Wednesday": "900, 720",
+         "Thursday": "900, 720",
+         "Friday": "900, 720"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Cyprian, Perry": {
+      "ID": 92,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "900, 1100",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": "830",
+         "Thursday": "830",
+         "Friday": "700"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4-4;45",
+         "Saturday": "1600, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Dominic, Shaker Heights": {
+      "ID": 93,
+      "Mass Times": {
+         "Saturday": "630, 1700",
+         "Sunday": "900, 1115",
+         "Monday": "630, 830",
+         "Tuesday": "630, 830",
+         "Wednesday": "630, 830",
+         "Thursday": "630 ",
+         "Friday": "630, 830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4-4:30",
+         "Saturday": "1600, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Edward, Ashland": {
+      "ID": 94,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "830, 1100",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "1315",
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "800, 1315"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3--4",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Th 8:30am - Sun 8am",
+         "Is24hour": null,
+         "Saturday": "0, 1440",
+         "Sunday": "0, 480",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "830, 930",
+         "Friday": "0, 1440"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Edward, Parkman": {
+      "ID": 95,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "830",
+         "Monday": "1800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4:15-45",
+         "Saturday": "1615, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Thu 10-6",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "1000, 480",
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Emeric, Cleveland": {
+      "ID": 96,
+      "Mass Times": {
+         "Saturday": "1700 ",
+         "Sunday": "1115 ",
+         "Monday": "900 ",
+         "Tuesday": "900 ",
+         "Wednesday": "900 ",
+         "Thursday": "900 ",
+         "Friday": "900 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Elizabeth Ann Seton, Columbia Station": {
+      "ID": 97,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "900, 1100",
+         "Monday": null,
+         "Tuesday": "1900",
+         "Wednesday": "900",
+         "Thursday": "900",
+         "Friday": "900"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Elizabeth of Hungry, Cleveland": {
+      "ID": 98,
+      "Mass Times": {
+         "Saturday": "900 ",
+         "Sunday": "930 ",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sun 9-9:15",
+         "Saturday": null,
+         "Sunday": "900, 15",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "1Sun 9-9:30",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Eugene, Cuyahoga Falls": {
+      "ID": 99,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "900, 1100",
+         "Monday": "1100",
+         "Tuesday": "1100",
+         "Wednesday": "1100",
+         "Thursday": "1100",
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4:15-4:45",
+         "Saturday": "1615, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Francis de Sales, Akron": {
+      "ID": 100,
+      "Mass Times": {
+         "Saturday": "815, 1700, 1830",
+         "Sunday": "730, 900, 1100",
+         "Monday": "815",
+         "Tuesday": "815",
+         "Wednesday": "815",
+         "Thursday": "815, 1830",
+         "Friday": "815"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Th 5:30-6:15, Sat 9-9:45",
+         "Saturday": "900, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "1730, 45",
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "M-F 7pm-10pm, Tu-Fr 7am-6:15pm",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "1900, 180",
+         "Tuesday": "700, 675, 1900, 180",
+         "Wednesday": "700, 675, 1900, 180",
+         "Thursday": "700, 675, 1900, 180",
+         "Friday": "700, 675, 1900, 180"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Francis de Sales, Parma": {
+      "ID": 101,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "830, 1100",
+         "Monday": "845 ",
+         "Tuesday": "845 ",
+         "Wednesday": "845 ",
+         "Thursday": "845 ",
+         "Friday": "845 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Francis Xavier, Medina": {
+      "ID": 102,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "800, 1000, 1200, 1730",
+         "Monday": "730",
+         "Tuesday": "730",
+         "Wednesday": "730",
+         "Thursday": "730",
+         "Friday": "730"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Francis Xavier Cabrini, Lorain": {
+      "ID": 103,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "900, 1100",
+         "Monday": "900",
+         "Tuesday": "900",
+         "Wednesday": "900",
+         "Thursday": "900",
+         "Friday": "900"
+      },
+      "Holy Day": {
+         "Vigil": 1830,
+         "Day Of": "900, 1830"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Francis of Assissi, Gates Mills": {
+      "ID": 104,
+      "Mass Times": {
+         "Saturday": "900, 1630",
+         "Sunday": "800, 1000, 1200, 1800",
+         "Monday": "630, 900",
+         "Tuesday": "630, 900",
+         "Wednesday": "630, 900",
+         "Thursday": "630, 900",
+         "Friday": "630, 900"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "630, 900, 1200, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "M 7:15-7:45, Tu 11:30-12, Sat 3:30-4:15.",
+         "Saturday": "1530, 45",
+         "Sunday": null,
+         "Monday": "1915, 30",
+         "Tuesday": "1130, 30",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Friday 12pm-8pm",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "1200, 480"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Gabriel, Concord": {
+      "ID": 105,
+      "Mass Times": {
+         "Saturday": "800, 1700",
+         "Sunday": "730, 930, 1130, 1700",
+         "Monday": "700, 1100",
+         "Tuesday": "700, 1900",
+         "Wednesday": "700",
+         "Thursday": "700, 1900",
+         "Friday": "700, 1100"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:45-4:30",
+         "Saturday": "1534, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Helen, Newbury": {
+      "ID": 106,
+      "Mass Times": {
+         "Saturday": "800, 1700",
+         "Sunday": "830, 1115, 1700",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Hilary, Fairlawn": {
+      "ID": 107,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "730, 900, 1100, 1730",
+         "Monday": "700, 930",
+         "Tuesday": "700, 930",
+         "Wednesday": "700",
+         "Thursday": "700",
+         "Friday": "700, 930"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "700, 930, 1210, 1830"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:44",
+         "Saturday": "1500, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Wed 7:30-7pm",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "730, 690",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Ignatius of Antioch, Cleveland": {
+      "ID": 108,
+      "Mass Times": {
+         "Saturday": "1700 ",
+         "Sunday": "900, 1100, 1700",
+         "Monday": "900, 1730",
+         "Tuesday": "900 ",
+         "Wednesday": "900 ",
+         "Thursday": "900 ",
+         "Friday": "900 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "1100 "
+      },
+      "Confessions": {
+         "Placeholder": "Sun 10-10:45, Mon 4:45-5:20, Sat 3-4",
+         "Saturday": "1500, 60",
+         "Sunday": "1000, 45",
+         "Monday": "1645, 35",
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. James, Lakewood": {
+      "ID": 109,
+      "Mass Times": {
+         "Saturday": "1630 ",
+         "Sunday": "1030 ",
+         "Monday": "815 ",
+         "Tuesday": null,
+         "Wednesday": "815 ",
+         "Thursday": null,
+         "Friday": "815 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "3S 9-10am",
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Jerome, Cleveland": {
+      "ID": 110,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "1000 ",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "830 ",
+         "Thursday": null,
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 2:45-3:30",
+         "Saturday": "1445, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "M-W 9-4, Th-Fr 9-3",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "900, 420",
+         "Tuesday": "900, 420",
+         "Wednesday": "900, 420",
+         "Thursday": "900, 360",
+         "Friday": "900, 360"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Joan of Arc, Chagrin Falls": {
+      "ID": 111,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "900, 1100",
+         "Monday": "800",
+         "Tuesday": "900",
+         "Wednesday": null,
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:15",
+         "Saturday": "1530, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. John Cantius, Cleveland": {
+      "ID": 112,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "930, 1130",
+         "Monday": "830 ",
+         "Tuesday": "830 ",
+         "Wednesday": "830 ",
+         "Thursday": "830 ",
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "1000, 1830"
+      },
+      "Confessions": {
+         "Placeholder": "sat 3:14-3:45",
+         "Saturday": "1515, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. John Nepomucene, Cleveland": {
+      "ID": 113,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "900, 1100",
+         "Monday": null,
+         "Tuesday": "830 ",
+         "Wednesday": null,
+         "Thursday": "830 ",
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": 1600,
+         "Day Of": "830, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. John Bosco, Parma Heights": {
+      "ID": 114,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "830, 1100",
+         "Monday": "730 ",
+         "Tuesday": "730 ",
+         "Wednesday": "730 ",
+         "Thursday": "1900 ",
+         "Friday": "730 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "6:15-6:45pm Th, Sat 3:-3:45",
+         "Saturday": "1500, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "1815, 30",
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "6am-10pm daily",
+         "Is24hour": null,
+         "Saturday": "600, 960",
+         "Sunday": "600, 960",
+         "Monday": "600, 960",
+         "Tuesday": "600, 960",
+         "Wednesday": "600, 960",
+         "Thursday": "600, 960",
+         "Friday": "600, 960"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. John of the Cross, Euclid": {
+      "ID": 115,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "745, 1015",
+         "Monday": "830 ",
+         "Tuesday": "1830 ",
+         "Wednesday": "830 ",
+         "Thursday": "1830 ",
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "830, 1830"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "1F 9-4",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. John the Baptist, Akron": {
+      "ID": 116,
+      "Mass Times": {
+         "Saturday": null,
+         "Sunday": "1000",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. John Neumann, Strongsville": {
+      "ID": 117,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "830, 1000, 1300, 1700",
+         "Monday": "900",
+         "Tuesday": "900",
+         "Wednesday": "1800",
+         "Thursday": "900",
+         "Friday": "900"
+      },
+      "Holy Day": {
+         "Vigil": 1830,
+         "Day Of": "900, 1830"
+      },
+      "Confessions": {
+         "Placeholder": "MF 5:15-6pm, Sat 9-10",
+         "Saturday": "900, 60",
+         "Sunday": "1715, 45",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "1715, 45"
+      },
+      "Adoration": {
+         "Placeholder": "Wed 9:30-5:45pm",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "930, 495",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. John Vianney, Mentor": {
+      "ID": 118,
+      "Mass Times": {
+         "Saturday": "800, 1600",
+         "Sunday": "703, 900, 1030, 1215",
+         "Monday": "800, 1100",
+         "Tuesday": "800",
+         "Wednesday": "800, 1100",
+         "Thursday": "800",
+         "Friday": "800, 1100"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "W 7-7:30pm, S 2:45-3:45, 6:30-7",
+         "Saturday": "1445, 60, 1830, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Perpetual",
+         "Is24hour": true,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Joseph, Amherst": {
+      "ID": 119,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "830, 1100, 1700",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "900"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "th 730-830pm, sat 11-12",
+         "Saturday": "1100, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "1930, 60",
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Joseph, Avon Lake": {
+      "ID": 120,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "830, 1100, 1700",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3--4",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "MTWTF 7-9pm",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "1900, 120",
+         "Tuesday": "1900, 120",
+         "Wednesday": "1900, 120",
+         "Thursday": "1900, 120",
+         "Friday": "1900, 120"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Joseph, Strongsville": {
+      "ID": 121,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "1830",
+         "Tuesday": "730",
+         "Wednesday": "730",
+         "Thursday": "730",
+         "Friday": "730"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3--4",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "perpetual",
+         "Is24hour": true,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Joseph, Cuyahoga Falls": {
+      "ID": 122,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "845",
+         "Tuesday": "845",
+         "Wednesday": "845",
+         "Thursday": "845",
+         "Friday": "845"
+      },
+      "Holy Day": {
+         "Vigil": 1800,
+         "Day Of": "845, 1800"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Jude, Elryia": {
+      "ID": 123,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "900, 1100",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": "830",
+         "Thursday": "830",
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Tue 10-11",
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": "1000, 60",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Sat 9-3",
+         "Is24hour": null,
+         "Saturday": "900, 360",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Julie Billiart, North Ridgeville": {
+      "ID": 124,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "900, 1100",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": "830",
+         "Thursday": null,
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4-4:30",
+         "Saturday": "1600, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Justin Martyr, Eastlake": {
+      "ID": 125,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "800, 1030",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": "830",
+         "Thursday": "830",
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4-4:30",
+         "Saturday": "1600, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Ladislas, Westlake": {
+      "ID": 126,
+      "Mass Times": {
+         "Saturday": "1700 ",
+         "Sunday": "900, 1100",
+         "Monday": "830 ",
+         "Tuesday": "830 ",
+         "Wednesday": "830 ",
+         "Thursday": "830 ",
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Leo the Great, Cleveland": {
+      "ID": 127,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "800, 1100",
+         "Monday": "830 ",
+         "Tuesday": "830 ",
+         "Wednesday": "830 ",
+         "Thursday": null,
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "830, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30, Sun 10-10:30",
+         "Saturday": "1500, 30",
+         "Sunday": "1000, 30",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Lucy Mission, Middlefield": {
+      "ID": 128,
+      "Mass Times": {
+         "Saturday": "1830",
+         "Sunday": "1030",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 1815",
+         "Saturday": "1815, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Th 1-6",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "1300, 300",
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Luke, Lakewood": {
+      "ID": 129,
+      "Mass Times": {
+         "Saturday": "1630 ",
+         "Sunday": "900, 1100, 1730",
+         "Monday": "830",
+         "Tuesday": "730 ",
+         "Wednesday": "830 ",
+         "Thursday": "730 ",
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": 1730,
+         "Day Of": "830, 1730"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3--4",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Malachi, Cleveland": {
+      "ID": 130,
+      "Mass Times": {
+         "Saturday": "1630 ",
+         "Sunday": "1000 ",
+         "Monday": null,
+         "Tuesday": "1200 ",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "1200 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Fri 12:30-1:30PM",
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "1230, 60"
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Matthew, Akron": {
+      "ID": 131,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "800, 1030",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": null,
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 9-9:30",
+         "Saturday": "900, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mark, Cleveland": {
+      "ID": 132,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "830, 1130",
+         "Monday": "830 ",
+         "Tuesday": "830 ",
+         "Wednesday": null,
+         "Thursday": "830 ",
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "3-3:45",
+         "Saturday": "1500, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Friday 3pm-7pm",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Martin of Tours, Maple Heights": {
+      "ID": 133,
+      "Mass Times": {
+         "Saturday": "730, 1630",
+         "Sunday": "900, 1100",
+         "Monday": "730, 1830",
+         "Tuesday": "730, 1830",
+         "Wednesday": "730, 1830",
+         "Thursday": "730 ",
+         "Friday": "730 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "730, 1200, 1830"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 5:30-6am, 3-4pm ",
+         "Saturday": "530, 30, 300, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "24h",
+         "Is24hour": true,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Martin of Tours, Valley City": {
+      "ID": 134,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "800, 1030",
+         "Monday": "1700",
+         "Tuesday": null,
+         "Wednesday": "830",
+         "Thursday": null,
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "7, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4-445",
+         "Saturday": "1600, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "M 9-530, T Th 9-430, WF 7:30-4:30, Sat 1-6",
+         "Is24hour": null,
+         "Saturday": "1300, 300",
+         "Sunday": null,
+         "Monday": "900, 510",
+         "Tuesday": "900, 450",
+         "Wednesday": "730, 540",
+         "Thursday": "900, 450",
+         "Friday": "730, 540"
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary, Akron": {
+      "ID": 135,
+      "Mass Times": {
+         "Saturday": null,
+         "Sunday": "900",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary, Bedford": {
+      "ID": 136,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "915 ",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary, Berea": {
+      "ID": 137,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "730, 930, 1130",
+         "Monday": "900 ",
+         "Tuesday": "900 ",
+         "Wednesday": "900 ",
+         "Thursday": "900 ",
+         "Friday": "900 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary, Chardon": {
+      "ID": 138,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "730",
+         "Tuesday": "730",
+         "Wednesday": "1200",
+         "Thursday": "730",
+         "Friday": "130"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-4:00",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Wed 12:30-7",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1230, 390",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary, Cleveland": {
+      "ID": 139,
+      "Mass Times": {
+         "Saturday": "745, 1700",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "745 ",
+         "Tuesday": "745 ",
+         "Wednesday": "745 ",
+         "Thursday": "745 ",
+         "Friday": "745 "
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "800, 1930"
+      },
+      "Confessions": {
+         "Placeholder": "1F 7-7:30, Sat 4-4:45",
+         "Saturday": "1600, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Th 2-6",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "1400, 240",
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary, Elyria": {
+      "ID": 140,
+      "Mass Times": {
+         "Saturday": "900, 1630",
+         "Sunday": "800, 930, 1100",
+         "Monday": "1700",
+         "Tuesday": "830",
+         "Wednesday": "1700",
+         "Thursday": "830",
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:15",
+         "Saturday": "1530, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary, Hudson": {
+      "ID": 141,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "800, 930, 1130, 1730",
+         "Monday": "900",
+         "Tuesday": "900",
+         "Wednesday": "900",
+         "Thursday": "900",
+         "Friday": "900"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Mon 6:30-730, ",
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": "1830, 60",
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Th 11-6",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "1100, 420",
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary, Lorain": {
+      "ID": 142,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "1000",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary, Painesville": {
+      "ID": 143,
+      "Mass Times": {
+         "Saturday": "800, 1600",
+         "Sunday": "800, 1000, 1200, 1800",
+         "Monday": "645, 1215",
+         "Tuesday": "645, 1215",
+         "Wednesday": "645, 1215",
+         "Thursday": "645, 1215",
+         "Friday": "645, 1215"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Wed 1-1:30, Th 1-1:30, Sat 3-4:00, Sun 5:30-6",
+         "Saturday": "1500, 60",
+         "Sunday": "1730, 30",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1300, 30",
+         "Thursday": "1300, 30",
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary Magdalene, Willowick": {
+      "ID": 144,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "800, 1100",
+         "Monday": "900",
+         "Tuesday": "900",
+         "Wednesday": "900",
+         "Thursday": null,
+         "Friday": "900"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:15-4pm",
+         "Saturday": "1515, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary of the Assumption, Mentor": {
+      "ID": 145,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "815",
+         "Tuesday": "815",
+         "Wednesday": "815",
+         "Thursday": null,
+         "Friday": "815"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary of the Assumption, Collonwood": {
+      "ID": 146,
+      "Mass Times": {
+         "Saturday": "745, 1700",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "745",
+         "Tuesday": "745",
+         "Wednesday": "745",
+         "Thursday": "745",
+         "Friday": "745"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4-4:45",
+         "Saturday": "1600, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary of the Falls, Olmsted Falls": {
+      "ID": 147,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "830, 1100, 1700",
+         "Monday": "900",
+         "Tuesday": "900",
+         "Wednesday": "700",
+         "Thursday": null,
+         "Friday": "700"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Tu 7-8pm",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": "1900, 60",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary of the Immaculate Conception, Avon": {
+      "ID": 148,
+      "Mass Times": {
+         "Saturday": "830, 1600",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "1930",
+         "Tuesday": "830",
+         "Wednesday": "830",
+         "Thursday": "1930",
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": 1930,
+         "Day Of": "830, 1930"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 2:30-3:30, Mon 7-7:25",
+         "Saturday": "1430, 60",
+         "Sunday": null,
+         "Monday": "1900, 25",
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Th 5-7pm",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "1700, 120",
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mary of the Immaculate Conception, Wooster": {
+      "ID": 149,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "800, 1000, 1730",
+         "Monday": "700",
+         "Tuesday": "700",
+         "Wednesday": "930",
+         "Thursday": "700",
+         "Friday": "700"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3--4pm",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Matthias, Parma": {
+      "ID": 150,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "1000 ",
+         "Monday": "830 ",
+         "Tuesday": "830 ",
+         "Wednesday": null,
+         "Thursday": "830 ",
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "830, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:15-3:45pm",
+         "Saturday": "1515, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Mel, Cleveland": {
+      "ID": 151,
+      "Mass Times": {
+         "Saturday": "1630 ",
+         "Sunday": "700, 1000",
+         "Monday": "645 ",
+         "Tuesday": "645 ",
+         "Wednesday": null,
+         "Thursday": "645 ",
+         "Friday": "645 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "3-4:15 Sat",
+         "Saturday": "1500, 75",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Michael, Independence": {
+      "ID": 152,
+      "Mass Times": {
+         "Saturday": "1630 ",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "830 ",
+         "Tuesday": "830 ",
+         "Wednesday": "830 ",
+         "Thursday": null,
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "830, 1205, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4pm",
+         "Saturday": "1530, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "24h",
+         "Is24hour": true,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Michael the Archangel, Cleveland": {
+      "ID": 153,
+      "Mass Times": {
+         "Saturday": "1700, 1900",
+         "Sunday": "945, 1200",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1830 ",
+         "Thursday": "1830 ",
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Monica, Garfield Heights": {
+      "ID": 154,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "900, 1045",
+         "Monday": "800 ",
+         "Tuesday": "800 ",
+         "Wednesday": "800 ",
+         "Thursday": "800 ",
+         "Friday": "800 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:15-4",
+         "Saturday": "1515, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Noel, Willoughby": {
+      "ID": 155,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "900, 1100",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": "830",
+         "Thursday": null,
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "830"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Paschal Baylon, Highland Heights": {
+      "ID": 156,
+      "Mass Times": {
+         "Saturday": "900, 1630",
+         "Sunday": "830, 1030, 1830",
+         "Monday": "900, 1130",
+         "Tuesday": "900, 1130",
+         "Wednesday": "900, 1130",
+         "Thursday": "900, 1130",
+         "Friday": "900, 1130"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:15",
+         "Saturday": "1530, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Patrick, Cleveland (Bridge)": {
+      "ID": 157,
+      "Mass Times": {
+         "Saturday": "1630 ",
+         "Sunday": "830, 1100",
+         "Monday": "1730 ",
+         "Tuesday": "800 ",
+         "Wednesday": "1730 ",
+         "Thursday": null,
+         "Friday": "800 "
+      },
+      "Holy Day": {
+         "Vigil": 1730,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Patrick, Cleveland (Rocky River)": {
+      "ID": 158,
+      "Mass Times": {
+         "Saturday": "1630 ",
+         "Sunday": "1100 ",
+         "Monday": null,
+         "Tuesday": "1900 ",
+         "Wednesday": "730 ",
+         "Thursday": null,
+         "Friday": "815 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "830, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 11-12",
+         "Saturday": "1100, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Patrick, Thompson": {
+      "ID": 159,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "930",
+         "Monday": null,
+         "Tuesday": "845",
+         "Wednesday": null,
+         "Thursday": "845",
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Patrick, Wellington": {
+      "ID": 160,
+      "Mass Times": {
+         "Saturday": "1800",
+         "Sunday": "815",
+         "Monday": "845",
+         "Tuesday": null,
+         "Wednesday": "1830",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Paul, Akron": {
+      "ID": 161,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "800, 930, 1130",
+         "Monday": "830",
+         "Tuesday": "700",
+         "Wednesday": "830",
+         "Thursday": "700",
+         "Friday": "830, 1730"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Fr 4-5, Sat 3-4",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "1600, 60"
+      },
+      "Adoration": {
+         "Placeholder": "Tu 7:30-3",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": "730, 450",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Paul, Cleveland": {
+      "ID": 162,
+      "Mass Times": {
+         "Saturday": "715, 800, 830, 1700",
+         "Sunday": "700, 830, 1000, 1200",
+         "Monday": "715, 800",
+         "Tuesday": "715, 800",
+         "Wednesday": "715, 800",
+         "Thursday": "715, 800",
+         "Friday": "715, 800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3--4",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Peter, Cleveland": {
+      "ID": 163,
+      "Mass Times": {
+         "Saturday": null,
+         "Sunday": "1130, 1900",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Peter, Lorain": {
+      "ID": 164,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "900, 1100",
+         "Monday": "1730",
+         "Tuesday": "830",
+         "Wednesday": null,
+         "Thursday": "1730",
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Peter, Loudonville": {
+      "ID": 165,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "900",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": null,
+         "Friday": "1200"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "800, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4-4:30",
+         "Saturday": "1600, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Peter, North Ridgeville": {
+      "ID": 166,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "600, 800, 1000, 1200",
+         "Monday": "815",
+         "Tuesday": "815",
+         "Wednesday": "815",
+         "Thursday": "815",
+         "Friday": "815"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Fr 8:45-9:30, Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "845, 45"
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Raphael, Bay Village": {
+      "ID": 167,
+      "Mass Times": {
+         "Saturday": "1630 ",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "745, 915",
+         "Tuesday": "745, 915",
+         "Wednesday": "745 ",
+         "Thursday": "915 ",
+         "Friday": "745, 915"
+      },
+      "Holy Day": {
+         "Vigil": 1730,
+         "Day Of": "1900 "
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3--4",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Richard, North Olmsted": {
+      "ID": 168,
+      "Mass Times": {
+         "Saturday": "1630 ",
+         "Sunday": "700, 900, 1100",
+         "Monday": "700 ",
+         "Tuesday": "700 ",
+         "Wednesday": "700 ",
+         "Thursday": "700 ",
+         "Friday": "700 "
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "700, 1200"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:14-4",
+         "Saturday": "1515, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Rita, Solon": {
+      "ID": 169,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "715, 845, 1030, 1215",
+         "Monday": "845",
+         "Tuesday": "845",
+         "Wednesday": "845",
+         "Thursday": "845",
+         "Friday": "845"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Mon 3:30-4:30, Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": "1530, 60",
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Rocco, Cleveland": {
+      "ID": 170,
+      "Mass Times": {
+         "Saturday": "645, 845, 1600",
+         "Sunday": "730, 930, 1200",
+         "Monday": "645, 845",
+         "Tuesday": "645, 845",
+         "Wednesday": "645, 845",
+         "Thursday": "645, 845",
+         "Friday": "645, 845"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "645, 900, 1200, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:45",
+         "Saturday": "1500, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Sebastian, Akron": {
+      "ID": 171,
+      "Mass Times": {
+         "Saturday": "800, 1630",
+         "Sunday": "900, 1100, 1300",
+         "Monday": "800",
+         "Tuesday": "800",
+         "Wednesday": "800",
+         "Thursday": "800",
+         "Friday": "800"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Tu 7-7:30, Fr 4-5:00, Sat 9:30-10",
+         "Saturday": "930, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": "1900, 30",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "1600, 60"
+      },
+      "Adoration": {
+         "Placeholder": "Th 8:30-8",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "830, 690",
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Stanislaus, Cleveland": {
+      "ID": 172,
+      "Mass Times": {
+         "Saturday": "830, 1700",
+         "Sunday": "830, 1000, 1130",
+         "Monday": "700, 830",
+         "Tuesday": "700, 830",
+         "Wednesday": "700, 830",
+         "Thursday": "700, 1900",
+         "Friday": "700, 830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "830, 1730, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4-4:45",
+         "Saturday": "1600, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Stephen, Cleveland": {
+      "ID": 173,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "800, 930, 1100, 1700",
+         "Monday": "1830",
+         "Tuesday": "645, 1830",
+         "Wednesday": "1830",
+         "Thursday": "1830",
+         "Friday": "1830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sun 9-9:20, Wed 7-7:30,",
+         "Saturday": null,
+         "Sunday": "900, 20",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1900, 30",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Wed 7-8pm",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1900, 60",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Stephen, West Salem": {
+      "ID": 174,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "1000",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "1600",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:45",
+         "Saturday": "1500, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Wed 9:30-3:45",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "930, 375",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Therese, Garfield Heights": {
+      "ID": 175,
+      "Mass Times": {
+         "Saturday": "1730 ",
+         "Sunday": "1030 ",
+         "Monday": "1830 ",
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "830 ",
+         "Friday": null
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Theresa of Avila, Sheffield ": {
+      "ID": 176,
+      "Mass Times": {
+         "Saturday": "1630",
+         "Sunday": "830, 1100",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "830",
+         "Thursday": null,
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "S 3:30-4",
+         "Saturday": "1530, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "W 9-1",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "900, 240",
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Thomas, Sheffield Lake": {
+      "ID": 177,
+      "Mass Times": {
+         "Saturday": "900, 1600",
+         "Sunday": "1000",
+         "Monday": "900",
+         "Tuesday": "900",
+         "Wednesday": "900",
+         "Thursday": "900",
+         "Friday": "900"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "S 3-3:45",
+         "Saturday": "1500, 45",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Thomas More, Brooklyn": {
+      "ID": 178,
+      "Mass Times": {
+         "Saturday": "815, 1630",
+         "Sunday": "900, 1100",
+         "Monday": "815 ",
+         "Tuesday": "1845 ",
+         "Wednesday": "815 ",
+         "Thursday": null,
+         "Friday": "815 "
+      },
+      "Holy Day": {
+         "Vigil": 1800,
+         "Day Of": "700, 815, 1115, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-4pm",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Victor, Richfield": {
+      "ID": 179,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "845, 1130",
+         "Monday": "730",
+         "Tuesday": "730",
+         "Wednesday": null,
+         "Thursday": "730",
+         "Friday": "730"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 4:30-5",
+         "Saturday": "1630, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Vincent de Paul, Akron": {
+      "ID": 180,
+      "Mass Times": {
+         "Saturday": "1700",
+         "Sunday": "830, 1100",
+         "Monday": "628",
+         "Tuesday": "628",
+         "Wednesday": "628",
+         "Thursday": "628",
+         "Friday": "628"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": "628, 900, 1730"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Vincent de Paul, Cleveland": {
+      "ID": 181,
+      "Mass Times": {
+         "Saturday": "1700 ",
+         "Sunday": "900 ",
+         "Monday": "830 ",
+         "Tuesday": null,
+         "Wednesday": "830 ",
+         "Thursday": null,
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "830, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:30-4:30",
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Sat 3:30-4:30",
+         "Is24hour": null,
+         "Saturday": "1530, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Vincent de Paul, Elyria": {
+      "ID": 182,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "800, 1000, 1200",
+         "Monday": "730",
+         "Tuesday": "730",
+         "Wednesday": "730",
+         "Thursday": "730",
+         "Friday": "730"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 11-12",
+         "Saturday": "1100, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Tu 8-5",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": "800, 540",
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Vitus, Cleveland": {
+      "ID": 183,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "900, 1030",
+         "Monday": "1700 ",
+         "Tuesday": "1700 ",
+         "Wednesday": "1700 ",
+         "Thursday": "1700 ",
+         "Friday": "1700 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "St. Wendelin, Cleveland": {
+      "ID": 184,
+      "Mass Times": {
+         "Saturday": "1630 ",
+         "Sunday": "1000 ",
+         "Monday": "1100 ",
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "1000 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Ss. Cosmas and Damian, Twinsburg": {
+      "ID": 185,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "900, 1100",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": "830",
+         "Thursday": "830",
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "perpetual",
+         "Is24hour": true,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Ss. Peter and Paul, Doylestown": {
+      "ID": 186,
+      "Mass Times": {
+         "Saturday": "1600",
+         "Sunday": "830, 1100",
+         "Monday": "900",
+         "Tuesday": "900",
+         "Wednesday": "900",
+         "Thursday": "900",
+         "Friday": "900"
+      },
+      "Holy Day": {
+         "Vigil": 1900,
+         "Day Of": "900, 1900"
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-3:30",
+         "Saturday": "1500, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "Th 8:30-4pm",
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": "830, 450",
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Ss. Peter and Paul, Garfield Heights": {
+      "ID": 187,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "830 ",
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": "830 ",
+         "Thursday": null,
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3-4, 2Th 5-6",
+         "Saturday": "1500, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Ss. Robert and William, Euclid": {
+      "ID": 188,
+      "Mass Times": {
+         "Saturday": "830, 1600",
+         "Sunday": "900, 1130, 1800",
+         "Monday": "1130 ",
+         "Tuesday": "830 ",
+         "Wednesday": "1130 ",
+         "Thursday": "830 ",
+         "Friday": "1130 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 2:30-3:30",
+         "Saturday": "1430, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": "24h",
+         "Is24hour": true,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Transfiguration, Lakewood": {
+      "ID": 189,
+      "Mass Times": {
+         "Saturday": "1600 ",
+         "Sunday": "900 ",
+         "Monday": "830 ",
+         "Tuesday": null,
+         "Wednesday": "830 ",
+         "Thursday": null,
+         "Friday": "830 "
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Sat 3:15-3:45",
+         "Saturday": "1515, 30",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Adoration": {
+         "Placeholder": null,
+         "Is24hour": null,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   },
+   "Queen of Heaven, Uniontown": {
+      "ID": 190,
+      "Mass Times": {
+         "Saturday": "830, 1630",
+         "Sunday": "815, 1100",
+         "Monday": "830",
+         "Tuesday": "830",
+         "Wednesday": "830",
+         "Thursday": "830",
+         "Friday": "830"
+      },
+      "Holy Day": {
+         "Vigil": null,
+         "Day Of": null
+      },
+      "Confessions": {
+         "Placeholder": "Fr 9-10, Sat 3:15-4:15",
+         "Saturday": "1515, 60",
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": "900, 60"
+      },
+      "Adoration": {
+         "Placeholder": "247",
+         "Is24hour": true,
+         "Saturday": null,
+         "Sunday": null,
+         "Monday": null,
+         "Tuesday": null,
+         "Wednesday": null,
+         "Thursday": null,
+         "Friday": null
+      },
+      "Rosary": null,
+      "Website": null,
+      "Other Notes": null
+   }
+}

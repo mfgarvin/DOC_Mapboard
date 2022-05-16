@@ -1,1 +1,1 @@
-{"Our Lady of the Programmers" : 19, "St. Isidore" : 10}
+{"Our Lady of the Programmers" : 10, "IHM" : 20, "Adoration All Day Shrine" : 30, "Confession All Day" : 40}

@@ -2,9 +2,11 @@ import board
 import neopixel
 
 #How many LEDs are connected to the system?
-ledCount = 400
+#ledCount = 400
+#ledCount = 30
+ledCount = 100
 
-pixels = neopixel.NeoPixel(board.D18, ledCount)
+pixels = neopixel.NeoPixel(board.D21, ledCount)
 
 for n in range(ledCount):
 	print("\n")
