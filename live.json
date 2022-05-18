@@ -2884,11 +2884,11 @@
       "Mass Times": {
          "Saturday": "830, 1700",
          "Sunday": "830, 1100, 1730",
-         "Monday": "000 ",
-         "Tuesday": "000 ",
-         "Wednesday": "000 ",
-         "Thursday": "000 ",
-         "Friday": "000 "
+         "Monday": "830 ",
+         "Tuesday": "830 ",
+         "Wednesday": "700 ",
+         "Thursday": "700 ",
+         "Friday": "830 "
       },
       "Holy Day": {
          "Vigil": null,
