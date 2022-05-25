@@ -18,6 +18,11 @@ debugSet = False
 DEBUG_TIME_SET = 1558
 DEBUG_DAY = "Saturday"
 
+# Enable "Night Mode" - Map turns off during the time specified.
+enableNightMode = True
+nightModeStart = 2230
+nightModeEnd = 700
+
 #Variables we need to set go here:
 JSON_LOCATION="./live.json"
 LED_ALLOCATION="./leds.txt"
@@ -351,7 +356,7 @@ def driver(led, state, id):
 		style = "solid"
 		color = purple
 		pass
-	while True:
+	while inhibit == False:
 		try:
 			time.sleep(0.01)
 			if stopLED == True: 					# Called at program quit
@@ -380,6 +385,8 @@ def driver(led, state, id):
 		except ValueError: #These are intermittent and random. I'd like to fix them, but they don't seem to cause much of an issue.
 			print("######## Value Error!:", led, state, id, "########") #Only happens if it tries to turn off an LED, but it's already off.
 			pass
+	while inhibit == True:
+		break
 
 def breathingEffect(adjustment):	# Background code called by "pulse" above, supports the fading method.
 	period = 20
@@ -396,6 +403,8 @@ def timeKeeper():		#This... keeps the time... Every minute, it calls chronos(), 
 	try:			#be set and advanced manually.
 		storedTime = 0
 		global DEBUG_TIME
+		global inhibit
+		inhibit = False
 		DEBUG_TIME = datetime.strptime(str(DEBUG_TIME_SET), "%H%M")
 		bootstrap()
 		print("======== Letting Things Settle... ========")
@@ -403,6 +412,13 @@ def timeKeeper():		#This... keeps the time... Every minute, it calls chronos(), 
 		while debugSet == False:
 			if storedTime != dt.datetime.now().strftime("%-H%M"):
 				storedTime = dt.datetime.now().strftime("%-H%M")
+				if enableNightMode == True:
+					if int(storedTime) >= nightModeStart or int(storedTime) <= nightModeEnd:
+						inhibit = True
+						time.sleep(0.1)
+						pixels.fill(off)
+					else:
+						inhibit = False
 				chronos()
 				time.sleep(1)
 				print("Time Keeper Cycled")
@@ -448,23 +464,11 @@ except:
 '''
 To do:
 
-Vital
-Import Mass Time Database
-Parse Database - from JSON into local variables
-assign ID to each LED / Parish
-compare time to database entries
-If time = database entry, light up LED
-LED Driver:
-	Different Colors
-	Different Durations
-	Different Animations (Pulsing, pusling on a offset, etc.)
-	Create a daemon function
-	Use a sine function to create pulsing effect?
-
 Down the line:
-SSH Callhome feature
+SSH Callhome feature - on the host os
 Update times? Pull databse from self-hosted site?
 LCD Character Display w/status
+Different modes? Number of priests, parish size, etc.
 Implement proper logging
 Implement safe json verification
 '''
