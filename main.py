@@ -15,15 +15,16 @@ import random
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
 debugSet = False
-DEBUG_TIME_SET = 1558
-DEBUG_DAY = "Saturday"
+DEBUG_TIME_SET = 2258
+DEBUG_DAY = "Tuesday"
 
 # Enable "Night Mode" - Map turns off during the time specified.
-enableNightMode = True
+enableNightMode = False
 nightModeStart = 2230
 nightModeEnd = 700
 
 #Variables we need to set go here:
+stopLED = threading.Event()
 JSON_LOCATION="./live.json"
 LED_ALLOCATION="./leds.txt"
 DAYS=["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
@@ -33,7 +34,6 @@ ledStatus = {}
 ledStatusStore = {}
 pixels = neopixel.NeoPixel(board.D21, 200, pixel_order=neopixel.RGB, brightness = 0.1)
 quietLED = []
-stopLED = False
 adorationLockout = []
 
 #I'm gonna define LED colors here:
@@ -85,8 +85,6 @@ def digest():
 			pass
 		else:
 			raise
-	except:
-		raise
 	finally:
 		pass
 
@@ -106,8 +104,6 @@ def setID():
 		if str(e) == 0:
 			print("Key Error 0 on SetID, continuing")
 			pass
-	except:
-		raise
 
 def bootstrap(): 	#This will look very similar to chronos() below, though it serves a different purpose.
 	print("======== BOOTSTRAP START ========")
@@ -124,7 +120,7 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 		hTime = int(currentTime.strftime("%-H%M"))
 		weekday = currentTime.strftime("%A")
 
-	print(weekday, hTime)
+#	print(weekday, hTime)
 
 	#Defining Duration
 	if weekday in WEEKDAYS:
@@ -141,10 +137,10 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 					workingEndTime = workingTime + timedelta(minutes=liturgyDuration)
 					workingTime_int = int(workingTime.strftime("%-H%M"))
 					workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
-					print(workingTime_int, workingEndTime_int)
+#					print(workingTime_int, workingEndTime_int)
 					if workingTime_int <= hTime <= workingEndTime_int:
 						newDuration = workingEndTime - workingTime
-						print("Running for:", newDuration, newDuration.total_seconds() / 60)
+#						print("Running for:", newDuration, newDuration.total_seconds() / 60)
 						display(parish[1], "mass", newDuration.total_seconds() / 60)
 						adorationLockout.append(parish[1])
 						forceContinue = True
@@ -157,10 +153,10 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 					workingEndTime = workingTime + timedelta(minutes=orig_length)
 					workingTime_int = int(workingTime.strftime("%-H%M"))
 					workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
-					print(workingTime_int, workingEndTime_int)
+#					print(workingTime_int, workingEndTime_int)
 					if workingTime_int <= hTime <= workingEndTime_int:
 						newDuration = workingEndTime - workingTime
-						print("Running for:", newDuration, newDuration.total_seconds() / 60)
+#						print("Running for:", newDuration, newDuration.total_seconds() / 60)
 						display(parish[1], "confession", newDuration.total_seconds() / 60)
 						adorationLockout.append(parish[1])
 						forceContinue = True
@@ -173,10 +169,10 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 					workingEndTime = workingTime + timedelta(minutes=orig_length)
 					workingTime_int = int(workingTime.strftime("%-H%M"))
 					workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
-					print(workingTime_int, workingEndTime_int)
+#					print(workingTime_int, workingEndTime_int)
 					if workingTime_int <= hTime <= workingEndTime_int:
 						newDuration = workingEndTime - workingTime
-						print("Running for:", newDuration, newDuration.total_seconds() / 60)
+#						print("Running for:", newDuration, newDuration.total_seconds() / 60)
 						display(parish[1], "adoration", newDuration.total_seconds() / 60)
 						length = int(var[var.index(_time) + 1])
 						adorationLockout.append(parish[1])
@@ -203,11 +199,8 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 		except ValueError as e:		#Something is malformed in the JSON, and it can't be used
 			print(time, parish, "there's an issue here!!!")
 			raise
-		except:
-			raise
 
 	display("update", "update", "update")
-#	print(adorationLockout)
 	print("======== BOOTSTRAP END ========")
 
 def chronos():
@@ -285,8 +278,6 @@ def chronos():
 		except ValueError as e:		# If data is malformed and unusable, this is raised.
 			print(time, parish, "there's an issue here!!!")
 			break
-		except:
-			raise
 	#After everything, run the "update" command. Signals that there are no more edits to the ledStore database in display().
 	display("update", "update", "update")
 
@@ -302,7 +293,7 @@ def display(id, state, duration):
 				if endtime != "24h":			#Future me - this will probably break things, e.g. indicating Mass on top of adoration
 					if now >= endtime:		#However, as of 5/18, it hasn't... ¯\_(ツ)_/¯
 						ledStatus.pop(value)
-						print("deleting ", value)
+#						print("deleting ", value)
 						for n in range(adorationLockout.count(value)):
 							adorationLockout.remove(value)
 	elif id != "update":	# Runs with the ifs and elifs in the try clause under chronos():
@@ -329,19 +320,14 @@ def display(id, state, duration):
 				except KeyError:
 					print("There's some mismatch involving ", key,", might want to check it out.")
 					raise
-				except:
-					raise
 			for key in list(ledStatusStore):	# \/ If an LED is being set to off, turn it off.
-				try:
-					if ledStatus.setdefault(key) is None and ledStatusStore.setdefault(key) is not None:
-						ledStatusStore.pop(key)
-						quietLED.append(key)
-				except:
-					raise
+				if ledStatus.setdefault(key) is None and ledStatusStore.setdefault(key) is not None:
+					ledStatusStore.pop(key)
+					quietLED.append(key)
 
 def driver(led, state, id):
 	#This is a Thread
-	print ("Starting", state, "indicator on LED", led)
+#	print ("Starting", state, "indicator on LED", led)
 	updated = False
 	randomint = random.randint(-7, 7)
 	if (state == "adoration"):
@@ -356,13 +342,11 @@ def driver(led, state, id):
 		style = "solid"
 		color = purple
 		pass
-	while inhibit == False:
+	while inhibit == False and stopLED.isSet() == False:
 		try:
 			time.sleep(0.01)
-			if stopLED == True: 					# Called at program quit
-				pixels.fill(off)
-				break
 			if (updated == True):
+				time.sleep(0.1)
 				pass
 			elif (style == "solid"):				# Sets an LED to a solid color
 				time.sleep(0.01)
@@ -420,20 +404,19 @@ def timeKeeper():		#This... keeps the time... Every minute, it calls chronos(), 
 					else:
 						inhibit = False
 				chronos()
-				time.sleep(1)
 				print("Time Keeper Cycled")
+			time.sleep(1)
+			if stopLED.isSet() == True:
+				print("======== Powering Off LEDs ========")
+				time.sleep(1)
+				pixels.fill(off)
+				break
 		while debugSet == True:
 			input("Press Enter to advance the time")
 			chronos()
 			time.sleep(0.1)
 			DEBUG_TIME = DEBUG_TIME + timedelta(minutes=1)
 
-	except KeyboardInterrupt:
-		stopLED = True
-		print("Stopping...")
-		pixels.fill(off)
-		time.sleep(2)
-		sys.exit()
 	except:
 		print ("The map crashed with an error")
 		pixels.fill(off)
@@ -441,8 +424,14 @@ def timeKeeper():		#This... keeps the time... Every minute, it calls chronos(), 
 		raise
 
 def startTimeKeeper():
-	threading.Thread(target=timeKeeper).start()
-	print("Start the clock!")
+	try:
+		pleaseWork = threading.Thread(target=timeKeeper)
+		pleaseWork.start()
+		print("Start the clock!")
+		pleaseWork.join()
+	except KeyboardInterrupt:
+		print("\n\n\n======== Stopping the System ========")
+		stopLED.set()
 
 try:
 	ingest()
@@ -450,12 +439,6 @@ try:
 	digest()
 	startTimeKeeper()
 
-except KeyboardInterrupt:
-	stopLED = True
-	print("Stopping...")
-	pixels.fill(off)
-	time.sleep(2)
-	sys.exit()
 except:
 	print ("The map crashed with an error")
 	pixels.fill(off)
