@@ -15,11 +15,11 @@ import random
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
 debugSet = False
-DEBUG_TIME_SET = 2258
-DEBUG_DAY = "Tuesday"
+DEBUG_TIME_SET = 100
+DEBUG_DAY = "Saturday"
 
 # Enable "Night Mode" - Map turns off during the time specified.
-enableNightMode = False
+enableNightMode = True
 nightModeStart = 2230
 nightModeEnd = 700
 
@@ -133,7 +133,7 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 			forceContinue = False	#and loads it.
 			if masstime_database[parish[0]][weekday] is not None:
 				for _time in masstime_database[parish[0]][weekday].split(','):
-					workingTime = datetime.strptime(str(int(_time)), "%H%M")
+					workingTime = datetime.strptime(str(int(_time)).zfill(3), "%H%M")
 					workingEndTime = workingTime + timedelta(minutes=liturgyDuration)
 					workingTime_int = int(workingTime.strftime("%-H%M"))
 					workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
@@ -149,7 +149,7 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 				var = confession_database[parish[0]][weekday].split(',')
 				for _time in var[::2]:
 					orig_length = int(var[var.index(_time) + 1])
-					workingTime = datetime.strptime(str(int(_time)), "%H%M")
+					workingTime = datetime.strptime(str(int(_time)).zfill(3), "%H%M")
 					workingEndTime = workingTime + timedelta(minutes=orig_length)
 					workingTime_int = int(workingTime.strftime("%-H%M"))
 					workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
@@ -165,7 +165,7 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 				var = adoration_database[parish[0]][weekday].split(',')
 				for _time in var[::2]:
 					orig_length = int(var[var.index(_time) + 1])
-					workingTime = datetime.strptime(str(int(_time)), "%H%M")
+					workingTime = datetime.strptime(str(int(_time)).zfill(3), "%H%M")
 					workingEndTime = workingTime + timedelta(minutes=orig_length)
 					workingTime_int = int(workingTime.strftime("%-H%M"))
 					workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
@@ -389,6 +389,7 @@ def timeKeeper():		#This... keeps the time... Every minute, it calls chronos(), 
 		global DEBUG_TIME
 		global inhibit
 		inhibit = False
+		inhibitLatch = False
 		DEBUG_TIME = datetime.strptime(str(DEBUG_TIME_SET), "%H%M")
 		bootstrap()
 		print("======== Letting Things Settle... ========")
@@ -399,10 +400,14 @@ def timeKeeper():		#This... keeps the time... Every minute, it calls chronos(), 
 				if enableNightMode == True:
 					if int(storedTime) >= nightModeStart or int(storedTime) <= nightModeEnd:
 						inhibit = True
+						inhibitLatch = True
 						time.sleep(0.1)
 						pixels.fill(off)
 					else:
 						inhibit = False
+						if inhibitLatch == True:
+							inhibitLatch = False
+							bootstrap()
 				chronos()
 				print("Time Keeper Cycled")
 			time.sleep(1)
@@ -416,6 +421,11 @@ def timeKeeper():		#This... keeps the time... Every minute, it calls chronos(), 
 			chronos()
 			time.sleep(0.1)
 			DEBUG_TIME = DEBUG_TIME + timedelta(minutes=1)
+			if stopLED.isSet() == True:
+				print("======== Powering Off LEDs ========")
+				time.sleep(1)
+				pixels.fill(off)
+				break
 
 	except:
 		print ("The map crashed with an error")
