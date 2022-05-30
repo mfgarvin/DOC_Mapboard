@@ -14,9 +14,9 @@ import random
 
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
-debugSet = False
-DEBUG_TIME_SET = 100
-DEBUG_DAY = "Saturday"
+debugSet = True
+DEBUG_TIME_SET = 759
+DEBUG_DAY = "Sunday"
 
 # Enable "Night Mode" - Map turns off during the time specified.
 enableNightMode = True
@@ -26,13 +26,13 @@ nightModeEnd = 700
 #Variables we need to set go here:
 stopLED = threading.Event()
 JSON_LOCATION="./live.json"
-LED_ALLOCATION="./leds.txt"
+LED_ALLOCATION="./leds.json"
 DAYS=["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 WEEKDAYS=["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 WEEKEND=["Saturday", "Sunday"]
 ledStatus = {}
 ledStatusStore = {}
-pixels = neopixel.NeoPixel(board.D21, 200, pixel_order=neopixel.RGB, brightness = 0.1)
+pixels = neopixel.NeoPixel(board.D21, 400, pixel_order=neopixel.RGB, brightness = 1)
 quietLED = []
 adorationLockout = []
 
@@ -92,14 +92,16 @@ def digest():
 def setID():
 	global allocation
 	#creating a 2D array for the following data
-	rows, cols = (191, 3)
+	rows, cols = (190, 3)
 	allocation = [[0 for i in range(cols)] for j in range(rows)]
 	try:
 		for key, id in iddict.items(): 		# key = parish name
 			allocation[id["ID"] - 1][0] = key
 			allocation[id["ID"] - 1][1] = id["ID"]
-#			allocation[id["ID"] - 1][2] = leddict.get(key) #LED Assignment
-			allocation[id["ID"] - 1][2] = id["ID"] # TEMPORARY! FOR TESTING
+			allocation[id["ID"] - 1][2] = leddict.get(key) #LED Assignment
+#			allocation[id["ID"] - 1][2] = id["ID"] # TEMPORARY! FOR TESTING
+			if leddict.get(key)is None:
+				print(key, leddict.get(key))
 	except KeyError as e:
 		if str(e) == 0:
 			print("Key Error 0 on SetID, continuing")
@@ -119,8 +121,6 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 		currentTime = dt.datetime.now()
 		hTime = int(currentTime.strftime("%-H%M"))
 		weekday = currentTime.strftime("%A")
-
-#	print(weekday, hTime)
 
 	#Defining Duration
 	if weekday in WEEKDAYS:
@@ -271,7 +271,7 @@ def chronos():
 
 		except KeyError as e:		# Expected - At the end of the list.
 			if str(e) == "0":
-				print("Cycled through all the parishes")
+#				print("Cycled through all the parishes")
 				pass
 			else:
 				raise
@@ -285,17 +285,18 @@ def display(id, state, duration):
 	global quietLED
 	if id == "clean":	#Cleaning the board of outdated data.
 		now = currentTime
-		for value in list(ledStatus):
-			if ledStatus[value] is None:
-				continue
-			else:
+		for value in list(ledStatus):			#Value = ID!
+			if ledStatus[value] is not None:
 				endtime = ledStatus[value][4]
 				if endtime != "24h":			#Future me - this will probably break things, e.g. indicating Mass on top of adoration
-					if now >= endtime:		#However, as of 5/18, it hasn't... ¯\_(ツ)_/¯
+					if now > endtime:		#However, as of 5/18, it hasn't... ¯\_(ツ)_/¯
+						print("Hey, something happened and value", value, "is past its endtime.")
+					if now == endtime:
 						ledStatus.pop(value)
-#						print("deleting ", value)
+						print("deleting ", value)
 						for n in range(adorationLockout.count(value)):
 							adorationLockout.remove(value)
+		time.sleep(0.2)
 	elif id != "update":	# Runs with the ifs and elifs in the try clause under chronos():
 		if (duration == "24h"):
 			timeStop = currentTime + timedelta(weeks=52) #Soo... turn off the led in 1 year
@@ -306,14 +307,15 @@ def display(id, state, duration):
 				#Check ledStatus and see what's new - In other words, look for a change and act accordingly.
 	if id == "update":	#Runs only when all parishes have been cycled through
 		if ledStatus != ledStatusStore:
-			for key in list(ledStatus):
-				try:
-					time.sleep(0.01)	# \/ If an LED is already on, and something else is being commanded of it, first turn it off.
+			for key in list(ledStatus):				#Key = ID!
+				try:				# \/ If an LED is already on, and something else is being commanded of it, first turn it off.
 					if ledStatusStore.setdefault(key) is not None and ledStatus[key] != ledStatusStore[key]:
+#						print("LED off w/something new")
 						ledStatusStore.pop(key)
 						quietLED.append(key)
+						time.sleep(0.01)
 								# \/ If an LED is off and something wants it on, turn it on and log/store it
-					if ledStatusStore.setdefault(key) is None:
+					if ledStatusStore.setdefault(key) is None and ledStatus[key] != ledStatusStore[key]:
 						ledStatusStore[key] = ledStatus.get(key)
 						if ledStatus[key] is not None: #Don't run a NoneType... That causes issues
 							threading.Thread(target=driver, args=(ledStatus[key][0], ledStatus[key][1], key)).start()
@@ -322,12 +324,15 @@ def display(id, state, duration):
 					raise
 			for key in list(ledStatusStore):	# \/ If an LED is being set to off, turn it off.
 				if ledStatus.setdefault(key) is None and ledStatusStore.setdefault(key) is not None:
+#					print("Led off in update")
 					ledStatusStore.pop(key)
 					quietLED.append(key)
+#					print("set quietLED with ID:", key)
 
 def driver(led, state, id):
 	#This is a Thread
-#	print ("Starting", state, "indicator on LED", led)
+#	print ("Starting", state, "indicator on LED", led, "with id", id)
+	time.sleep(1) #To prevent a race condition, where a new thread follows commands (in quietLED) for an old thread
 	updated = False
 	randomint = random.randint(-7, 7)
 	if (state == "adoration"):
@@ -344,31 +349,33 @@ def driver(led, state, id):
 		pass
 	while inhibit == False and stopLED.isSet() == False:
 		try:
-			time.sleep(0.01)
-			if (updated == True):
+			if quietLED.count(id) >= 1:	# Turns off an LED
+				pixels[led] = off
+				quietLED.remove(id)
+				if debugSet == True:
+					print("off:", led, "Updated Status:", updated)
+#				time.sleep(0.1)
+				break
+			elif (updated == True):
 				time.sleep(0.1)
 				pass
 			elif (style == "solid"):				# Sets an LED to a solid color
-				time.sleep(0.01)
+#				time.sleep(0.01)
 				pixels[led] = color
 				if debugSet == True:
 					print("solid:", led)
 				updated = True
 			elif (style == "pulse"):				# Sets an LED to pulse
-				time.sleep(0.01)
+#				time.sleep(0.01)
 				cos = breathingEffect(randomint)
 				livecolor = (int(color[0] * cos), int(color[1] * cos), int(color[2] * cos))
 				pixels[led] = livecolor
 				pass
-			if quietLED.count(led) >= 1 or quietLED == "all":	# Turns off an LED
-				pixels[led] = off
-				quietLED.remove(led)
-				if debugSet == True:
-					print("off:", led)
-				break
-		except ValueError: #These are intermittent and random. I'd like to fix them, but they don't seem to cause much of an issue.
+		except ValueError as e: #These are intermittent and random. I'd like to fix them, but they don't seem to cause much of an issue.
 			print("######## Value Error!:", led, state, id, "########") #Only happens if it tries to turn off an LED, but it's already off.
-			pass
+			#just in case...
+			pixels[led] = off
+			raise
 	while inhibit == True:
 		break
 
@@ -430,7 +437,7 @@ def timeKeeper():		#This... keeps the time... Every minute, it calls chronos(), 
 	except:
 		print ("The map crashed with an error")
 		pixels.fill(off)
-		pixels[0] = (150, 0, 0)
+		pixels[99] = (150, 0, 0)
 		raise
 
 def startTimeKeeper():
@@ -442,6 +449,8 @@ def startTimeKeeper():
 	except KeyboardInterrupt:
 		print("\n\n\n======== Stopping the System ========")
 		stopLED.set()
+		if debugSet == True:
+			print("======== Press Enter to Continue With the Shutdown ========")
 
 try:
 	ingest()
@@ -452,7 +461,7 @@ try:
 except:
 	print ("The map crashed with an error")
 	pixels.fill(off)
-	pixels[0] = (150, 0, 0)
+	pixels[99] = (150, 0, 0)
 	raise
 '''
 To do:
@@ -464,5 +473,6 @@ LCD Character Display w/status
 Different modes? Number of priests, parish size, etc.
 Implement proper logging
 Implement safe json verification
+Add way to "restart" adoration after mass or confession, if not 24h
 '''
 
