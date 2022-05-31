@@ -15,8 +15,8 @@ import random
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
 debugSet = True
-DEBUG_TIME_SET = 759
-DEBUG_DAY = "Sunday"
+DEBUG_TIME_SET = 1103
+DEBUG_DAY = "Monday"
 
 # Enable "Night Mode" - Map turns off during the time specified.
 enableNightMode = True
@@ -139,7 +139,7 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 					workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
 #					print(workingTime_int, workingEndTime_int)
 					if workingTime_int <= hTime <= workingEndTime_int:
-						newDuration = workingEndTime - workingTime
+						newDuration = workingEndTime - currentTime
 #						print("Running for:", newDuration, newDuration.total_seconds() / 60)
 						display(parish[1], "mass", newDuration.total_seconds() / 60)
 						adorationLockout.append(parish[1])
@@ -155,7 +155,7 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 					workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
 #					print(workingTime_int, workingEndTime_int)
 					if workingTime_int <= hTime <= workingEndTime_int:
-						newDuration = workingEndTime - workingTime
+						newDuration = workingEndTime - currentTime
 #						print("Running for:", newDuration, newDuration.total_seconds() / 60)
 						display(parish[1], "confession", newDuration.total_seconds() / 60)
 						adorationLockout.append(parish[1])
@@ -171,7 +171,7 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 					workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
 #					print(workingTime_int, workingEndTime_int)
 					if workingTime_int <= hTime <= workingEndTime_int:
-						newDuration = workingEndTime - workingTime
+						newDuration = workingEndTime - currentTime
 #						print("Running for:", newDuration, newDuration.total_seconds() / 60)
 						display(parish[1], "adoration", newDuration.total_seconds() / 60)
 						length = int(var[var.index(_time) + 1])
@@ -284,13 +284,15 @@ def chronos():
 def display(id, state, duration):
 	global quietLED
 	if id == "clean":	#Cleaning the board of outdated data.
-		now = currentTime
+		now = int(currentTime.strftime("%-H%M").zfill(3))
 		for value in list(ledStatus):			#Value = ID!
 			if ledStatus[value] is not None:
 				endtime = ledStatus[value][4]
-				if endtime != "24h":			#Future me - this will probably break things, e.g. indicating Mass on top of adoration
-					if now > endtime:		#However, as of 5/18, it hasn't... ¯\_(ツ)_/¯
-						print("Hey, something happened and value", value, "is past its endtime.")
+				if endtime != "24h":
+					endtime = int(endtime.strftime("%-H%M"))	#Future me - this will probably break things, e.g. indicating Mass on top of adoration
+#					if now > endtime:		#However, as of 5/18, it hasn't... ¯\_(ツ)_/¯
+#						if state != "adoration":
+#							print("Hey, something happened and value", value, "is past its endtime.")
 					if now == endtime:
 						ledStatus.pop(value)
 						print("deleting ", value)
@@ -299,7 +301,7 @@ def display(id, state, duration):
 		time.sleep(0.2)
 	elif id != "update":	# Runs with the ifs and elifs in the try clause under chronos():
 		if (duration == "24h"):
-			timeStop = currentTime + timedelta(weeks=52) #Soo... turn off the led in 1 year
+			timeStop = currentTime + timedelta(minutes=1339) #Soo... turn off the led in 1 day - 1 minute
 			ledStatus[id] = [allocation[id - 1][2], state, currentTime, 0, timeStop]
 		else:
 			timeStop = currentTime + timedelta(minutes=duration)
