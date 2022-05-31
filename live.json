@@ -5519,7 +5519,7 @@
       "Website": null,
       "Other Notes": null
    },
-   "St. Mary, Cleveland": {
+   "St. Mary, Cleveland (Collonwood)": {
       "ID": 139,
       "Mass Times": {
          "Saturday": "745, 1700",
@@ -5799,48 +5799,8 @@
       "Website": null,
       "Other Notes": null
    },
-   "St. Mary of the Assumption, Collonwood": {
-      "ID": 146,
-      "Mass Times": {
-         "Saturday": "745, 1700",
-         "Sunday": "800, 1000, 1200",
-         "Monday": "745",
-         "Tuesday": "745",
-         "Wednesday": "745",
-         "Thursday": "745",
-         "Friday": "745"
-      },
-      "Holy Day": {
-         "Vigil": null,
-         "Day Of": null
-      },
-      "Confessions": {
-         "Placeholder": "Sat 4-4:45",
-         "Saturday": "1600, 45",
-         "Sunday": null,
-         "Monday": null,
-         "Tuesday": null,
-         "Wednesday": null,
-         "Thursday": null,
-         "Friday": null
-      },
-      "Adoration": {
-         "Placeholder": null,
-         "Is24hour": null,
-         "Saturday": null,
-         "Sunday": null,
-         "Monday": null,
-         "Tuesday": null,
-         "Wednesday": null,
-         "Thursday": null,
-         "Friday": null
-      },
-      "Rosary": null,
-      "Website": null,
-      "Other Notes": null
-   },
    "St. Mary of the Falls, Olmsted Falls": {
-      "ID": 147,
+      "ID": 146,
       "Mass Times": {
          "Saturday": "1700",
          "Sunday": "830, 1100, 1700",
@@ -5880,7 +5840,7 @@
       "Other Notes": null
    },
    "St. Mary of the Immaculate Conception, Avon": {
-      "ID": 148,
+      "ID": 147,
       "Mass Times": {
          "Saturday": "830, 1600",
          "Sunday": "800, 1000, 1200",
@@ -5920,7 +5880,7 @@
       "Other Notes": null
    },
    "St. Mary of the Immaculate Conception, Wooster": {
-      "ID": 149,
+      "ID": 148,
       "Mass Times": {
          "Saturday": "1700",
          "Sunday": "800, 1000, 1730",
@@ -5960,7 +5920,7 @@
       "Other Notes": null
    },
    "St. Matthias, Parma": {
-      "ID": 150,
+      "ID": 149,
       "Mass Times": {
          "Saturday": "1600 ",
          "Sunday": "1000 ",
@@ -6000,7 +5960,7 @@
       "Other Notes": null
    },
    "St. Mel, Cleveland": {
-      "ID": 151,
+      "ID": 150,
       "Mass Times": {
          "Saturday": "1630 ",
          "Sunday": "700, 1000",
@@ -6040,7 +6000,7 @@
       "Other Notes": null
    },
    "St. Michael, Independence": {
-      "ID": 152,
+      "ID": 151,
       "Mass Times": {
          "Saturday": "1630 ",
          "Sunday": "800, 1000, 1200",
@@ -6080,7 +6040,7 @@
       "Other Notes": null
    },
    "St. Michael the Archangel, Cleveland": {
-      "ID": 153,
+      "ID": 152,
       "Mass Times": {
          "Saturday": "1700, 1900",
          "Sunday": "945, 1200",
@@ -6120,7 +6080,7 @@
       "Other Notes": null
    },
    "St. Monica, Garfield Heights": {
-      "ID": 154,
+      "ID": 153,
       "Mass Times": {
          "Saturday": "1600 ",
          "Sunday": "900, 1045",
@@ -6160,7 +6120,7 @@
       "Other Notes": null
    },
    "St. Noel, Willoughby": {
-      "ID": 155,
+      "ID": 154,
       "Mass Times": {
          "Saturday": "1700",
          "Sunday": "900, 1100",
@@ -6200,7 +6160,7 @@
       "Other Notes": null
    },
    "St. Paschal Baylon, Highland Heights": {
-      "ID": 156,
+      "ID": 155,
       "Mass Times": {
          "Saturday": "900, 1630",
          "Sunday": "830, 1030, 1830",
@@ -6240,7 +6200,7 @@
       "Other Notes": null
    },
    "St. Patrick, Cleveland (Bridge)": {
-      "ID": 157,
+      "ID": 156,
       "Mass Times": {
          "Saturday": "1630 ",
          "Sunday": "830, 1100",
@@ -6280,7 +6240,7 @@
       "Other Notes": null
    },
    "St. Patrick, Cleveland (Rocky River)": {
-      "ID": 158,
+      "ID": 157,
       "Mass Times": {
          "Saturday": "1630 ",
          "Sunday": "1100 ",
@@ -6320,7 +6280,7 @@
       "Other Notes": null
    },
    "St. Patrick, Thompson": {
-      "ID": 159,
+      "ID": 158,
       "Mass Times": {
          "Saturday": "1600",
          "Sunday": "930",
@@ -6360,7 +6320,7 @@
       "Other Notes": null
    },
    "St. Patrick, Wellington": {
-      "ID": 160,
+      "ID": 159,
       "Mass Times": {
          "Saturday": "1800",
          "Sunday": "815",
@@ -6400,7 +6360,7 @@
       "Other Notes": null
    },
    "St. Paul, Akron": {
-      "ID": 161,
+      "ID": 160,
       "Mass Times": {
          "Saturday": "1630",
          "Sunday": "800, 930, 1130",
@@ -6440,7 +6400,7 @@
       "Other Notes": null
    },
    "St. Paul, Cleveland": {
-      "ID": 162,
+      "ID": 161,
       "Mass Times": {
          "Saturday": "715, 800, 830, 1700",
          "Sunday": "700, 830, 1000, 1200",
@@ -6480,7 +6440,7 @@
       "Other Notes": null
    },
    "St. Peter, Cleveland": {
-      "ID": 163,
+      "ID": 162,
       "Mass Times": {
          "Saturday": null,
          "Sunday": "1130, 1900",
@@ -6520,7 +6480,7 @@
       "Other Notes": null
    },
    "St. Peter, Lorain": {
-      "ID": 164,
+      "ID": 163,
       "Mass Times": {
          "Saturday": "1600",
          "Sunday": "900, 1100",
@@ -6560,7 +6520,7 @@
       "Other Notes": null
    },
    "St. Peter, Loudonville": {
-      "ID": 165,
+      "ID": 164,
       "Mass Times": {
          "Saturday": "1700",
          "Sunday": "900",
@@ -6600,7 +6560,7 @@
       "Other Notes": null
    },
    "St. Peter, North Ridgeville": {
-      "ID": 166,
+      "ID": 165,
       "Mass Times": {
          "Saturday": "1700",
          "Sunday": "600, 800, 1000, 1200",
@@ -6640,7 +6600,7 @@
       "Other Notes": null
    },
    "St. Raphael, Bay Village": {
-      "ID": 167,
+      "ID": 166,
       "Mass Times": {
          "Saturday": "1630 ",
          "Sunday": "800, 1000, 1200",
@@ -6680,7 +6640,7 @@
       "Other Notes": null
    },
    "St. Richard, North Olmsted": {
-      "ID": 168,
+      "ID": 167,
       "Mass Times": {
          "Saturday": "1630 ",
          "Sunday": "700, 900, 1100",
@@ -6720,7 +6680,7 @@
       "Other Notes": null
    },
    "St. Rita, Solon": {
-      "ID": 169,
+      "ID": 168,
       "Mass Times": {
          "Saturday": "1700",
          "Sunday": "715, 845, 1030, 1215",
@@ -6760,7 +6720,7 @@
       "Other Notes": null
    },
    "St. Rocco, Cleveland": {
-      "ID": 170,
+      "ID": 169,
       "Mass Times": {
          "Saturday": "645, 845, 1600",
          "Sunday": "730, 930, 1200",
@@ -6800,7 +6760,7 @@
       "Other Notes": null
    },
    "St. Sebastian, Akron": {
-      "ID": 171,
+      "ID": 170,
       "Mass Times": {
          "Saturday": "800, 1630",
          "Sunday": "900, 1100, 1300",
@@ -6840,7 +6800,7 @@
       "Other Notes": null
    },
    "St. Stanislaus, Cleveland": {
-      "ID": 172,
+      "ID": 171,
       "Mass Times": {
          "Saturday": "830, 1700",
          "Sunday": "830, 1000, 1130",
@@ -6880,7 +6840,7 @@
       "Other Notes": null
    },
    "St. Stephen, Cleveland": {
-      "ID": 173,
+      "ID": 172,
       "Mass Times": {
          "Saturday": "1700",
          "Sunday": "800, 930, 1100, 1700",
@@ -6920,7 +6880,7 @@
       "Other Notes": null
    },
    "St. Stephen, West Salem": {
-      "ID": 174,
+      "ID": 173,
       "Mass Times": {
          "Saturday": "1600",
          "Sunday": "1000",
@@ -6960,7 +6920,7 @@
       "Other Notes": null
    },
    "St. Therese, Garfield Heights": {
-      "ID": 175,
+      "ID": 174,
       "Mass Times": {
          "Saturday": "1730 ",
          "Sunday": "1030 ",
@@ -6999,8 +6959,8 @@
       "Website": null,
       "Other Notes": null
    },
-   "St. Theresa of Avila, Sheffield ": {
-      "ID": 176,
+   "St. Theresa of Avila, Sheffield": {
+      "ID": 175,
       "Mass Times": {
          "Saturday": "1630",
          "Sunday": "830, 1100",
@@ -7040,7 +7000,7 @@
       "Other Notes": null
    },
    "St. Thomas, Sheffield Lake": {
-      "ID": 177,
+      "ID": 176,
       "Mass Times": {
          "Saturday": "900, 1600",
          "Sunday": "1000",
@@ -7080,7 +7040,7 @@
       "Other Notes": null
    },
    "St. Thomas More, Brooklyn": {
-      "ID": 178,
+      "ID": 177,
       "Mass Times": {
          "Saturday": "815, 1630",
          "Sunday": "900, 1100",
@@ -7120,7 +7080,7 @@
       "Other Notes": null
    },
    "St. Victor, Richfield": {
-      "ID": 179,
+      "ID": 178,
       "Mass Times": {
          "Saturday": "1700",
          "Sunday": "845, 1130",
@@ -7160,7 +7120,7 @@
       "Other Notes": null
    },
    "St. Vincent de Paul, Akron": {
-      "ID": 180,
+      "ID": 179,
       "Mass Times": {
          "Saturday": "1700",
          "Sunday": "830, 1100",
@@ -7200,7 +7160,7 @@
       "Other Notes": null
    },
    "St. Vincent de Paul, Cleveland": {
-      "ID": 181,
+      "ID": 180,
       "Mass Times": {
          "Saturday": "1700 ",
          "Sunday": "900 ",
@@ -7240,7 +7200,7 @@
       "Other Notes": null
    },
    "St. Vincent de Paul, Elyria": {
-      "ID": 182,
+      "ID": 181,
       "Mass Times": {
          "Saturday": "1600",
          "Sunday": "800, 1000, 1200",
@@ -7280,7 +7240,7 @@
       "Other Notes": null
    },
    "St. Vitus, Cleveland": {
-      "ID": 183,
+      "ID": 182,
       "Mass Times": {
          "Saturday": "1600 ",
          "Sunday": "900, 1030",
@@ -7320,7 +7280,7 @@
       "Other Notes": null
    },
    "St. Wendelin, Cleveland": {
-      "ID": 184,
+      "ID": 183,
       "Mass Times": {
          "Saturday": "1630 ",
          "Sunday": "1000 ",
@@ -7360,7 +7320,7 @@
       "Other Notes": null
    },
    "Ss. Cosmas and Damian, Twinsburg": {
-      "ID": 185,
+      "ID": 184,
       "Mass Times": {
          "Saturday": "1600",
          "Sunday": "900, 1100",
@@ -7400,7 +7360,7 @@
       "Other Notes": null
    },
    "Ss. Peter and Paul, Doylestown": {
-      "ID": 186,
+      "ID": 185,
       "Mass Times": {
          "Saturday": "1600",
          "Sunday": "830, 1100",
@@ -7440,7 +7400,7 @@
       "Other Notes": null
    },
    "Ss. Peter and Paul, Garfield Heights": {
-      "ID": 187,
+      "ID": 186,
       "Mass Times": {
          "Saturday": "1600 ",
          "Sunday": "830 ",
@@ -7480,7 +7440,7 @@
       "Other Notes": null
    },
    "Ss. Robert and William, Euclid": {
-      "ID": 188,
+      "ID": 187,
       "Mass Times": {
          "Saturday": "830, 1600",
          "Sunday": "900, 1130, 1800",
@@ -7520,7 +7480,7 @@
       "Other Notes": null
    },
    "Transfiguration, Lakewood": {
-      "ID": 189,
+      "ID": 188,
       "Mass Times": {
          "Saturday": "1600 ",
          "Sunday": "900 ",
@@ -7560,7 +7520,7 @@
       "Other Notes": null
    },
    "Queen of Heaven, Uniontown": {
-      "ID": 190,
+      "ID": 189,
       "Mass Times": {
          "Saturday": "830, 1630",
          "Sunday": "815, 1100",
