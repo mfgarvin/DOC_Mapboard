@@ -14,9 +14,9 @@ import random
 
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
-debugSet = True
-DEBUG_TIME_SET = 1103
-DEBUG_DAY = "Monday"
+debugSet = False
+DEBUG_TIME_SET = 855
+DEBUG_DAY = "Sunday"
 
 # Enable "Night Mode" - Map turns off during the time specified.
 enableNightMode = True
@@ -32,7 +32,7 @@ WEEKDAYS=["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 WEEKEND=["Saturday", "Sunday"]
 ledStatus = {}
 ledStatusStore = {}
-pixels = neopixel.NeoPixel(board.D21, 400, pixel_order=neopixel.RGB, brightness = 1)
+pixels = neopixel.NeoPixel(board.D21, 400, pixel_order=neopixel.RGB, brightness = 0.5)
 quietLED = []
 adorationLockout = []
 
@@ -107,10 +107,52 @@ def setID():
 			print("Key Error 0 on SetID, continuing")
 			pass
 
-def bootstrap(): 	#This will look very similar to chronos() below, though it serves a different purpose.
-	print("======== BOOTSTRAP START ========")
+def restart(parishID): 	# Restarting Adoration indicators (say if an event interrupts all day adoration, this is how it'll resume)
 	global currentTime
 	global adorationLockout
+#	print("Attempting to restart", parishID)
+	if debugSet == True:
+		currentTime = DEBUG_TIME
+		hTime = int(currentTime.strftime("%-H%M"))
+		weekday = DEBUG_DAY
+	else:
+		currentTime = dt.datetime.now()
+		hTime = int(currentTime.strftime("%-H%M"))
+		weekday = currentTime.strftime("%A")
+
+	for parish in allocation.copy():
+		if parish[1] == parishID:
+			parishData = parish
+
+	if adoration_database[parishData[0]][weekday] is not None:
+		var = adoration_database[parishData[0]][weekday].split(',')
+		for _time in var[::2]:
+			orig_length = int(var[var.index(_time) + 1])
+			workingTime = datetime.strptime(str(int(_time)).zfill(3), "%H%M")
+			workingEndTime = workingTime + timedelta(minutes=orig_length)
+			workingTime_int = int(workingTime.strftime("%-H%M"))
+			workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
+#			print(workingTime_int, workingEndTime_int)
+			if workingTime_int <= hTime <= workingEndTime_int:
+				newDuration = workingEndTime - currentTime
+				if debugSet == True:
+					print("Restarting Adoration at", parish, "for", newDuration)
+				display(parish[1], "adoration", newDuration.total_seconds() / 60)
+				length = int(var[var.index(_time) + 1])
+				adorationLockout.append(parish[1])
+				forceContinue = True
+				continue
+			if adoration_database[parishData[0]]["Is24hour"] is True and forceContinue == False and adorationLockout.count(parish[1]) == 0:
+				display(parish[1], "adoration", "24h")
+				adorationLockout.append(parish[1])
+				continue
+			else:
+				pass
+
+def bootstrap(): 	#This will look very similar to chronos() below, though it serves a different purpose.
+	global currentTime
+	global adorationLockout
+	print("======== BOOTSTRAP START ========")
 	if debugSet == True:
 		currentTime = DEBUG_TIME
 		hTime = int(currentTime.strftime("%-H%M"))
@@ -140,7 +182,8 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 #					print(workingTime_int, workingEndTime_int)
 					if workingTime_int <= hTime <= workingEndTime_int:
 						newDuration = workingEndTime - currentTime
-#						print("Running for:", newDuration, newDuration.total_seconds() / 60)
+						if debugSet == True:
+							print("Mass at", parish, "for", newDuration)
 						display(parish[1], "mass", newDuration.total_seconds() / 60)
 						adorationLockout.append(parish[1])
 						forceContinue = True
@@ -156,7 +199,8 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 #					print(workingTime_int, workingEndTime_int)
 					if workingTime_int <= hTime <= workingEndTime_int:
 						newDuration = workingEndTime - currentTime
-#						print("Running for:", newDuration, newDuration.total_seconds() / 60)
+						if debugSet == True:
+							print("Confession at", parish, "for", newDuration)
 						display(parish[1], "confession", newDuration.total_seconds() / 60)
 						adorationLockout.append(parish[1])
 						forceContinue = True
@@ -172,11 +216,13 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 #					print(workingTime_int, workingEndTime_int)
 					if workingTime_int <= hTime <= workingEndTime_int:
 						newDuration = workingEndTime - currentTime
-#						print("Running for:", newDuration, newDuration.total_seconds() / 60)
+						if debugSet == True:
+							print("Adoration at", parish, "for", newDuration)
 						display(parish[1], "adoration", newDuration.total_seconds() / 60)
 						length = int(var[var.index(_time) + 1])
 						adorationLockout.append(parish[1])
 						forceContinue = True
+#						print("Adoration Length:", workingEndTime, currentTime, workingEndTime_int, newDuration.total_seconds())
 						continue
 			if adoration_database[parish[0]]["Is24hour"] is True and forceContinue == False and adorationLockout.count(parish[1]) == 0:
 				display(parish[1], "adoration", "24h")
@@ -235,6 +281,8 @@ def chronos():
 					if hTime == int(_time):
 						display(parish[1], "mass", liturgyDuration)
 						adorationLockout.append(parish[1])
+						if debugSet == True:
+							print("Calling for Mass at", parish[1])
 						forceContinue = True
 						continue
 			if confession_database[parish[0]][weekday] is not None and forceContinue == False: #Confession times
@@ -243,6 +291,8 @@ def chronos():
 					if hTime == int(_time):
 						length = int(var[var.index(_time) + 1])
 						display(parish[1], "confession", length)
+						if debugSet == True:
+							print("Calling for Confession at", parish[1])
 						adorationLockout.append(parish[1])
 						forceContinue = True
 						continue
@@ -252,6 +302,8 @@ def chronos():
 					if hTime == int(_time):
 						length = int(var[var.index(_time) + 1])
 						display(parish[1], "adoration", length)
+						if debugSet == True:
+							print("Calling for Adoration at", parish[1])
 						forceContinue = True
 						adorationLockout.append(parish[1])
 						continue
@@ -306,6 +358,7 @@ def display(id, state, duration):
 		else:
 			timeStop = currentTime + timedelta(minutes=duration)
 			ledStatus[id] = [allocation[id - 1][2], state, currentTime, duration, timeStop]
+#			print(ledStatus[id])
 				#Check ledStatus and see what's new - In other words, look for a change and act accordingly.
 	if id == "update":	#Runs only when all parishes have been cycled through
 		if ledStatus != ledStatusStore:
@@ -329,7 +382,11 @@ def display(id, state, duration):
 #					print("Led off in update")
 					ledStatusStore.pop(key)
 					quietLED.append(key)
-#					print("set quietLED with ID:", key)
+					#Waiting for the led to be off / for it to no longer be in the list before continuing
+					while quietLED.count(key) >= 1:
+						time.sleep(0.01)
+					print("set quietLED with ID:", key)
+					restart(key)
 
 def driver(led, state, id):
 	#This is a Thread
@@ -355,7 +412,7 @@ def driver(led, state, id):
 				pixels[led] = off
 				quietLED.remove(id)
 				if debugSet == True:
-					print("off:", led, "Updated Status:", updated)
+					print("off:", led, "Updated Status:", updated, "ID:", id)
 #				time.sleep(0.1)
 				break
 			elif (updated == True):
