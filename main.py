@@ -12,6 +12,7 @@ import neopixel
 import math
 import random
 import logging
+import mailer
 
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
@@ -395,6 +396,7 @@ def display(id, state, duration):
 							logging.error('Enumerated list of threads: %s', threading.enumerate())
 #							print(threading.current_thread())
 #							print(threading.get_ident())
+							mailer.sendmail("MB Hung Thread", "A thread has hung.")
 							break
 					logging.info('set quietLED with ID: %s', key)
 					restart(key)
@@ -445,8 +447,10 @@ def driver(led, state, id):
 				pass
 		except ValueError as e: #These are intermittent and random. I'd like to fix them, but they don't seem to cause much of an issue.
 			logging.error('~~~~~ Value Error!: %s  %s  %s ~~~~~', led, state, id) #Only happens if it tries to turn off an LED, but it's already off.
+			logging.error('Details: %s', e)
 			#just in case...
 			pixels[led] = off
+			mailer.sendmail("MB Value Error", "There's been a value error. Check the logs for more info")
 			raise
 	while inhibit == True:
 		break
@@ -510,6 +514,7 @@ def timeKeeper():		#This... keeps the time... Every minute, it calls chronos(), 
 		logging.critical("The map crashed with an error")
 		pixels.fill(off)
 		pixels[99] = (150, 0, 0)
+		mailer.sendmail("Mapboard Error", "The mapboard is down due to an unspecified error.")
 		raise
 
 def startTimeKeeper():
@@ -533,6 +538,7 @@ except:
 	logging.error("The map crashed with an error")
 	pixels.fill(off)
 	pixels[99] = (150, 0, 0)
+	mailer.sendmail("Mapboard Error", "The mapboard is down due to an unspecified error.")
 	raise
 '''
 To do:
