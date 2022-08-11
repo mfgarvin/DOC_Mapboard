@@ -1,0 +1,228 @@
+{
+  "Our Lady of the Programmers": {
+    "ID": 1,
+    "Mass Times": {
+      "Saturday": 1600,
+      "Sunday": [
+        730,
+        900,
+        1100,
+        1700
+      ],
+      "Monday": 800,
+      "Tuesday": 800,
+      "Wednesday": 800,
+      "Thursday": 800,
+      "Friday": 1545
+    },
+    "Eucharistic Adoration": {
+      "is24hr": false,
+      "Saturday": null,
+      "Sunday": null,
+      "Monday": null,
+      "Tuesday": null,
+      "Wednesday": null,
+      "Thursday": {
+        "900": 720
+      },
+      "Friday": null
+    },
+    "Confessions": {
+      "Saturday": {
+        "1500": 60
+      },
+      "Sunday": null,
+      "Monday": null,
+      "Tuesday": null,
+      "Wednesday": null,
+      "Thursday": null,
+      "Friday": null
+    },
+    "Rosary": {
+      "Saturday": null,
+      "Sunday": null,
+      "Monday": null,
+      "Tuesday": null,
+      "Wednesday": null,
+      "Thursday": null,
+      "Friday": null
+    },
+    "Holy Days": {},
+    "Website": "www.somesite.com",
+    "Notes": "Notes Go Brrr"
+  },
+  "IHM": {
+    "ID": 2,
+    "Mass Times": {
+      "Saturday": 1630,
+      "Sunday": [
+        800,
+        1000,
+        1200,
+        1630
+      ],
+      "Monday": 800,
+      "Tuesday": 800,
+      "Wednesday": 800,
+      "Thursday": 800,
+      "Friday": 800
+    },
+    "Eucharistic Adoration": {
+      "is24hr": false,
+      "Saturday": null,
+      "Sunday": null,
+      "Monday": null,
+      "Tuesday": null,
+      "Wednesday": null,
+      "Thursday": null,
+      "Friday": null
+    },
+    "Confessions": {
+      "Saturday": {
+        "1500": 60
+      },
+      "Sunday": null,
+      "Monday": null,
+      "Tuesday": null,
+      "Wednesday": null,
+      "Thursday": null,
+      "Friday": null
+    },
+    "Rosary": {
+      "Saturday": null,
+      "Sunday": null,
+      "Monday": null,
+      "Tuesday": null,
+      "Wednesday": null,
+      "Thursday": null,
+      "Friday": null
+    },
+    "Holy Days": {
+      "Vigil": 1600,
+      "Day Of": [
+        900,
+        1200
+      ]
+    },
+    "Website": "www.somesite.com",
+    "Notes": "Notes Go Brrr"
+  },
+  "Adoration All Day Shrine": {
+    "ID": 3,
+    "Mass Times": {
+      "Saturday": null,
+      "Sunday": null,
+      "Monday": null,
+      "Tuesday": null,
+      "Wednesday": null,
+      "Thursday": null,
+      "Friday": null
+    },
+    "Eucharistic Adoration": {
+      "is24hr": false,
+      "Saturday": null,
+      "Sunday": null,
+      "Monday": null,
+      "Tuesday": null,
+      "Wednesday": null,
+      "Thursday": {
+        "2150": 33
+      },
+      "Friday": {
+        "100": 1380
+      }
+    },
+    "Confessions": {
+      "Saturday": null,
+      "Sunday": null,
+      "Monday": null,
+      "Tuesday": null,
+      "Wednesday": null,
+      "Thursday": null,
+      "Friday": null
+    },
+    "Rosary": {
+      "Saturday": null,
+      "Sunday": null,
+      "Monday": null,
+      "Tuesday": null,
+      "Wednesday": null,
+      "Thursday": null,
+      "Friday": null
+    },
+    "Holy Days": {
+      "Vigil": 1600,
+      "Day Of": [
+        900,
+        1200
+      ]
+    },
+    "Website": "www.somesite.com",
+    "Notes": "Notes Go Brrr"
+  },
+  "Confession All Day": {
+    "ID": 4,
+    "Mass Times": {
+      "Saturday": null,
+      "Sunday": null,
+      "Monday": null,
+      "Tuesday": null,
+      "Wednesday": null,
+      "Thursday": null,
+      "Friday": null
+    },
+    "Eucharistic Adoration": {
+      "is24hr": false,
+      "Saturday": null,
+      "Sunday": null,
+      "Monday": null,
+      "Tuesday": null,
+      "Wednesday": null,
+      "Thursday": {
+        "2150": 33
+      },
+      "Friday": null
+    },
+    "Confessions": {
+      "Saturday": {
+        "500": 900
+      },
+      "Sunday": {
+        "500": 900
+      },
+      "Monday": {
+        "500": 900
+      },
+      "Tuesday": {
+        "500": 900
+      },
+      "Wednesday": {
+        "500": 900
+      },
+      "Thursday": {
+        "500": 900
+      },
+      "Friday": {
+        "500": 900
+      }
+    },
+    "Rosary": {
+      "Saturday": null,
+      "Sunday": null,
+      "Monday": null,
+      "Tuesday": null,
+      "Wednesday": null,
+      "Thursday": null,
+      "Friday": null
+    },
+    "Holy Days": {
+      "Vigil": 1600,
+      "Day Of": [
+        900,
+        1200
+      ]
+    },
+    "Website": "www.somesite.com",
+    "Notes": "Notes Go Brrr"
+  }
+}
