@@ -492,7 +492,7 @@ def timeKeeper():		#This... keeps the time... Every minute, it calls chronos(), 
 							inhibitLatch = False
 							bootstrap()
 				chronos()
-				logging.info("Time Keeper Cycled")
+				logging.debug("Time Keeper Cycled")
 			time.sleep(1)
 			if stopLED.isSet() == True:
 				logging.info("======== Powering Off LEDs ========")
