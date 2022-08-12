@@ -19,9 +19,9 @@ import mailer
 debugSet = False
 DEBUG_TIME_SET = 2255
 DEBUG_DAY = "Thursday"
-logging.basicConfig(filename='info.log', format='%(levelname)s:%(message)s', level=logging.INFO)
-if debugSet == True:
-	logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(filename='info.log', format='%(levelname)s:%(message)s', level=logging.DEBUG)
+#if debugSet == True:
+#logging.basicConfig(level=logging.DEBUG)
 
 # Enable "Night Mode" - Map turns off during the time specified.
 enableNightMode = True
@@ -47,6 +47,15 @@ blue = (0, 0, 255)
 purple = (100, 0, 255)
 gold = (255, 255, 51)
 off = (0, 0, 0)
+
+#I need to convert some integer time values to datetime values.
+def convertToDT(value):
+	#Converting to int and back to str for spacing issues.
+	value = int(value)
+	value = str(value)
+	hour = int(time.strftime("%H", time.strptime(str(value).zfill(3), "%H%M")))
+	minute = int(time.strftime("%M", time.strptime(str(value).zfill(3), "%H%M")))
+	return dt.datetime.now().replace(hour=hour, minute=minute, second=0)
 
 #Functions? *Raises hand*
 def ingest():
@@ -107,7 +116,8 @@ def setID():
 			allocation[id["ID"] - 1][2] = leddict.get(key) #LED Assignment
 #			allocation[id["ID"] - 1][2] = id["ID"] # TEMPORARY! FOR TESTING
 			if leddict.get(key)is None:
-				print(key, leddict.get(key))
+				logging.error('There is an issue with SetID')
+#				print(key, leddict.get(key))
 	except KeyError as e:
 		if str(e) == 0:
 			logging.warning("Key Error 0 on SetID, continuing")
@@ -135,14 +145,12 @@ def restart(parishID): 	# Restarting Adoration indicators (say if an event inter
 			var = adoration_database[parishData[0]][weekday].split(',')
 			for _time in var[::2]:
 				orig_length = int(var[var.index(_time) + 1])
-				workingTime = datetime.strptime(str(int(_time)).zfill(3), "%H%M")
+				workingTime = convertToDT(int(_time))
 				workingEndTime = workingTime + timedelta(minutes=orig_length)
-				workingTime_int = int(workingTime.strftime("%-H%M"))
-				workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
-				if workingTime_int <= hTime <= workingEndTime_int:
+				if workingTime_int <= currentTime <= workingEndTime_int:
 					newDuration = workingEndTime - currentTime
 					logging.debug('Restarting Adoration at %s for %s', parishData, newDuration)
-					display(parish[1], "adoration", newDuration.total_seconds() / 60)
+					display(parish[1], "adoration", newDuration)
 					length = int(var[var.index(_time) + 1])
 					adorationLockout.append(parish[1])
 					forceContinue = True
@@ -155,7 +163,7 @@ def restart(parishID): 	# Restarting Adoration indicators (say if an event inter
 					pass
 	except KeyError as e:		#Expected - reached the end of the list.
 		if str(e) == "0":
-			logging.info("Fyi - tried to reset 0 - caught")
+			logging.error("Fyi - tried to reset 0 - caught")
 			pass
 		else:
 			raise
@@ -166,14 +174,14 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 	global adorationLockout
 	logging.info("======== BOOTSTRAP START ========")
 	if debugSet == True:
-		currentTime = DEBUG_TIME
-		hTime = int(currentTime.strftime("%-H%M"))
+		currentTime = convertToDT(DEBUG_TIME)
+#		hTime = int(currentTime.strftime("%-H%M"))
 		weekday = DEBUG_DAY
 		logging.debug("====== DEBUG MODE ON ======")
-		logging.debug('Day: %s  weekday: %s', weekday, hTime)
+		logging.debug('Day: %s  weekday: %s', weekday, currentTime)
 	else:
 		currentTime = dt.datetime.now()
-		hTime = int(currentTime.strftime("%-H%M"))
+#		hTime = int(currentTime.strftime("%-H%M"))
 		weekday = currentTime.strftime("%A")
 
 	#Defining Duration
@@ -191,13 +199,14 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 			forceContinue = False	#and loads it.
 			if masstime_database[parish[0]][weekday] is not None:
 				for _time in masstime_database[parish[0]][weekday].split(','):
-					workingTime = datetime.strptime(str(int(_time)).zfill(3), "%H%M")
+					workingTime = convertToDT(int(_time))
+#					workingTime = datetime.strptime(str(int(_time)).zfill(3), "%H%M")
 					workingEndTime = workingTime + timedelta(minutes=liturgyDuration)
-					workingTime_int = int(workingTime.strftime("%-H%M"))
-					workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
-					if workingTime_int <= hTime <= workingEndTime_int:
+#					workingTime_int = int(workingTime.strftime("%-H%M"))
+#					workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
+					if workingTime <= dt.datetime.now() <= workingEndTime:
 						newDuration = workingEndTime - currentTime
-						logging.info('Mass at %s for %s', parish, newDuration)
+						logging.debug('Mass at %s for %s', parish, newDuration)
 						display(parish[1], "mass", newDuration.total_seconds() / 60)
 						adorationLockout.append(parish[1])
 						forceContinue = True
@@ -206,13 +215,11 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 				var = confession_database[parish[0]][weekday].split(',')
 				for _time in var[::2]:
 					orig_length = int(var[var.index(_time) + 1])
-					workingTime = datetime.strptime(str(int(_time)).zfill(3), "%H%M")
+					workingTime = convertToDT(int(_time))
 					workingEndTime = workingTime + timedelta(minutes=orig_length)
-					workingTime_int = int(workingTime.strftime("%-H%M"))
-					workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
-					if workingTime_int <= hTime <= workingEndTime_int:
+					if workingTime <= dt.datetime.now() <= workingEndTime:
 						newDuration = workingEndTime - currentTime
-						logging.info('Confession at %s for %s', parish, newDuration)
+						logging.debug('Confession at %s for %s', parish, newDuration)
 						display(parish[1], "confession", newDuration.total_seconds() / 60)
 						adorationLockout.append(parish[1])
 						forceContinue = True
@@ -221,13 +228,11 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 				var = adoration_database[parish[0]][weekday].split(',')
 				for _time in var[::2]:
 					orig_length = int(var[var.index(_time) + 1])
-					workingTime = datetime.strptime(str(int(_time)).zfill(3), "%H%M")
+					workingTime = convertToDT(int(_time))
 					workingEndTime = workingTime + timedelta(minutes=orig_length)
-					workingTime_int = int(workingTime.strftime("%-H%M"))
-					workingEndTime_int = int(workingEndTime.strftime("%-H%M"))
-					if workingTime_int <= hTime <= workingEndTime_int:
+					if workingTime <= dt.datetime.now() <= workingEndTime:
 						newDuration = workingEndTime - currentTime
-						logging.info('Adoration at %s for %s', parish, newDuration)
+						logging.debug('Adoration at %s for %s', parish, newDuration)
 						display(parish[1], "adoration", newDuration.total_seconds() / 60)
 						length = int(var[var.index(_time) + 1])
 						adorationLockout.append(parish[1])
@@ -252,7 +257,7 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 			else:
 				raise
 		except ValueError as e:		#Something is malformed in the JSON, and it can't be used
-			logging.critical('%s %s - there is an issue here!!!', time, parish)
+			logging.critical('%s %s - there is an issue here!!! %s', time, parish, e)
 			raise
 
 	display("update", "update", "update")
@@ -262,16 +267,14 @@ def chronos():
 	global currentTime
 	global adorationLockout
 	if debugSet == True:
-		currentTime = DEBUG_TIME
-		hTime = int(currentTime.strftime("%-H%M"))
+		currentTime = convertToDT(DEBUG_TIME)
 		weekday = DEBUG_DAY
 		logging.debug("====== DEBUG MODE ON ======")
-		logging.debug('Day: %s  Time: %s', weekday, hTime)
+		logging.debug('Day: %s  Time: %s', weekday, currentTime)
 	else:
 		currentTime = dt.datetime.now()
-		hTime = int(currentTime.strftime("%-H%M"))
 		weekday = currentTime.strftime("%A")
-	logging.info('%s, %s', weekday, hTime)
+	logging.info('%s, %s', weekday, currentTime)
 
 	#Defining Duration
 	if weekday in WEEKDAYS:
@@ -287,7 +290,7 @@ def chronos():
 			forceContinue = False
 			if masstime_database[parish[0]][weekday] is not None:			#Mass times
 				for _time in masstime_database[parish[0]][weekday].split(','):
-					if hTime == int(_time):
+					if currentTime.strftime("%d %H %M") == convertToDT(_time).strftime("%d %H %M"):
 						display(parish[1], "mass", liturgyDuration)
 						adorationLockout.append(parish[1])
 						logging.debug('Calling for Mass at %s', parish[1])
@@ -296,7 +299,7 @@ def chronos():
 			if confession_database[parish[0]][weekday] is not None and forceContinue == False: #Confession times
 				var = confession_database[parish[0]][weekday].split(',')
 				for _time in var[::2]:
-					if hTime == int(_time):
+					if currentTime.strftime("%d %H %M") == convertToDT(_time).strftime("%d %H %M"):
 						length = int(var[var.index(_time) + 1])
 						display(parish[1], "confession", length)
 						logging.debug('Calling for Confession at %s', parish[1])
@@ -306,7 +309,7 @@ def chronos():
 			if adoration_database[parish[0]][weekday] is not None and forceContinue == False: #Adoration times
 				var = adoration_database[parish[0]][weekday].split(',')
 				for _time in var[::2]:
-					if hTime == int(_time):
+					if currentTime.strftime("%d %H %M") == convertToDT(_time).strftime("%d %H %M"):
 						length = int(var[var.index(_time) + 1])
 						display(parish[1], "adoration", length)
 						logging.debug('Calling for Adoration at %s', parish[1])
@@ -334,7 +337,7 @@ def chronos():
 			else:
 				raise
 		except ValueError as e:		# If data is malformed and unusable, this is raised.
-			logging.critical('%s  %s  there is an issue here!!!', time, parish)
+			logging.critical('%s  %s  there is an issue here!!! %s', time, parish, e)
 			break
 	#After everything, run the "update" command. Signals that there are no more edits to the ledStore database in display().
 	display("update", "update", "update")
@@ -347,29 +350,29 @@ def display(id, state, duration):
 #	Ideally this isn't needed, but in case you need it, here's the idea. -M 8/12/22
 #
 	if id == "clean":	#Cleaning the board of outdated data.
-		now = int(currentTime.strftime("%-H%M").zfill(3))
+		now = dt.datetime.now()
 		for value in list(ledStatus):			#Value = ID!
 			if ledStatus[value] is not None:
 				endtime = ledStatus[value][4]
 				if endtime != "24h":
-					endtime = int(endtime.strftime("%-H%M"))	#Future me - this will probably break things, e.g. indicating Mass on top of adoration
+#					endtime = int(endtime.strftime("%-H%M"))	#Future me - this will probably break things, e.g. indicating Mass on top of adoration
 #					if now > endtime:		#However, as of 5/18, it hasn't... ¯\_(ツ)_/¯
 #						if state != "adoration":
 #							print("Hey, something happened and value", value, "is past its endtime.")
 					if now >= endtime:
 						ledStatus.pop(value)
-						logging.info('deleting %s', value)
+						logging.debug('deleting %s: time: %s endtime: %s', value, now, endtime)
 						for n in range(adorationLockout.count(value)):
 							adorationLockout.remove(value)
 		time.sleep(0.2)
 	elif id != "update":	# Runs with the ifs and elifs in the try clause under chronos():
 		if (duration == "24h"):
-			timeStop = currentTime + timedelta(minutes=1339) #Soo... turn off the led in 1 day - 1 minute
+			timeStop = currentTime + timedelta(days=1, minutes=1) #Soo... turn off the led in 1 day and one minute
 			ledStatus[id] = [allocation[id - 1][2], state, currentTime, 0, timeStop]
 		else:
 			timeStop = currentTime + timedelta(minutes=duration)
 			ledStatus[id] = [allocation[id - 1][2], state, currentTime, duration, timeStop]
-#			print(ledStatus[id])
+
 				#Check ledStatus and see what's new - In other words, look for a change and act accordingly.
 	if id == "update":	#Runs only when all parishes have been cycled through
 		if ledStatus != ledStatusStore:
@@ -390,30 +393,25 @@ def display(id, state, duration):
 					raise
 			for key in list(ledStatusStore):	# \/ If an LED is being set to off, turn it off.
 				if ledStatus.setdefault(key) is None and ledStatusStore.setdefault(key) is not None:
-					logging.info("Led off in update")
+					logging.debug("Led off in update")
 					counter = 0
 					ledStatusStore.pop(key)
 					quietLED.append(key)
-					logging.info('Added %s to the quietLED List', key)
+					logging.debug('Added %s to the quietLED List', key)
 					#Waiting for the led to be off / for it to no longer be in the list before continuing
 					while quietLED.count(key) >= 1:
 						time.sleep(0.01)
-#						print("number of instances for", key, "in quietLED:", quietLED.count(key))
 						counter = counter + 1
 						if counter > 20:
 							logging.error('Key %s has hung. Showing active threads...', key)
 							logging.error('List of running threads: %s', threadIdentList)
-							logging.error('Enumerated list of threads: %s', threading.enumerate())
-#							print(threading.current_thread())
-#							print(threading.get_ident())
 							mailer.sendmail("MB Hung Thread", "A thread has hung.")
 							break
-					logging.info('set quietLED with ID: %s', key)
+					logging.debug('set quietLED with ID: %s', key)
 					restart(key)
 
 def driver(led, state, id):
 	#This is a Thread
-#	print ("Starting", state, "indicator on LED", led, "with id", id)
 	time.sleep(1) #To prevent a race condition, where a new thread follows commands (in quietLED) for an old thread
 	updated = False
 	threadIdentList.update({id: threading.get_ident()})
@@ -431,12 +429,12 @@ def driver(led, state, id):
 		color = purple
 		pass
 	if quietLED.count(id) >= 1:
-		logging.info('I can see a quietLED request for id: %s', id)
+		logging.debug('I can see a quietLED request for id: %s', id)
 	while inhibit == False and stopLED.isSet() == False:
 		try:
 			if quietLED.count(id) >= 1:	# Turns off an LED
-				logging.info('quietLED count for %s: %s', id, quietLED.count(id))
-				logging.info('removing %s from quietLED', id)
+				logging.debug('quietLED count for %s: %s', id, quietLED.count(id))
+				logging.debug('removing %s from quietLED', id)
 				pixels[led] = off
 				quietLED.remove(id)
 				logging.debug('off: %s  Updated Status: %s  ID: %s', led, updated, id)
@@ -485,7 +483,7 @@ def timeKeeper():		#This... keeps the time... Every minute, it calls chronos(), 
 		global inhibit
 		inhibit = False
 		inhibitLatch = False
-		DEBUG_TIME = datetime.strptime(str(DEBUG_TIME_SET), "%H%M")
+		DEBUG_TIME = str(DEBUG_TIME_SET)
 		bootstrap()
 		logging.info("======== Letting Things Settle... ========")
 		time.sleep(5)
