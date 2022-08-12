@@ -182,6 +182,10 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 	if weekday in WEEKEND:
 		liturgyDuration = 60
 
+	#Clean the board of old data
+	display("clean", "clean", "clean")
+	time.sleep(1)
+
 	for parish in allocation.copy():	#This checks to see if the present time is within the
 		try:				#start/end time of an event, adjusts the duration accordingly,
 			forceContinue = False	#and loads it.
@@ -337,6 +341,11 @@ def chronos():
 
 def display(id, state, duration):
 	global quietLED
+#
+#	Note to future self - It might be wise to implement a "reset" id here, something that
+#	could be called at night to clear any stale entries in ledStatus, ledStatusStore, etc.
+#	Ideally this isn't needed, but in case you need it, here's the idea. -M 8/12/22
+#
 	if id == "clean":	#Cleaning the board of outdated data.
 		now = int(currentTime.strftime("%-H%M").zfill(3))
 		for value in list(ledStatus):			#Value = ID!
@@ -347,7 +356,7 @@ def display(id, state, duration):
 #					if now > endtime:		#However, as of 5/18, it hasn't... ¯\_(ツ)_/¯
 #						if state != "adoration":
 #							print("Hey, something happened and value", value, "is past its endtime.")
-					if now == endtime:
+					if now >= endtime:
 						ledStatus.pop(value)
 						logging.info('deleting %s', value)
 						for n in range(adorationLockout.count(value)):
@@ -385,6 +394,7 @@ def display(id, state, duration):
 					counter = 0
 					ledStatusStore.pop(key)
 					quietLED.append(key)
+					logging.info('Added %s to the quietLED List', key)
 					#Waiting for the led to be off / for it to no longer be in the list before continuing
 					while quietLED.count(key) >= 1:
 						time.sleep(0.01)
@@ -421,10 +431,12 @@ def driver(led, state, id):
 		color = purple
 		pass
 	if quietLED.count(id) >= 1:
-		logging.debug('I can see a quietLED request for id: %s', id)
+		logging.info('I can see a quietLED request for id: %s', id)
 	while inhibit == False and stopLED.isSet() == False:
 		try:
 			if quietLED.count(id) >= 1:	# Turns off an LED
+				logging.info('quietLED count for %s: %s', id, quietLED.count(id))
+				logging.info('removing %s from quietLED', id)
 				pixels[led] = off
 				quietLED.remove(id)
 				logging.debug('off: %s  Updated Status: %s  ID: %s', led, updated, id)
@@ -483,6 +495,8 @@ def timeKeeper():		#This... keeps the time... Every minute, it calls chronos(), 
 				if enableNightMode == True:
 					if int(storedTime) >= nightModeStart or int(storedTime) <= nightModeEnd:
 						inhibit = True
+						if inhibitLatch == False:
+							display("clean", "clean", "clean") #Trying to clear unnecessary data as the lights go out.
 						inhibitLatch = True
 						time.sleep(0.1)
 						pixels.fill(off)
