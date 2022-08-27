@@ -1,5 +1,4 @@
 #! /bin/python
-
 #Things we need to import go here:
 import json
 import datetime as dt
@@ -13,15 +12,17 @@ import math
 import random
 import logging
 import mailer
+import sys
 
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
 debugSet = False
-DEBUG_TIME_SET = 2255
+DEBUG_TIME_SET = 2350
 DEBUG_DAY = "Thursday"
-logging.basicConfig(filename='info.log', format='%(levelname)s:%(message)s', level=logging.DEBUG)
-#if debugSet == True:
-#logging.basicConfig(level=logging.DEBUG)
+if debugSet == True:
+	logging.basicConfig(level=logging.DEBUG)
+else:
+	logging.basicConfig(filename='info.log', format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
 # Enable "Night Mode" - Map turns off during the time specified.
 enableNightMode = True
@@ -37,14 +38,14 @@ WEEKDAYS=["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 WEEKEND=["Saturday", "Sunday"]
 ledStatus = {}
 ledStatusStore = {}
-pixels = neopixel.NeoPixel(board.D21, 400, pixel_order=neopixel.RGB, brightness = 0.5)
+pixels = neopixel.NeoPixel(board.D21, 400, pixel_order=neopixel.RGB, brightness = 0.2)
 quietLED = []
 adorationLockout = []
 threadIdentList = {}
 
 #I'm gonna define LED colors here:
-blue = (0, 0, 255)
-purple = (100, 0, 255)
+blue = (25, 125, 250)
+purple = (100, 10, 255)
 gold = (255, 255, 51)
 off = (0, 0, 0)
 
@@ -128,12 +129,10 @@ def restart(parishID): 	# Restarting Adoration indicators (say if an event inter
 	global adorationLockout
 #	print("Attempting to restart", parishID)
 	if debugSet == True:
-		currentTime = DEBUG_TIME
-		hTime = int(currentTime.strftime("%-H%M"))
+		currentTime = convertToDT(DEBUG_TIME)
 		weekday = DEBUG_DAY
 	else:
 		currentTime = dt.datetime.now()
-		hTime = int(currentTime.strftime("%-H%M"))
 		weekday = currentTime.strftime("%A")
 
 	try:
@@ -147,20 +146,21 @@ def restart(parishID): 	# Restarting Adoration indicators (say if an event inter
 				orig_length = int(var[var.index(_time) + 1])
 				workingTime = convertToDT(int(_time))
 				workingEndTime = workingTime + timedelta(minutes=orig_length)
-				if workingTime_int <= currentTime <= workingEndTime_int:
+				if workingTime <= currentTime <= workingEndTime:
 					newDuration = workingEndTime - currentTime
 					logging.debug('Restarting Adoration at %s for %s', parishData, newDuration)
-					display(parish[1], "adoration", newDuration)
+					display(parish[1], "adoration", newDuration.total_seconds() / 60)
 					length = int(var[var.index(_time) + 1])
 					adorationLockout.append(parish[1])
 					forceContinue = True
 					continue
-					if adoration_database[parishData[0]]["Is24hour"] is True and forceContinue == False and adorationLockout.count(parish[1]) == 0:
-						display(parish[1], "adoration", "24h")
-						adorationLockout.append(parish[1])
-						continue
-				else:
-					pass
+		if adoration_database[parishData[0]]["Is24hour"] is True and forceContinue == False and adorationLockout.count(parish[1]) == 0:
+			display(parish[1], "adoration", "24h")
+			logging.debug('Restarting Adoration at %s for 24h', parishData)
+			adorationLockout.append(parish[1])
+#			continue
+		else:
+			pass
 	except KeyError as e:		#Expected - reached the end of the list.
 		if str(e) == "0":
 			logging.error("Fyi - tried to reset 0 - caught")
@@ -240,6 +240,7 @@ def bootstrap(): 	#This will look very similar to chronos() below, though it ser
 						continue
 			if adoration_database[parish[0]]["Is24hour"] is True and forceContinue == False and adorationLockout.count(parish[1]) == 0:
 				display(parish[1], "adoration", "24h")
+				logging.debug('Adoration at %s for 24h', parish)
 				adorationLockout.append(parish[1])
 				continue
 			else:
@@ -318,6 +319,7 @@ def chronos():
 						continue
 			if adoration_database[parish[0]]["Is24hour"] is True and forceContinue == False and adorationLockout.count(parish[1]) == 0: #Perpetual Adoration
 				display(parish[1], "adoration", "24h")
+				logging.debug('calling for 24h Adoration at %s', parish[1])
 				adorationLockout.append(parish[1])
 				continue
 			else:
@@ -361,10 +363,10 @@ def display(id, state, duration):
 #							print("Hey, something happened and value", value, "is past its endtime.")
 					if now >= endtime:
 						ledStatus.pop(value)
-						logging.debug('deleting %s: time: %s endtime: %s', value, now, endtime)
+						logging.debug('Cleaning %s: time: %s endtime: %s', value, now, endtime)
 						for n in range(adorationLockout.count(value)):
 							adorationLockout.remove(value)
-		time.sleep(0.2)
+		time.sleep(0.5)
 	elif id != "update":	# Runs with the ifs and elifs in the try clause under chronos():
 		if (duration == "24h"):
 			timeStop = currentTime + timedelta(days=1, minutes=1) #Soo... turn off the led in 1 day and one minute
@@ -404,7 +406,7 @@ def display(id, state, duration):
 						counter = counter + 1
 						if counter > 20:
 							logging.error('Key %s has hung. Showing active threads...', key)
-							logging.error('List of running threads: %s', threadIdentList)
+							#logging.error('List of running threads: %s', threadIdentList)
 							mailer.sendmail("MB Hung Thread", "A thread has hung.")
 							break
 					logging.debug('set quietLED with ID: %s', key)
@@ -414,7 +416,7 @@ def driver(led, state, id):
 	#This is a Thread
 	time.sleep(1) #To prevent a race condition, where a new thread follows commands (in quietLED) for an old thread
 	updated = False
-	threadIdentList.update({id: threading.get_ident()})
+#	threadIdentList.update({id: threading.get_ident()})
 	randomint = random.randint(-7, 7)
 	if (state == "adoration"):
 		style = "pulse"
@@ -439,7 +441,7 @@ def driver(led, state, id):
 				quietLED.remove(id)
 				logging.debug('off: %s  Updated Status: %s  ID: %s', led, updated, id)
 #				time.sleep(0.1)
-				threadIdentList.pop(id)
+#				threadIdentList.pop(id)
 				break
 			elif (updated == True):
 				time.sleep(0.1)
@@ -498,16 +500,17 @@ def timeKeeper():		#This... keeps the time... Every minute, it calls chronos(), 
 						inhibitLatch = True
 						time.sleep(0.1)
 						pixels.fill(off)
+						stopLED.set() #Due to bugs, which compound on themselves day after day, quit the program at night. Relaunch in the OS
 					else:
 						inhibit = False
 						if inhibitLatch == True:
 							inhibitLatch = False
-							bootstrap()
+#							bootstrap()
 				chronos()
 				logging.debug("Time Keeper Cycled")
 			time.sleep(1)
 			if stopLED.isSet() == True:
-				logging.info("======== Powering Off LEDs ========")
+				logging.info("======== Powering Off LEDs ========\n")
 				time.sleep(1)
 				pixels.fill(off)
 				break
@@ -515,18 +518,20 @@ def timeKeeper():		#This... keeps the time... Every minute, it calls chronos(), 
 			input("Press Enter to advance the time")
 			chronos()
 			time.sleep(0.1)
-			DEBUG_TIME = DEBUG_TIME + timedelta(minutes=1)
+			DEBUG_TIME = convertToDT(DEBUG_TIME) + timedelta(minutes=1)
+			DEBUG_TIME = DEBUG_TIME.strftime("%H%M")
 			if stopLED.isSet() == True:
-				logging.info("======== Powering Off LEDs ========")
+				logging.info("======== Powering Off LEDs ========\n")
 				time.sleep(1)
 				pixels.fill(off)
 				break
 
 	except:
-		logging.critical("The map crashed with an error")
+		err = sys.exc_info()[1]
+		logging.error("The Timekeeper thread crashed with an error: %s - %s", err, err.args)
 		pixels.fill(off)
 		pixels[99] = (150, 0, 0)
-		mailer.sendmail("Mapboard Error", "The mapboard is down due to an unspecified error.")
+		mailer.sendmail("Timekeeper Error", "The mapboard is down due to an unspecified error.")
 		raise
 
 def startTimeKeeper():
@@ -547,7 +552,8 @@ try:
 	startTimeKeeper()
 
 except:
-	logging.error("The map crashed with an error")
+	err = sys.exc_info()[1]
+	logging.error("The map crashed with an error: %s - %s", err, err.args)
 	pixels.fill(off)
 	pixels[99] = (150, 0, 0)
 	mailer.sendmail("Mapboard Error", "The mapboard is down due to an unspecified error.")
@@ -560,8 +566,6 @@ SSH Callhome feature - on the host os
 Update times? Pull databse from self-hosted site?
 LCD Character Display w/status
 Different modes? Number of priests, parish size, etc.
-Implement proper logging
 Implement safe json verification
-Add way to "restart" adoration after mass or confession, if not 24h
 '''
 
