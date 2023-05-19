@@ -21,8 +21,8 @@ import sys
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
 debugSet = False
-DEBUG_TIME_SET = 1445
-DEBUG_DAY = "Saturday"
+DEBUG_TIME_SET = 2215
+DEBUG_DAY = "Monday"
 if debugSet == True:
   logging.basicConfig(level=logging.DEBUG)
 else:
@@ -435,17 +435,21 @@ def thePastor(id, name, led):
     raise
 
 try:
-  print(checkNightMode())
+  print(checkNightMode(), clockmaker(dt.datetime.now()), nightModeStart, nightModeEnd)
   ingest()
   setID()
 #       digest()
 #       startTimeKeeper()
   global inhibit
-  while checkNightMode() == False:
+  while checkNightMode() == False and stopLED.is_set() == False:
+    print("looping at __main...")
+    stopLED.clear()
     startTheClock()
     time.sleep(1)
     wakeUpParish()
     watchTheClock()
+  if stopLED.is_set():
+    pixels.fill(off)
 except:
   err = sys.exc_info()[1]
   logging.error("The map crashed with an error: %s - %s", err, err.args)
@@ -462,4 +466,13 @@ Update times? Pull databse from self-hosted site?
 LCD Character Display w/status
 Different modes? Number of priests, parish size, etc.
 Implement safe json verification
+
+As of 5/18/23
+Reconfigure error handling
+fix hang on keyboard interrupt
+fix indents: Inconsistency and revise to tabs
+Night Mode - Doesn't work yet?
+Improve logging
+Add verification that all parish threads are running?
+
 '''
