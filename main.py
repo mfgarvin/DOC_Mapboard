@@ -74,7 +74,6 @@ def ingest():
 	leddict = json.loads(open(LED_ALLOCATION, "r").read())
 	iddict = rawjson
 
-
 #Combining Parish Name, ID, and LED Allocation into one dictionary
 def setID():
 	global allocation
@@ -131,7 +130,6 @@ def chronos2():
 		logging.info('%s, %s', weekday, currentTime)
 	except KeyboardInterrupt:
 		raise
-   
 
 def driver(led, state, EStop=""):
   updated = False
@@ -159,7 +157,7 @@ def driver(led, state, EStop=""):
         pixels[led] = color
         logging.debug('solid: %s, color: %s', led, color)
         updated = True
-      elif (style == "pulse"):       
+      elif (style == "pulse"):
       # Moved to thePastor for easier thread management Sets an LED to pulse
         pass
     except:
@@ -183,7 +181,7 @@ def fadingLED(led, color, stopEvent):
 		#logging.debug('fade: %s', led)
 		pixels[led] = livecolor
 		time.sleep(0.1)
- 
+
 def breathingEffect(adjustment):        # Background code called by "pulse" above, supports the fading method.
 	period = 20
 	omega = 2 * math.pi / period
@@ -193,7 +191,6 @@ def breathingEffect(adjustment):        # Background code called by "pulse" abov
 	timer = time.time() + adjustment
 	value = offset + amplitude * (math.cos((omega * timer) + phase))
 	return(value)
-
 
 def startTheClock():
 	try:
@@ -213,9 +210,13 @@ def watchTheClock():
 			while checkNightMode() == True:
 				pixels.fill((0,0,0))
 				time.sleep(60)
+				print("watch the clock has gone into sleep mode")
+				logging.info("watch the clock has gone into sleep mode")
 				continue
 			if checkNightMode() == False:
 				time.sleep(3) #Give the main thread a moment to notice that things switched back...
+				print("Watch The clock has gone out of sleep mode.")
+				logging.info("Watch The clock has gone out of sleep mode.")
 	except KeyboardInterrupt:
 		print("\n\n\n======== Stopping the System ========")
 		stopLED.set()
@@ -315,7 +316,7 @@ def thePastor(id, name, led):
 					else:
 					# print("The end. This runs at idle.")
 						continue
-      
+
 				elif activity == "Confession" and lockout2 == False:
 					if parishCalendar["Confessions"][weekday] is None:
 						continue
@@ -329,10 +330,10 @@ def thePastor(id, name, led):
 						appointment = int(appointment.strip())
 						if localTime != appointment and not duration > localTime - appointment > 0:
 							# activeAppt = 8888
-							continue                            
+							continue
 						if localTime == appointment or duration > localTime - appointment > 0:
         		# activeAppt = appointment
-							break              
+							break
 					if localTime == appointment:
 						if notifyStart == False:
 							# logging.info("Confession is starting")
@@ -365,7 +366,7 @@ def thePastor(id, name, led):
 					else:
 					# logging.info("No confessions")
 						continue
-       
+
 				elif activity == "Adoration":
 					if parishCalendar["Adoration"]["Is24hour"] is None:
 						if parishCalendar["Adoration"][weekday] is None:
@@ -434,18 +435,24 @@ try:
   # print(checkNightMode(), clockmaker(dt.datetime.now()), nightModeStart, nightModeEnd)
 	ingest()
 	setID()
-#       digest()
-#       startTimeKeeper()
+#	       digest()
+#	       startTimeKeeper()
 	global inhibit
-	while checkNightMode() == False and stopLED.is_set() == False:
-		print("looping at __main...")
-		stopLED.clear()
-		startTheClock()
-		time.sleep(1)
-		wakeUpParish()
-		watchTheClock()
-	if stopLED.is_set():
-		pixels.fill(off)
+	while stopLED.is_set() == False:
+		while checkNightMode() == False:
+			print("looping at __main...")
+			stopLED.clear()
+			startTheClock()
+			time.sleep(1)
+			wakeUpParish()
+			watchTheClock()
+		if stopLED.is_set():
+			pixels.fill(off)
+		while checkNightMode() == True:
+			print("Sleeping...")
+			logging.debug("Sleeping... Currently in Night Mode")
+			time.sleep(900)
+
 except:
 	err = sys.exc_info()[1]
 	logging.error("The map crashed with an error: %s - %s", err, err.args)
