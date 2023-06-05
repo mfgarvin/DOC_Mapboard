@@ -21,8 +21,8 @@ import sys
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
 debugSet = False
-DEBUG_TIME_SET = 2215
-DEBUG_DAY = "Monday"
+DEBUG_TIME_SET = 1459
+DEBUG_DAY = "Saturday"
 if debugSet == True:
   logging.basicConfig(level=logging.DEBUG)
 else:
@@ -181,6 +181,8 @@ def fadingLED(led, color, stopEvent):
 		#logging.debug('fade: %s', led)
 		pixels[led] = livecolor
 		time.sleep(0.1)
+	print("Reached the end of fadingLED for", led)
+	logging.error('Reached the end of fadingLED for %s', led)
 
 def breathingEffect(adjustment):        # Background code called by "pulse" above, supports the fading method.
 	period = 20
@@ -241,11 +243,12 @@ def checkNightMode():
 		else:
 			return(False)
 	else:
-		time = clockmaker(dt.datetime.now())
-		if nightModeStart > time > nightModeEnd:
-			return(True)
-		else:
-			return(False)
+#		time = clockmaker(dt.datetime.now())
+#		if nightModeStart > time > nightModeEnd:
+#			return(True)
+#		else:
+#			return(False)
+		return(False)
 
 def thePastor(id, name, led):
 	#Recieve their assignment (the ID)
@@ -275,8 +278,8 @@ def thePastor(id, name, led):
 				stopLED.set()
 				logging.info("Night Mode Enabled")
 			localTime = clockmaker(currentTime)
-			for activity in ("Mass", "Confession", "Adoration"):
-				# print(activity)
+			for activity in ("Mass", "Confession", "Adoration", "Adoration_24h"):
+				#print(activity)
 				if activity == "Mass" and lockout1 == False and lockout2 == False:
 					massToday = parishCalendar["Mass Times"][weekday]
 					if massToday is not None:
@@ -292,8 +295,9 @@ def thePastor(id, name, led):
 					if localTime == int(_time):
 						if notifyStart == False:
 							logging.info("Mass is starting")
-							driver(led, 'mass')
 							HHActive.clear()
+							time.sleep(1)
+							driver(led, 'mass')
 							notifyStart = True
 						MresetEnable = True
 						break
@@ -302,8 +306,9 @@ def thePastor(id, name, led):
 						if notifyProgress == False:
 							logging.info("Mass is in progress")
 							if notifyStart == False:
-								driver(led, 'mass')
 								HHActive.clear()
+								time.sleep(1)
+								driver(led, 'mass')
 							notifyProgress = True
 						MresetEnable = True
 						break
@@ -337,18 +342,20 @@ def thePastor(id, name, led):
 					if localTime == appointment:
 						if notifyStart == False:
 							# logging.info("Confession is starting")
+							HHActive.clear()
+							time.sleep(1)
 							driver(led, 'confession')
 							notifyStart = True
 							lockout1 = True
-							HHActive.clear()
 						CresetEnable = True
 						break
 					elif duration > localTime - appointment > 0:
 						if notifyProgress == False:
 							# logging.info("Confession is in progress")
 							if notifyStart == False:
-								driver(led, 'confession')
 								HHActive.clear()
+								time.sleep(1)
+								driver(led, 'confession')
 							notifyProgress = True
 							lockout1 = True
 						CresetEnable = True
@@ -390,6 +397,8 @@ def thePastor(id, name, led):
 								# logging.info("Adoration is starting")
 								notifyStart = True
 								lockout2 = True
+								HHActive.clear()
+								time.sleep(1)
 								threading.Thread(target=fadingLED, args=(led, gold, stopEvent)).start()
 								# driver(led, 'adoration')
 							AresetEnable = True
@@ -399,6 +408,8 @@ def thePastor(id, name, led):
 							# logging.info("Adoration is in progress")
 								notifyProgress = True
 								if notifyStart == False:
+									HHActive.clear()
+									time.sleep(1)
 									threading.Thread(target=fadingLED, args=(led, gold, stopEvent)).start()
 									# driver(led, 'adoration')
 								lockout2 = True
@@ -418,12 +429,18 @@ def thePastor(id, name, led):
 						else:
 							# logging.info("No Adoration")
 							continue
+#					elif activity == "Adoration_24h":
 					else:
+#						print("Here!")
 						if flipflop == 0 and HHActive.is_set() == False:
+							logging.info('starting 24h for %s', led)
 							HHActive.set()
+							stopEvent.clear()
 							threading.Thread(target=fadingLED, args=(led, gold, stopEvent)).start()
 							flipflop = 1
+							time.sleep(0.1)
 						if HHActive.is_set() == False:
+							logging.info('stopping 24h for %s', led)
 							stopEvent.set()
 							flipflop = 0
 							break
