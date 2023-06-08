@@ -181,8 +181,9 @@ def fadingLED(led, color, stopEvent):
 		#logging.debug('fade: %s', led)
 		pixels[led] = livecolor
 		time.sleep(0.1)
-	print("Reached the end of fadingLED for", led)
-	logging.error('Reached the end of fadingLED for %s', led)
+#	print("Reached the end of fadingLED for", led)
+#	logging.error('Reached the end of fadingLED for %s', led)
+	driver(led, 'off')
 
 def breathingEffect(adjustment):        # Background code called by "pulse" above, supports the fading method.
 	period = 20
