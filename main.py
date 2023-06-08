@@ -15,7 +15,7 @@ import neopixel
 import math
 import random
 import logging
-#import mailer
+import mailer
 import sys
 
 # Easily accessible debug stuff
@@ -26,7 +26,7 @@ DEBUG_DAY = "Saturday"
 if debugSet == True:
   logging.basicConfig(level=logging.DEBUG)
 else:
-  logging.basicConfig(filename='infov3.log', format='%(levelname)s:%(message)s', level=logging.DEBUG)
+  logging.basicConfig(filename='infov3.log', format='%(levelname)s:%(message)s', level=logging.INFO)
 #  logging.basicConfig(level=logging.INFO)
 # Enable "Night Mode" - Map turns off during the time specified.
 enableNightMode = True
@@ -127,9 +127,11 @@ def chronos2():
 			DEBUG_TIME = convertToDT(DEBUG_TIME) + timedelta(minutes=1)
 			DEBUG_TIME = DEBUG_TIME.strftime("%H%M")
 			print(DEBUG_TIME, weekday)
-		logging.info('%s, %s', weekday, currentTime)
+		logging.debug('%s, %s', weekday, currentTime)
 	except KeyboardInterrupt:
 		raise
+	except Exception as e:
+		logging.error('Error in chronos2(): %s', e)
 
 def driver(led, state, EStop=""):
   updated = False
@@ -160,18 +162,9 @@ def driver(led, state, EStop=""):
       elif (style == "pulse"):
       # Moved to thePastor for easier thread management Sets an LED to pulse
         pass
-    except:
+    except Exception as e:
+      logging.error('Error in driver(): %s', e)
       raise
-'''
-    threading.Thread(target=fadingLED, args=(led, color, stopEvent)).start()
-    while stopLED.is_set == False:
-     if EStop.is_set():
-      stopEvent.set()
-      print("Testing....")
-      break
-     else:
-      time.sleep(1)
-'''
 
 def fadingLED(led, color, stopEvent):
 	randomint = random.randint(-7, 7)
@@ -181,8 +174,6 @@ def fadingLED(led, color, stopEvent):
 		#logging.debug('fade: %s', led)
 		pixels[led] = livecolor
 		time.sleep(0.1)
-#	print("Reached the end of fadingLED for", led)
-#	logging.error('Reached the end of fadingLED for %s', led)
 	driver(led, 'off')
 
 def breathingEffect(adjustment):        # Background code called by "pulse" above, supports the fading method.
@@ -213,15 +204,14 @@ def watchTheClock():
 			while checkNightMode() == True:
 				pixels.fill((0,0,0))
 				time.sleep(60)
-				print("watch the clock has gone into sleep mode")
-				logging.info("watch the clock has gone into sleep mode")
+				logging.debug("watch the clock has gone into sleep mode")
 				continue
 			if checkNightMode() == False:
 				time.sleep(3) #Give the main thread a moment to notice that things switched back...
-				print("Watch The clock has gone out of sleep mode.")
-				logging.info("Watch The clock has gone out of sleep mode.")
+				logging.debug("Watch The clock has gone out of sleep mode.")
 	except KeyboardInterrupt:
 		print("\n\n\n======== Stopping the System ========")
+		logging.info('User initiated shutdown')
 		stopLED.set()
 		logging.debug("======== Press Enter to Continue With the Shutdown ========")
 
@@ -251,12 +241,10 @@ def checkNightMode():
 #			return(False)
 		return(False)
 
+# This function runs for each parish. It's called and receives its assigned ID from wakeUpParish(), 
+# loads all of the applicable data (times, etc), watches the clock, and then as events come and go,
+# commands leds to be powered on and off via driver()
 def thePastor(id, name, led):
-	#Recieve their assignment (the ID)
-	#Load the parish data (via another function, returns data to this, which is then stored)
-	#After all the prep work is done, compare their schedule to the clock.
-	#Turn on lights individually. If need be, "contract" someone to run them for adoration"
-	# print(id, name, led)
 	global weekday, liturgyDuration
 	parishCalendar = rawjson[name]
 	notifyStart = False
@@ -280,16 +268,13 @@ def thePastor(id, name, led):
 				logging.info("Night Mode Enabled")
 			localTime = clockmaker(currentTime)
 			for activity in ("Mass", "Confession", "Adoration", "Adoration_24h"):
-				#print(activity)
 				if activity == "Mass" and lockout1 == False and lockout2 == False:
 					massToday = parishCalendar["Mass Times"][weekday]
 					if massToday is not None:
 						for _time in massToday.split(','):
 							if localTime != int(_time) and not liturgyDuration > localTime - int(_time) > 0:
-         				# activeTime = 9999
 								continue
 							if localTime == int(_time) or liturgyDuration > localTime - int(_time) > 0:
-								# activeTime = int(_time)
 								break
 					else:
 						_time = 9999
@@ -320,7 +305,7 @@ def thePastor(id, name, led):
 						notifyProgress = False
 						driver(led, 'off')
 					else:
-					# print("The end. This runs at idle.")
+					# The end. This runs at idle.
 						continue
 
 				elif activity == "Confession" and lockout2 == False:
@@ -335,14 +320,12 @@ def thePastor(id, name, led):
 						duration = int(confessionsToday[confessionsToday.index(appointment) + 1])
 						appointment = int(appointment.strip())
 						if localTime != appointment and not duration > localTime - appointment > 0:
-							# activeAppt = 8888
 							continue
 						if localTime == appointment or duration > localTime - appointment > 0:
-        		# activeAppt = appointment
 							break
 					if localTime == appointment:
 						if notifyStart == False:
-							# logging.info("Confession is starting")
+							logging.debug("Confession is starting")
 							HHActive.clear()
 							time.sleep(1)
 							driver(led, 'confession')
@@ -352,7 +335,7 @@ def thePastor(id, name, led):
 						break
 					elif duration > localTime - appointment > 0:
 						if notifyProgress == False:
-							# logging.info("Confession is in progress")
+							logging.debug("Confession is in progress")
 							if notifyStart == False:
 								HHActive.clear()
 								time.sleep(1)
@@ -362,7 +345,7 @@ def thePastor(id, name, led):
 						CresetEnable = True
 						break
 					elif CresetEnable == True:
-						#reset code goes here.
+						# Reset code goes here.
 						notifyStart = False
 						notifyProgress = False
 						CresetEnable = False
@@ -370,9 +353,8 @@ def thePastor(id, name, led):
 						duration = 0
 						appointment = 0
 						driver(led, 'off')
-						# print("Reset Triggered")
 					else:
-					# logging.info("No confessions")
+					# Things are quiet. No confession is happening")
 						continue
 
 				elif activity == "Adoration":
@@ -388,73 +370,65 @@ def thePastor(id, name, led):
 							duration = int(adorationToday[adorationToday.index(appointment) + 1])
 							appointment = int(appointment.strip())
 							if localTime != appointment and not duration > localTime - appointment > 0:
-								# activeAppt = 8888
 								continue
 							if localTime == appointment or duration > localTime - appointment > 0:
-								# activeAppt = appointment
 								break
 						if localTime == appointment:
 							if notifyStart == False:
-								# logging.info("Adoration is starting")
+								logging.debug("Adoration is starting")
 								notifyStart = True
 								lockout2 = True
 								HHActive.clear()
 								time.sleep(1)
 								threading.Thread(target=fadingLED, args=(led, gold, stopEvent)).start()
-								# driver(led, 'adoration')
 							AresetEnable = True
 							break
 						elif duration > localTime - appointment > 0:
 							if notifyProgress == False:
-							# logging.info("Adoration is in progress")
+								logging.debug("Adoration is in progress")
 								notifyProgress = True
 								if notifyStart == False:
 									HHActive.clear()
 									time.sleep(1)
 									threading.Thread(target=fadingLED, args=(led, gold, stopEvent)).start()
-									# driver(led, 'adoration')
 								lockout2 = True
 							AresetEnable = True
 							break
 						elif AresetEnable == True:
-							#reset code goes here.
+							# Reset code goes here.
 							notifyStart = False
 							notifyProgress = False
 							AresetEnable = False
 							lockout2 = False
 							duration = 0
 							appointment = 0
-							# driver(led, 'adoration_off')
 							stopEvent.set()
-							# print("Reset Triggered")
 						else:
-							# logging.info("No Adoration")
+							# No hourly Adoration currently happening here.
 							continue
-#					elif activity == "Adoration_24h":
 					else:
-#						print("Here!")
 						if flipflop == 0 and HHActive.is_set() == False:
-							logging.info('starting 24h for %s', led)
+							logging.debug('starting 24h for %s', led)
 							HHActive.set()
 							stopEvent.clear()
 							threading.Thread(target=fadingLED, args=(led, gold, stopEvent)).start()
 							flipflop = 1
 							time.sleep(0.1)
 						if HHActive.is_set() == False:
-							logging.info('stopping 24h for %s', led)
+							logging.debug('stopping 24h for %s', led)
 							stopEvent.set()
 							flipflop = 0
 							break
 			time.sleep(1)
 		except KeyboardInterrupt:
 			raise
+		except Exception as e:
+			logging.error('Issue in thePastor(): %s', e)
+			raise
 
 try:
-  # print(checkNightMode(), clockmaker(dt.datetime.now()), nightModeStart, nightModeEnd)
 	ingest()
 	setID()
-#	       digest()
-#	       startTimeKeeper()
 	global inhibit
 	while stopLED.is_set() == False:
 		while checkNightMode() == False:
@@ -471,12 +445,12 @@ try:
 			logging.debug("Sleeping... Currently in Night Mode")
 			time.sleep(900)
 
-except:
-	err = sys.exc_info()[1]
-	logging.error("The map crashed with an error: %s - %s", err, err.args)
-	#pixels.fill(off)
-	#pixels[99] = (150, 0, 0)
-	#mailer.sendmail("Mapboard Error", "The mapboard is down due to an unspecified error.")
+except Exception as err:
+#	err = sys.exc_info()[1]
+	logging.critical("The map crashed with an error: %s", err)
+	pixels.fill(off)
+	pixels[99] = (150, 0, 0)
+	mailer.sendmail("The Mapboard has Crashed", err)
 	raise
 '''
 To do:
