@@ -17,6 +17,7 @@ import random
 import logging
 import mailer
 import sys
+import signal
 
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
@@ -26,8 +27,8 @@ DEBUG_DAY = "Saturday"
 if debugSet == True:
   logging.basicConfig(level=logging.DEBUG)
 else:
-  logging.basicConfig(filename='infov3.log', format='%(levelname)s:%(message)s', level=logging.INFO)
-#  logging.basicConfig(level=logging.INFO)
+  logging.basicConfig(filename='info.log', format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
+
 # Enable "Night Mode" - Map turns off during the time specified.
 enableNightMode = True
 nightModeStart = 2230
@@ -45,11 +46,9 @@ liturgyDuration = 0
 ledStatus = {}
 ledStatusStore = {}
 pixels = neopixel.NeoPixel(board.D21, 400, pixel_order=neopixel.RGB, brightness = 0.2)
-#pixels = 0
 quietLED = []
 adorationLockout = []
 threadIdentList = {}
-#pocketWatchThread = 0
 
 #I'm gonna define LED colors here:
 blue = (25, 125, 250)
@@ -110,7 +109,7 @@ def chronos2():
 			if aMinuteAgo != dt.datetime.now().strftime("%H%M"):
 				aMinuteAgo = dt.datetime.now().strftime("%H%M")
 				print(aMinuteAgo)
-				logging.info('The time is %s', aMinuteAgo)
+				logging.debug('The time is %s', aMinuteAgo)
 				currentTime = dt.datetime.now()
 				weekday = currentTime.strftime("%A")
 				liturgyLength(weekday)
@@ -280,7 +279,7 @@ def thePastor(id, name, led):
 						_time = 9999
 					if localTime == int(_time):
 						if notifyStart == False:
-							logging.info("Mass is starting")
+							logging.debug("Mass is starting")
 							HHActive.clear()
 							time.sleep(1)
 							driver(led, 'mass')
@@ -290,7 +289,7 @@ def thePastor(id, name, led):
 					elif liturgyDuration > localTime - int(_time) > 0:
 						timeRemaining = int(_time) + liturgyDuration - localTime
 						if notifyProgress == False:
-							logging.info("Mass is in progress")
+							logging.debug("Mass is in progress")
 							if notifyStart == False:
 								HHActive.clear()
 								time.sleep(1)
@@ -299,7 +298,6 @@ def thePastor(id, name, led):
 						MresetEnable = True
 						break
 					elif MresetEnable == True:
-						print("Put some reset code here")
 						MresetEnable = False
 						notifyStart = False
 						notifyProgress = False
@@ -426,31 +424,48 @@ def thePastor(id, name, led):
 			logging.error('Issue in thePastor(): %s', e)
 			raise
 
+def stopTheClock():
+	signal.signal(signal.SIGINT, goToBed)
+	signal.signal(signal.SIGTERM, goToBed)
+
+def goToBed(*args):
+	global stopLED
+	if args[0] == 2:
+		print("\n\n\n======== Stopping the System ========")
+		logging.warning('User initiated shutdown')
+		stopLED.set()
+	else:
+		stopLED.set()
+		logging.warning('Shutting Down - %s', args[0])
+
 try:
+	#Signal catching stuff
+	parishClosing = stopTheClock()
+
 	ingest()
 	setID()
 	global inhibit
 	while stopLED.is_set() == False:
-		while checkNightMode() == False:
+		while checkNightMode() == False and stopLED.is_set() == False:
 			print("looping at __main...")
 			stopLED.clear()
 			startTheClock()
 			time.sleep(1)
 			wakeUpParish()
 			watchTheClock()
+			time.sleep(0.5)
 		if stopLED.is_set():
 			pixels.fill(off)
 		while checkNightMode() == True:
-			print("Sleeping...")
 			logging.debug("Sleeping... Currently in Night Mode")
-			time.sleep(900)
+			time.sleep(5)
 
 except Exception as err:
 #	err = sys.exc_info()[1]
 	logging.critical("The map crashed with an error: %s", err)
 	pixels.fill(off)
 	pixels[99] = (150, 0, 0)
-	mailer.sendmail("The Mapboard has Crashed", err)
+	mailer.sendmail("The Mapboard has Crashed", str(err))
 	raise
 '''
 To do:
