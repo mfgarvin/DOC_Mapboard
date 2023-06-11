@@ -189,7 +189,7 @@ def startTheClock():
 	try:
 		pocketWatch = threading.Thread(target=chronos2)
 		pocketWatch.start()
-		logging.info("Starting the pocketwatch")
+		logging.info("Starting the Display")
 		#pocketWatch.join()
 	except KeyboardInterrupt:
 		print("\n\n\n======== Stopping the System ========")
@@ -445,10 +445,14 @@ try:
 	ingest()
 	setID()
 	global inhibit
+	ticktock = 0
 	while stopLED.is_set() == False:
 		while checkNightMode() == False and stopLED.is_set() == False:
+#		while checkNightMode() == False:
 			print("looping at __main...")
-			stopLED.clear()
+			if ticktock != 0:
+				ticktock = 0
+				stopLED.clear()
 			startTheClock()
 			time.sleep(1)
 			wakeUpParish()
@@ -457,6 +461,8 @@ try:
 		if stopLED.is_set():
 			pixels.fill(off)
 		while checkNightMode() == True:
+			if ticktock != 1:
+				ticktock = 1
 			logging.debug("Sleeping... Currently in Night Mode")
 			time.sleep(5)
 
