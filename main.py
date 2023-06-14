@@ -36,6 +36,7 @@ nightModeEnd = 658
 
 #Variables we need to set go here:
 stopLED = threading.Event()
+pauseLED = threading.Event()
 JSON_LOCATION="./live.json"
 LED_ALLOCATION="./leds.json"
 DAYS=["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
@@ -260,10 +261,10 @@ def thePastor(id, name, led):
 	if parishCalendar["ID"] != id:
 		logging.error("There's an ID mismatch with thePastor!!!")
 		raise
-	while stopLED.is_set() == False:
+	while stopLED.is_set() == False and pauseLED.is_set() == False:
 		try:
 			if checkNightMode() == True:
-				stopLED.set()
+				pauseLED.set()
 				logging.info("Night Mode Enabled")
 			localTime = clockmaker(currentTime)
 			for activity in ("Mass", "Confession", "Adoration", "Adoration_24h"):
@@ -447,12 +448,10 @@ try:
 	global inhibit
 	ticktock = 0
 	while stopLED.is_set() == False:
-		while checkNightMode() == False and stopLED.is_set() == False:
+		while checkNightMode() == False:
 #		while checkNightMode() == False:
 			print("looping at __main...")
-			if ticktock != 0:
-				ticktock = 0
-				stopLED.clear()
+			pauseLED.clear()
 			startTheClock()
 			time.sleep(1)
 			wakeUpParish()
@@ -461,8 +460,6 @@ try:
 		if stopLED.is_set():
 			pixels.fill(off)
 		while checkNightMode() == True:
-			if ticktock != 1:
-				ticktock = 1
 			logging.debug("Sleeping... Currently in Night Mode")
 			time.sleep(5)
 
