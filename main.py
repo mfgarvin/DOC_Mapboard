@@ -454,7 +454,7 @@ try:
 	while shutdown.is_set() == False:
 		while checkNightMode() == False and stopLED.is_set() == False:
 #		while checkNightMode() == False:
-			print("looping at __main...", stopLED.is_set())
+			print("looping at __main...")
 			nightLED.clear()
 			startTheClock()
 			time.sleep(1)
@@ -469,10 +469,10 @@ try:
 
 except Exception as err:
 #	err = sys.exc_info()[1]
-	logging.critical("The map crashed with an error: %s", err)
+	logging.exception("############ Crash! :/ ############")
 	pixels.fill(off)
 	pixels[99] = (150, 0, 0)
-	mailer.sendmail("The Mapboard has Crashed", str(err))
+	mailer.sendmail("The Mapboard has Crashed", str(sys.exc_info()))
 	raise
 '''
 To do:
