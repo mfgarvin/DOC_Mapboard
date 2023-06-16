@@ -22,8 +22,8 @@ import signal
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
 debugSet = False
-DEBUG_TIME_SET = 1459
-DEBUG_DAY = "Saturday"
+DEBUG_TIME_SET = 800
+DEBUG_DAY = "Thursday"
 if debugSet == True:
   logging.basicConfig(level=logging.DEBUG)
 else:
@@ -36,7 +36,8 @@ nightModeEnd = 658
 
 #Variables we need to set go here:
 stopLED = threading.Event()
-pauseLED = threading.Event()
+nightLED = threading.Event()
+shutdown = threading.Event()
 JSON_LOCATION="./live.json"
 LED_ALLOCATION="./leds.json"
 DAYS=["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
@@ -106,18 +107,19 @@ def chronos2():
 		pocketWatchThread = threading.current_thread()
 		aMinuteAgo = 0
 		DEBUG_TIME = str(DEBUG_TIME_SET)
-		while debugSet == False and stopLED.is_set() == False:
+		while debugSet == False and stopLED.is_set() == False and nightLED.is_set() == False:
 			if aMinuteAgo != dt.datetime.now().strftime("%H%M"):
 				aMinuteAgo = dt.datetime.now().strftime("%H%M")
 				print(aMinuteAgo)
+#				logging.info('%s %s %s', stopLED.is_set(), nightLED.is_set(), shutdown.is_set())
 				logging.debug('The time is %s', aMinuteAgo)
 				currentTime = dt.datetime.now()
 				weekday = currentTime.strftime("%A")
 				liturgyLength(weekday)
 			else:
 				time.sleep(1)
-				if stopLED.is_set() == True:
-					break
+#				if stopLED.is_set() == True or nightLED.is_set() == True:
+#					break
 		while debugSet == True and stopLED.is_set() == False:
 			currentTime = convertToDT(DEBUG_TIME)   #Note - something here breaks at midnight?
 			weekday = DEBUG_DAY
@@ -168,7 +170,7 @@ def driver(led, state, EStop=""):
 
 def fadingLED(led, color, stopEvent):
 	randomint = random.randint(-7, 7)
-	while stopLED.is_set() == False and not stopEvent.is_set():
+	while stopLED.is_set() == False and not stopEvent.is_set() and nightLED.is_set() == False:
 		cos = breathingEffect(randomint)
 		livecolor = int(color[0] * cos), int(color[1] * cos), int(color[2] * cos)
 		#logging.debug('fade: %s', led)
@@ -200,7 +202,7 @@ def startTheClock():
 def watchTheClock():
 	try:
 		pocketWatchThread.join() #how do I join a thread that's already running? See .enumerate,.current_thread, etc. Can look through all threads, act on a certain one.
-		if stopLED.is_set():
+		if nightLED.is_set():
 			while checkNightMode() == True:
 				pixels.fill((0,0,0))
 				time.sleep(60)
@@ -261,10 +263,10 @@ def thePastor(id, name, led):
 	if parishCalendar["ID"] != id:
 		logging.error("There's an ID mismatch with thePastor!!!")
 		raise
-	while stopLED.is_set() == False and pauseLED.is_set() == False:
+	while stopLED.is_set() == False and nightLED.is_set() == False:
 		try:
 			if checkNightMode() == True:
-				pauseLED.set()
+				nightLED.set()
 				logging.info("Night Mode Enabled")
 			localTime = clockmaker(currentTime)
 			for activity in ("Mass", "Confession", "Adoration", "Adoration_24h"):
@@ -432,12 +434,14 @@ def stopTheClock():
 def goToBed(*args):
 	global stopLED
 	if args[0] == 2:
-		print("\n\n\n======== Stopping the System ========")
-		logging.warning('User initiated shutdown')
+		print("\n\n\n======== Stopping the System - Ctrl C ========")
+		logging.warning('User initiated shutdown\n')
 		stopLED.set()
+		shutdown.set()
 	else:
 		stopLED.set()
-		logging.warning('Shutting Down - %s', args[0])
+		shutdown.set()
+		logging.warning('Shutting Down - %s\n', args[0])
 
 try:
 	#Signal catching stuff
@@ -447,11 +451,11 @@ try:
 	setID()
 	global inhibit
 	ticktock = 0
-	while stopLED.is_set() == False:
-		while checkNightMode() == False:
+	while shutdown.is_set() == False:
+		while checkNightMode() == False and stopLED.is_set() == False:
 #		while checkNightMode() == False:
-			print("looping at __main...")
-			pauseLED.clear()
+			print("looping at __main...", stopLED.is_set())
+			nightLED.clear()
 			startTheClock()
 			time.sleep(1)
 			wakeUpParish()
@@ -459,7 +463,7 @@ try:
 			time.sleep(0.5)
 		if stopLED.is_set():
 			pixels.fill(off)
-		while checkNightMode() == True:
+		while checkNightMode() == True and shutdown.is_set() == False:
 			logging.debug("Sleeping... Currently in Night Mode")
 			time.sleep(5)
 
