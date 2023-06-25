@@ -1,6 +1,3 @@
-####
-####            THIS IS A DEVELOPMENT FILE!
-####
 #! /bin/python
 #Things we need to import go here:
 import json
@@ -22,8 +19,8 @@ import signal
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
 debugSet = False
-DEBUG_TIME_SET = 800
-DEBUG_DAY = "Thursday"
+DEBUG_TIME_SET = 700
+DEBUG_DAY = "Sunday"
 if debugSet == True:
   logging.basicConfig(level=logging.DEBUG)
 else:
@@ -45,8 +42,7 @@ WEEKDAYS=["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 WEEKEND=["Saturday", "Sunday"]
 weekday = ""
 liturgyDuration = 0
-ledStatus = {}
-ledStatusStore = {}
+parishStatus = {}
 pixels = neopixel.NeoPixel(board.D21, 400, pixel_order=neopixel.RGB, brightness = 0.2)
 quietLED = []
 adorationLockout = []
@@ -270,6 +266,7 @@ def thePastor(id, name, led):
 				logging.info("Night Mode Enabled")
 			localTime = clockmaker(currentTime)
 			for activity in ("Mass", "Confession", "Adoration", "Adoration_24h"):
+				time.sleep(0.25)
 				if activity == "Mass" and lockout1 == False and lockout2 == False:
 					massToday = parishCalendar["Mass Times"][weekday]
 					if massToday is not None:
@@ -281,22 +278,24 @@ def thePastor(id, name, led):
 					else:
 						_time = 9999
 					if localTime == int(_time):
-						if notifyStart == False:
+						if notifyStart == False and parishUpdate(id, "verify") is True:
 							logging.debug("Mass is starting")
 							HHActive.clear()
 							time.sleep(1)
 							driver(led, 'mass')
 							notifyStart = True
+							parishUpdate(id, "mass")
 						MresetEnable = True
 						break
 					elif liturgyDuration > localTime - int(_time) > 0:
 						timeRemaining = int(_time) + liturgyDuration - localTime
 						if notifyProgress == False:
 							logging.debug("Mass is in progress")
-							if notifyStart == False:
+							if notifyStart == False and parishUpdate(id, "verify") is True:
 								HHActive.clear()
 								time.sleep(1)
 								driver(led, 'mass')
+								parishUpdate(id, "mass")
 							notifyProgress = True
 						MresetEnable = True
 						break
@@ -305,6 +304,7 @@ def thePastor(id, name, led):
 						notifyStart = False
 						notifyProgress = False
 						driver(led, 'off')
+						parishUpdate(id, "off")
 					else:
 					# The end. This runs at idle.
 						continue
@@ -325,11 +325,12 @@ def thePastor(id, name, led):
 						if localTime == appointment or duration > localTime - appointment > 0:
 							break
 					if localTime == appointment:
-						if notifyStart == False:
+						if notifyStart == False and parishUpdate(id, "verify") is True:
 							logging.debug("Confession is starting")
 							HHActive.clear()
 							time.sleep(1)
 							driver(led, 'confession')
+							parishUpdate(id, "conf")
 							notifyStart = True
 							lockout1 = True
 						CresetEnable = True
@@ -337,10 +338,11 @@ def thePastor(id, name, led):
 					elif duration > localTime - appointment > 0:
 						if notifyProgress == False:
 							logging.debug("Confession is in progress")
-							if notifyStart == False:
+							if notifyStart == False and parishUpdate(id, "verify") is True:
 								HHActive.clear()
 								time.sleep(1)
 								driver(led, 'confession')
+								parishUpdate(id, "conf")
 							notifyProgress = True
 							lockout1 = True
 						CresetEnable = True
@@ -354,6 +356,7 @@ def thePastor(id, name, led):
 						duration = 0
 						appointment = 0
 						driver(led, 'off')
+						parishUpdate(id, "off")
 					else:
 					# Things are quiet. No confession is happening")
 						continue
@@ -375,12 +378,13 @@ def thePastor(id, name, led):
 							if localTime == appointment or duration > localTime - appointment > 0:
 								break
 						if localTime == appointment:
-							if notifyStart == False:
+							if notifyStart == False and parishUpdate(id, "verify") is True:
 								logging.debug("Adoration is starting")
 								notifyStart = True
 								lockout2 = True
 								HHActive.clear()
 								time.sleep(1)
+								parishUpdate(id, "adore")
 								threading.Thread(target=fadingLED, args=(led, gold, stopEvent)).start()
 							AresetEnable = True
 							break
@@ -388,9 +392,10 @@ def thePastor(id, name, led):
 							if notifyProgress == False:
 								logging.debug("Adoration is in progress")
 								notifyProgress = True
-								if notifyStart == False:
+								if notifyStart == False and parishUpdate(id, "verify") is True:
 									HHActive.clear()
 									time.sleep(1)
+									parishUpdate(id, "adore")
 									threading.Thread(target=fadingLED, args=(led, gold, stopEvent)).start()
 								lockout2 = True
 							AresetEnable = True
@@ -404,20 +409,23 @@ def thePastor(id, name, led):
 							duration = 0
 							appointment = 0
 							stopEvent.set()
+							parishUpdate(id, "off")
 						else:
 							# No hourly Adoration currently happening here.
 							continue
 					else:
-						if flipflop == 0 and HHActive.is_set() == False:
+						if flipflop == 0 and HHActive.is_set() == False and parishUpdate(id, "verify") is True:
 							logging.debug('starting 24h for %s', led)
 							HHActive.set()
 							stopEvent.clear()
 							threading.Thread(target=fadingLED, args=(led, gold, stopEvent)).start()
+							parishUpdate(id, "adore24")
 							flipflop = 1
 							time.sleep(0.1)
 						if HHActive.is_set() == False:
 							logging.debug('stopping 24h for %s', led)
 							stopEvent.set()
+							parishUpdate(id, "off")
 							flipflop = 0
 							break
 			time.sleep(1)
@@ -442,6 +450,22 @@ def goToBed(*args):
 		stopLED.set()
 		shutdown.set()
 		logging.warning('Shutting Down - %s\n', args[0])
+
+def parishUpdate(ID, action):
+	global parishStatus
+	if action == "verify":
+		if ID in parishStatus:
+			return False
+		else:
+			return True
+	else:
+		if ID in parishStatus:
+			logging.error('Tried to do too much at %s', ID)
+			raise AssertionError("Can't have two things going on at once")
+		if action == "off":
+			parishStatus.pop(ID)
+		else:
+			parishStatus[ID] = action
 
 try:
 	#Signal catching stuff
