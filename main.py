@@ -19,8 +19,8 @@ import signal
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
 debugSet = False
-DEBUG_TIME_SET = 700
-DEBUG_DAY = "Sunday"
+DEBUG_TIME_SET = 659
+DEBUG_DAY = "Friday"
 if debugSet == True:
   logging.basicConfig(level=logging.DEBUG)
 else:
@@ -28,7 +28,7 @@ else:
 
 # Enable "Night Mode" - Map turns off during the time specified.
 enableNightMode = True
-nightModeStart = 2230
+nightModeStart = 2200
 nightModeEnd = 658
 
 #Variables we need to set go here:
@@ -167,11 +167,17 @@ def driver(led, state, EStop=""):
 def fadingLED(led, color, stopEvent):
 	randomint = random.randint(-7, 7)
 	while stopLED.is_set() == False and not stopEvent.is_set() and nightLED.is_set() == False:
+#		if int(round(time.time(), 2) * 100) % 10== led % 10:
 		cos = breathingEffect(randomint)
 		livecolor = int(color[0] * cos), int(color[1] * cos), int(color[2] * cos)
 		#logging.debug('fade: %s', led)
 		pixels[led] = livecolor
-		time.sleep(0.1)
+		#time.sleep(0.1)
+#		if led == 160:
+#			print(livecolor)
+#		else:
+#			pass
+#			time.sleep(0.05)
 	driver(led, 'off')
 
 def breathingEffect(adjustment):        # Background code called by "pulse" above, supports the fading method.
@@ -182,6 +188,7 @@ def breathingEffect(adjustment):        # Background code called by "pulse" abov
 	amplitude = 0.5
 	timer = time.time() + adjustment
 	value = offset + amplitude * (math.cos((omega * timer) + phase))
+#	time.sleep(0.1)
 	return(value)
 
 def startTheClock():
@@ -228,6 +235,7 @@ def checkNightMode():
 		if time > nightModeStart:
 			return(True)
 		if nightModeEnd > time:
+			parishUpdate(1000, "reset")
 			return(True)
 		else:
 			return(False)
@@ -253,6 +261,7 @@ def thePastor(id, name, led):
 	lockout1 = False
 	lockout2 = False
 	stopEvent = Event()
+#	stopEvent.set()
 	HHActive = Event()
 	flipflop = 0
 	timeRemaining = 0
@@ -278,24 +287,32 @@ def thePastor(id, name, led):
 					else:
 						_time = 9999
 					if localTime == int(_time):
-						if notifyStart == False and parishUpdate(id, "verify") is True:
-							logging.debug("Mass is starting")
-							HHActive.clear()
+						if notifyStart == False:
+							logging.debug("Mass is starting - %s - %s", name, id)
+							if not stopEvent.is_set() and HHActive.is_set(): #AKA only if 24h adoration is happening and needs to be interrupted...
+								HHActive.clear()
+								stopEvent.set()
+								parishUpdate(id, "off")
 							time.sleep(1)
-							driver(led, 'mass')
-							notifyStart = True
-							parishUpdate(id, "mass")
+							if parishUpdate(id, "verify") is True:
+								driver(led, 'mass')
+								notifyStart = True
+								parishUpdate(id, "mass")
 						MresetEnable = True
 						break
 					elif liturgyDuration > localTime - int(_time) > 0:
 						timeRemaining = int(_time) + liturgyDuration - localTime
 						if notifyProgress == False:
-							logging.debug("Mass is in progress")
-							if notifyStart == False and parishUpdate(id, "verify") is True:
-								HHActive.clear()
+							logging.debug("Mass is in progress - %s - %s", name, id)
+							if notifyStart == False:
+								if not stopEvent.is_set() and HHActive.is_set(): #AKA only if 24h adoration is happening and needs to be interrupted...
+									HHActive.clear()
+									stopEvent.set()
+									parishUpdate(id, "off")
 								time.sleep(1)
-								driver(led, 'mass')
-								parishUpdate(id, "mass")
+								if parishUpdate(id, "verify") is True:
+									driver(led, 'mass')
+									parishUpdate(id, "mass")
 							notifyProgress = True
 						MresetEnable = True
 						break
@@ -305,6 +322,7 @@ def thePastor(id, name, led):
 						notifyProgress = False
 						driver(led, 'off')
 						parishUpdate(id, "off")
+#						stopEvent.clear()
 					else:
 					# The end. This runs at idle.
 						continue
@@ -325,24 +343,34 @@ def thePastor(id, name, led):
 						if localTime == appointment or duration > localTime - appointment > 0:
 							break
 					if localTime == appointment:
-						if notifyStart == False and parishUpdate(id, "verify") is True:
-							logging.debug("Confession is starting")
-							HHActive.clear()
+						if notifyStart == False:
+							if not stopEvent.is_set() and HHActive.is_set(): #AKA only if 24h adoration is happening and needs to be interrupted...
+								HHActive.clear()
+								stopEvent.set()
+								parishUpdate(id, "off")
 							time.sleep(1)
-							driver(led, 'confession')
-							parishUpdate(id, "conf")
-							notifyStart = True
-							lockout1 = True
+							if parishUpdate(id, "verify") is True:
+								logging.debug("Confession is starting - %s - %s", name, id)
+								driver(led, 'confession')
+								parishUpdate(id, "conf")
+								notifyStart = True
+								lockout1 = True
 						CresetEnable = True
 						break
 					elif duration > localTime - appointment > 0:
 						if notifyProgress == False:
-							logging.debug("Confession is in progress")
-							if notifyStart == False and parishUpdate(id, "verify") is True:
-								HHActive.clear()
+							logging.debug("Confession is in progress - %s - %s", name, id)
+							if notifyStart == False:
+								if not stopEvent.is_set() and HHActive.is_set(): #AKA only if 24h adoration is happening and needs to be interrupted...
+									HHActive.clear()
+									stopEvent.set()
+									parishUpdate(id, "off")
 								time.sleep(1)
-								driver(led, 'confession')
-								parishUpdate(id, "conf")
+								if parishUpdate(id, "verify") is True:
+									HHActive.clear()
+									time.sleep(1)
+									driver(led, 'confession')
+									parishUpdate(id, "conf")
 							notifyProgress = True
 							lockout1 = True
 						CresetEnable = True
@@ -355,6 +383,7 @@ def thePastor(id, name, led):
 						lockout1 = False
 						duration = 0
 						appointment = 0
+#						stopEvent.clear()
 						driver(led, 'off')
 						parishUpdate(id, "off")
 					else:
@@ -425,10 +454,10 @@ def thePastor(id, name, led):
 						if HHActive.is_set() == False:
 							logging.debug('stopping 24h for %s', led)
 							stopEvent.set()
-							parishUpdate(id, "off")
+#							parishUpdate(id, "off")
 							flipflop = 0
 							break
-			time.sleep(1)
+			time.sleep(15)
 		except KeyboardInterrupt:
 			raise
 		except Exception as e:
@@ -443,6 +472,8 @@ def goToBed(*args):
 	global stopLED
 	if args[0] == 2:
 		print("\n\n\n======== Stopping the System - Ctrl C ========")
+		if debugSet == True:
+			print("======== (Press Enter...) ========")
 		logging.warning('User initiated shutdown\n')
 		stopLED.set()
 		shutdown.set()
@@ -452,20 +483,26 @@ def goToBed(*args):
 		logging.warning('Shutting Down - %s\n', args[0])
 
 def parishUpdate(ID, action):
+#	if action == "off":
+#		print(ID, "off!!!")
+#	return True
 	global parishStatus
 	if action == "verify":
 		if ID in parishStatus:
 			return False
 		else:
 			return True
+	elif action == "reset":
+		parishStatus.clear()
 	else:
-		if ID in parishStatus:
-			logging.error('Tried to do too much at %s', ID)
-			raise AssertionError("Can't have two things going on at once")
-		if action == "off":
-			parishStatus.pop(ID)
+		if action != "off":
+			if ID in parishStatus:
+				logging.error('Tried to do too much at %s', ID)
+				raise AssertionError("Can't have two things going on at once")
+			else:
+				parishStatus[ID] = action
 		else:
-			parishStatus[ID] = action
+			parishStatus.pop(ID)
 
 try:
 	#Signal catching stuff
