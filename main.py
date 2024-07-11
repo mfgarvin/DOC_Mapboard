@@ -7,27 +7,37 @@ from datetime import timedelta, datetime
 import threading
 from threading import Event
 import logging
-import board
-import neopixel
 import math
 import random
 import logging
-import mailer
 import sys
 import signal
 
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
-debugSet = False
-DEBUG_TIME_SET = 659
-DEBUG_DAY = "Friday"
+debugSet = True
+DEBUG_TIME_SET = 1430
+DEBUG_DAY = "Saturday"
 if debugSet == True:
   logging.basicConfig(level=logging.DEBUG)
 else:
   logging.basicConfig(filename='info.log', format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
 
+# Local development? Set to true if running on something other than the mapboard itself.
+LOCAL_MODE = True
+
+if LOCAL_MODE is False:
+	import board
+	import neopixel
+	import mailer
+
+if LOCAL_MODE is True:
+	class pixels:		#Creating a dummy pixels class
+		def fill(x):
+			pass
+
 # Enable "Night Mode" - Map turns off during the time specified.
-enableNightMode = True
+enableNightMode = False
 nightModeStart = 2200
 nightModeEnd = 658
 
@@ -35,7 +45,7 @@ nightModeEnd = 658
 stopLED = threading.Event()
 nightLED = threading.Event()
 shutdown = threading.Event()
-JSON_LOCATION="./live.json"
+JSON_LOCATION="./parish_data.json"
 LED_ALLOCATION="./leds.json"
 DAYS=["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 WEEKDAYS=["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
@@ -43,7 +53,8 @@ WEEKEND=["Saturday", "Sunday"]
 weekday = ""
 liturgyDuration = 0
 parishStatus = {}
-pixels = neopixel.NeoPixel(board.D21, 400, pixel_order=neopixel.RGB, brightness = 0.2)
+if LOCAL_MODE is False:
+	pixels = neopixel.NeoPixel(board.D21, 400, pixel_order=neopixel.RGB, brightness = 0.2)
 quietLED = []
 adorationLockout = []
 threadIdentList = {}
@@ -67,9 +78,10 @@ def convertToDT(value):
 def ingest():
 	readfile = open(JSON_LOCATION, "r")
 	global rawjson, leddict, iddict
-	rawjson = json.loads(readfile.read())
+	rawjson = json.load(readfile)
 	leddict = json.loads(open(LED_ALLOCATION, "r").read())
 	iddict = rawjson
+
 
 #Combining Parish Name, ID, and LED Allocation into one dictionary
 def setID():
@@ -78,16 +90,17 @@ def setID():
 	rows, cols = (189, 3)
 	allocation = [[0 for i in range(cols)] for j in range(rows)]
 	try:
-		for key, id in iddict.items():          # key = parish name
-			allocation[id["ID"] - 1][0] = key
-			allocation[id["ID"] - 1][1] = id["ID"]
-			allocation[id["ID"] - 1][2] = leddict.get(key) #LED Assignment
-			if leddict.get(key)is None:
-				logging.error('There is an issue with SetID')
+		for parishName in iddict:
+			if iddict[parishName] == {}:
+				print("The record seems to be empty for " + parishName +", continuing...")
+			else:
+				parishID = iddict[parishName]["ID"]
+				allocation[parishID - 1][0] = parishName
+				allocation[parishID - 1][1] = parishID
+				allocation[parishID - 1][2] = leddict.get(parishName)
 	except KeyError as e:
 		if str(e) == 0:
 			logging.warning("Key Error 0 on SetID, continuing")
-			raise
 
 def liturgyLength(whatDayItIs):
 	global liturgyDuration
@@ -154,7 +167,8 @@ def driver(led, state, EStop=""):
   if stopLED.is_set() == False:
     try:
       if (style == "solid"):                                # Sets an LED to a solid color
-        pixels[led] = color
+        if LOCAL_MODE is False:
+          pixels[led] = color
         logging.debug('solid: %s, color: %s', led, color)
         updated = True
       elif (style == "pulse"):
@@ -171,7 +185,8 @@ def fadingLED(led, color, stopEvent):
 		cos = breathingEffect(randomint)
 		livecolor = int(color[0] * cos), int(color[1] * cos), int(color[2] * cos)
 		#logging.debug('fade: %s', led)
-		pixels[led] = livecolor
+		if LOCAL_MODE is False:
+			pixels[led] = livecolor
 		#time.sleep(0.1)
 #		if led == 160:
 #			print(livecolor)
@@ -222,8 +237,10 @@ def watchTheClock():
 
 def wakeUpParish():
 	for parishID in allocation:
-	#if parishID[1] == 4: # For debugging individual parishes / only running one parish
-		threading.Thread(target=thePastor, args=([parishID[1], parishID[0], parishID[2]])).start()
+		# print(parishID)
+		#if parishID[1] == 10: # For debugging individual parishes / only running one parish
+		if parishID[0] != 0:
+			threading.Thread(target=thePastor, args=([parishID[1], parishID[0], parishID[2]])).start()
 
 def clockmaker(strf):
 	time = int(strf.strftime("%H%M"))
@@ -252,7 +269,10 @@ def checkNightMode():
 # commands leds to be powered on and off via driver()
 def thePastor(id, name, led):
 	global weekday, liturgyDuration
-	parishCalendar = rawjson[name]
+	try:
+		parishCalendar = rawjson[name]
+	except KeyError as e:
+		print("Key Error for" + str(name))
 	notifyStart = False
 	notifyProgress = False
 	MresetEnable = False
@@ -277,9 +297,14 @@ def thePastor(id, name, led):
 			for activity in ("Mass", "Confession", "Adoration", "Adoration_24h"):
 				time.sleep(0.25)
 				if activity == "Mass" and lockout1 == False and lockout2 == False:
+					if parishCalendar["Mass Times"] == {}:
+						continue
+					if parishCalendar["Mass Times"].get(weekday) is None:
+						continue
 					massToday = parishCalendar["Mass Times"][weekday]
 					if massToday is not None:
-						for _time in massToday.split(','):
+						# for _time in massToday.split(','):
+						for _time in massToday:
 							if localTime != int(_time) and not liturgyDuration > localTime - int(_time) > 0:
 								continue
 							if localTime == int(_time) or liturgyDuration > localTime - int(_time) > 0:
@@ -328,16 +353,21 @@ def thePastor(id, name, led):
 						continue
 
 				elif activity == "Confession" and lockout2 == False:
-					if parishCalendar["Confessions"][weekday] is None:
+					if parishCalendar["Confessions"] == {}:
+						continue
+					if parishCalendar["Confessions"].get(weekday) is None:
 						continue
 					confessionsToday = []
-					for value in parishCalendar["Confessions"][weekday].split(','):
-						confessionsToday.append(value)
+					for value in parishCalendar["Confessions"][weekday]:
+						timeOfDay = list(value.keys())
+						confDuration = list(value.values())
+						confessionsToday.append(int(timeOfDay[0]))
+						confessionsToday.append(confDuration[0])
 					times = confessionsToday[::2]
 					durations = confessionsToday[1::2]
 					for appointment in times:
 						duration = int(confessionsToday[confessionsToday.index(appointment) + 1])
-						appointment = int(appointment.strip())
+						# appointment = int(appointment.strip())
 						if localTime != appointment and not duration > localTime - appointment > 0:
 							continue
 						if localTime == appointment or duration > localTime - appointment > 0:
@@ -389,19 +419,23 @@ def thePastor(id, name, led):
 					else:
 					# Things are quiet. No confession is happening")
 						continue
-
+				
 				elif activity == "Adoration":
-					if parishCalendar["Adoration"]["Is24hour"] is None:
-						if parishCalendar["Adoration"][weekday] is None:
+					if parishCalendar["Adoration"] == {}:
+						continue
+					if parishCalendar["Adoration"].get("Is24Hour") is None:
+						if parishCalendar["Adoration"].get(weekday) is None:
 							continue
 						adorationToday = []
-						for value in parishCalendar["Adoration"][weekday].split(','):
-							adorationToday.append(value)
+						for value in parishCalendar["Adoration"][weekday]:
+							timeOfDay2 = list(value.keys())
+							adoreDuration = list(value.values())
+							adorationToday.append(int(timeOfDay2[0]))
+							adorationToday.append(adoreDuration[0])
 						times = adorationToday[::2]
 						durations = adorationToday[1::2]
 						for appointment in times:
 							duration = int(adorationToday[adorationToday.index(appointment) + 1])
-							appointment = int(appointment.strip())
 							if localTime != appointment and not duration > localTime - appointment > 0:
 								continue
 							if localTime == appointment or duration > localTime - appointment > 0:
@@ -442,7 +476,7 @@ def thePastor(id, name, led):
 						else:
 							# No hourly Adoration currently happening here.
 							continue
-					else:
+					elif parishCalendar["Adoration"]["Is24Hour"] == True:
 						if flipflop == 0 and HHActive.is_set() == False and parishUpdate(id, "verify") is True:
 							logging.debug('starting 24h for %s', led)
 							HHActive.set()
@@ -532,8 +566,9 @@ except Exception as err:
 #	err = sys.exc_info()[1]
 	logging.exception("############ Crash! :/ ############")
 	pixels.fill(off)
-	pixels[99] = (150, 0, 0)
-	mailer.sendmail("The Mapboard has Crashed", str(sys.exc_info()))
+	if LOCAL_MODE is False:
+		pixels[99] = (150, 0, 0)
+		mailer.sendmail("The Mapboard has Crashed", str(sys.exc_info()))
 	raise
 '''
 To do:
