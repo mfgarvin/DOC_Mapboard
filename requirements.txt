@@ -1,0 +1,8 @@
+requests
+python-dotenv
+beautifulsoup4
+yagmail
+
+# Raspberry Pi only (uncomment when deploying to Pi)
+# adafruit-circuitpython-neopixel
+# adafruit-blinka

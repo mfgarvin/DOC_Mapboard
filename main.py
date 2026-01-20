@@ -12,6 +12,25 @@ import random
 import logging
 import sys
 import signal
+import os
+import requests
+from dotenv import load_dotenv
+from bs4 import BeautifulSoup
+
+load_dotenv()
+
+# Liturgical color mappings (class name -> RGB)
+LITURGICAL_COLORS = {
+	"green": (0, 128, 0),
+	"white": (255, 255, 255),
+	"red": (255, 0, 0),
+	"purple": (128, 0, 128),
+	"violet": (128, 0, 128),
+	"rose": (255, 105, 180),
+	"gold": (255, 215, 0),
+	"black": (25, 25, 25),
+}
+BACKLIGHT_BRIGHTNESS = 0.15
 
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
@@ -76,11 +95,71 @@ def convertToDT(value):
 
 #Functions? *Raises hand*
 def ingest():
-	readfile = open(JSON_LOCATION, "r")
 	global rawjson, leddict, iddict
-	rawjson = json.load(readfile)
+	parish_url = os.getenv("PARISH_DATA_URL")
+	if parish_url:
+		response = requests.get(parish_url)
+		response.raise_for_status()
+		rawjson = response.json()
+	else:
+		readfile = open(JSON_LOCATION, "r")
+		rawjson = json.load(readfile)
 	leddict = json.loads(open(LED_ALLOCATION, "r").read())
 	iddict = rawjson
+
+def getUnusedLEDs():
+	"""Returns list of LED indices not used by parishes"""
+	used_leds = set(leddict.values())
+	all_leds = set(range(400))
+	return list(all_leds - used_leds)
+
+def fetchLiturgicalColor():
+	"""Fetches the current liturgical color from USCCB website"""
+	url = os.getenv("LITURGICAL_COLOR_URL")
+	if not url:
+		logging.warning("LITURGICAL_COLOR_URL not set, skipping backlight")
+		return None
+	try:
+		response = requests.get(url, timeout=10)
+		response.raise_for_status()
+		soup = BeautifulSoup(response.text, 'html.parser')
+		color_span = soup.select_one('.four .event-color')
+		if color_span:
+			classes = color_span.get('class', [])
+			for cls in classes:
+				if cls in LITURGICAL_COLORS:
+					logging.info("Liturgical color: %s", cls)
+					return cls
+		logging.warning("Could not find liturgical color element")
+		return None
+	except Exception as e:
+		logging.error("Error fetching liturgical color: %s", e)
+		return None
+
+def setBacklight(color_name):
+	"""Sets all unused LEDs to the liturgical color"""
+	if color_name not in LITURGICAL_COLORS:
+		logging.warning("Unknown liturgical color: %s", color_name)
+		return
+	rgb = LITURGICAL_COLORS[color_name]
+	dimmed = tuple(int(c * BACKLIGHT_BRIGHTNESS) for c in rgb)
+	unused_leds = getUnusedLEDs()
+	logging.info("Setting %d backlight LEDs to %s", len(unused_leds), color_name)
+	if LOCAL_MODE is False:
+		for led in unused_leds:
+			pixels[led] = dimmed
+
+def backlightWatcher():
+	"""Thread that updates backlight color daily"""
+	last_date = None
+	while stopLED.is_set() == False and shutdown.is_set() == False:
+		today = dt.date.today()
+		if today != last_date:
+			color = fetchLiturgicalColor()
+			if color:
+				setBacklight(color)
+			last_date = today
+		time.sleep(3600)  # Check every hour
 
 
 #Combining Parish Name, ID, and LED Allocation into one dictionary
@@ -544,6 +623,10 @@ try:
 
 	ingest()
 	setID()
+
+	# Start backlight with liturgical color
+	threading.Thread(target=backlightWatcher, daemon=True).start()
+
 	global inhibit
 	ticktock = 0
 	while shutdown.is_set() == False:
