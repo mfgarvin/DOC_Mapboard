@@ -48,7 +48,6 @@ LOCAL_MODE = True
 if LOCAL_MODE is False:
 	import board
 	import neopixel
-	import mailer
 
 if LOCAL_MODE is True:
 	class pixels:		#Creating a dummy pixels class
@@ -651,7 +650,6 @@ except Exception as err:
 	pixels.fill(off)
 	if LOCAL_MODE is False:
 		pixels[99] = (150, 0, 0)
-		mailer.sendmail("The Mapboard has Crashed", str(sys.exc_info()))
 	raise
 '''
 To do:

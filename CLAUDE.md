@@ -60,7 +60,6 @@ Copy `.env.example` to `.env` and configure:
 
 - `main.py` - Core application with threading, LED control, and time tracking
 - `converter.py` - Transforms raw parish data to internal JSON format
-- `mailer.py` - Email crash notifications via yagmail
 - `live.json` - Parish schedule data (mass times, confessions, adoration)
 - `leds.json` - Maps parish names to LED addresses
 
@@ -76,11 +75,10 @@ Hardware (Raspberry Pi only):
 - `neopixel` - Adafruit LED control
 - `board` - Adafruit GPIO abstraction
 
-Data & Communication:
+Data:
 - `requests` - HTTP requests for remote data fetching
 - `python-dotenv` - Environment variable loading from .env
 - `beautifulsoup4` - HTML parsing for liturgical color scraping
-- `yagmail` - Email notifications
 
 ## Important Implementation Notes
 
