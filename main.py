@@ -97,12 +97,17 @@ def ingest():
 	global rawjson, leddict, iddict
 	parish_url = os.getenv("PARISH_DATA_URL")
 	if parish_url:
-		response = requests.get(parish_url)
-		response.raise_for_status()
-		rawjson = response.json()
+		try:
+			response = requests.get(parish_url, timeout=10)
+			response.raise_for_status()
+			rawjson = response.json()
+		except requests.exceptions.RequestException as e:
+			logging.warning("Failed to fetch parish data from URL: %s. Falling back to local file.", e)
+			with open(JSON_LOCATION, "r") as readfile:
+				rawjson = json.load(readfile)
 	else:
-		readfile = open(JSON_LOCATION, "r")
-		rawjson = json.load(readfile)
+		with open(JSON_LOCATION, "r") as readfile:
+			rawjson = json.load(readfile)
 	leddict = json.loads(open(LED_ALLOCATION, "r").read())
 	iddict = rawjson
 
