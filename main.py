@@ -45,6 +45,9 @@ else:
 # Local development? Set to true if running on something other than the mapboard itself.
 LOCAL_MODE = True
 
+# Dry run mode - validates parish/LED mappings and exits without running
+DRY_RUN = True
+
 if LOCAL_MODE is False:
 	import board
 	import neopixel
@@ -172,6 +175,8 @@ def setID():
 	#creating a 2D array for the following data
 	rows, cols = (189, 3)
 	allocation = [[0 for i in range(cols)] for j in range(rows)]
+	missing_led = []  # Parishes in data but not in leds.json
+	orphan_led = set(leddict.keys())  # LEDs with no matching parish (will remove matches)
 	try:
 		for parishName in iddict:
 			if iddict[parishName] == {}:
@@ -180,10 +185,45 @@ def setID():
 				parishID = iddict[parishName]["ID"]
 				allocation[parishID - 1][0] = parishName
 				allocation[parishID - 1][1] = parishID
-				allocation[parishID - 1][2] = leddict.get(parishName)
+				led = leddict.get(parishName)
+				allocation[parishID - 1][2] = led
+				if led is None:
+					missing_led.append(parishName)
+				else:
+					orphan_led.discard(parishName)
 	except KeyError as e:
 		if str(e) == 0:
 			logging.warning("Key Error 0 on SetID, continuing")
+
+	# Report mapping issues
+	if missing_led:
+		logging.warning("=== PARISHES MISSING LED MAPPINGS (%d) ===", len(missing_led))
+		for name in sorted(missing_led):
+			logging.warning("  No LED mapping: %s", name)
+
+	if orphan_led:
+		logging.warning("=== ORPHAN LED ENTRIES (%d) - in leds.json but no matching parish ===", len(orphan_led))
+		for name in sorted(orphan_led):
+			logging.warning("  Orphan LED %d: %s", leddict[name], name)
+
+	if DRY_RUN:
+		print("\n" + "="*60)
+		print("DRY RUN SUMMARY")
+		print("="*60)
+		print(f"Total parishes in data: {len(iddict)}")
+		print(f"Total LED mappings: {len(leddict)}")
+		print(f"Parishes missing LED mappings: {len(missing_led)}")
+		print(f"Orphan LED entries (old names?): {len(orphan_led)}")
+		if missing_led and orphan_led:
+			print("\n--- Possible matches (compare names) ---")
+			print("Missing parishes:")
+			for name in sorted(missing_led):
+				print(f"  - {name}")
+			print("\nOrphan LED entries:")
+			for name in sorted(orphan_led):
+				print(f"  - {name} (LED {leddict[name]})")
+		print("="*60)
+		sys.exit(0)
 
 def liturgyLength(whatDayItIs):
 	global liturgyDuration
@@ -228,6 +268,8 @@ def chronos2():
 		logging.error('Error in chronos2(): %s', e)
 
 def driver(led, state, EStop=""):
+  if led is None:
+    return
   updated = False
   stopEvent = Event()
   if (state == "adoration"):
@@ -262,6 +304,8 @@ def driver(led, state, EStop=""):
       raise
 
 def fadingLED(led, color, stopEvent):
+	if led is None:
+		return
 	randomint = random.randint(-7, 7)
 	while stopLED.is_set() == False and not stopEvent.is_set() and nightLED.is_set() == False:
 #		if int(round(time.time(), 2) * 100) % 10== led % 10:
