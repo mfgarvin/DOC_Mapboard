@@ -26,6 +26,7 @@ Copy `.env.example` to `.env` and configure:
 
 - `debugSet = True` - Enables manual time control (press Enter to advance through time)
 - `LOCAL_MODE = True` - Disables hardware access for development on non-Pi systems
+- `DRY_RUN = True` - Validates parish/LED mappings and exits (useful for debugging NotionID mismatches)
 - `enableNightMode = False` - Controls sleep behavior (normally 22:00-06:58)
 - `DEBUG_TIME_SET = 1430` - Set manual test time (HHMM format)
 - `DEBUG_DAY = "Saturday"` - Set manual test day
@@ -42,8 +43,12 @@ Copy `.env.example` to `.env` and configure:
 **Key data structures:**
 - `allocation` - 2D array mapping [parish_name, parish_id, led_address]
 - `parishStatus` - dict tracking active activities per parish ID
-- `rawjson` - parsed live.json with all parish schedules
-- `leddict` - parsed leds.json LED address mapping
+- `rawjson` - parsed parish data JSON with all parish schedules (includes NotionID per parish)
+- `leddict` - parsed leds.json mapping NotionID -> LED address
+
+**Parish identification:**
+- Parishes are matched to LEDs via `NotionID` (UUID from Notion database), not by name
+- This makes the system immune to parish name changes in the data source
 
 **LED color states (parish LEDs):**
 - Blue (25, 125, 250) = Mass
@@ -61,7 +66,7 @@ Copy `.env.example` to `.env` and configure:
 - `main.py` - Core application with threading, LED control, and time tracking
 - `converter.py` - Transforms raw parish data to internal JSON format
 - `live.json` - Parish schedule data (mass times, confessions, adoration)
-- `leds.json` - Maps parish names to LED addresses
+- `leds.json` - Maps parish NotionID (UUID) to LED addresses
 
 ## Utility Scripts (extras/)
 

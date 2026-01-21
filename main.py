@@ -175,7 +175,7 @@ def setID():
 	#creating a 2D array for the following data
 	rows, cols = (189, 3)
 	allocation = [[0 for i in range(cols)] for j in range(rows)]
-	missing_led = []  # Parishes in data but not in leds.json
+	missing_led = []  # Parishes without LED mapping (NotionID not in leds.json)
 	orphan_led = set(leddict.keys())  # LEDs with no matching parish (will remove matches)
 	try:
 		for parishName in iddict:
@@ -183,14 +183,16 @@ def setID():
 				print("The record seems to be empty for " + parishName +", continuing...")
 			else:
 				parishID = iddict[parishName]["ID"]
+				notionID = iddict[parishName].get("NotionID")
 				allocation[parishID - 1][0] = parishName
 				allocation[parishID - 1][1] = parishID
-				led = leddict.get(parishName)
+				# Look up LED by NotionID instead of parish name
+				led = leddict.get(notionID) if notionID else None
 				allocation[parishID - 1][2] = led
 				if led is None:
-					missing_led.append(parishName)
+					missing_led.append((parishName, notionID))
 				else:
-					orphan_led.discard(parishName)
+					orphan_led.discard(notionID)
 	except KeyError as e:
 		if str(e) == 0:
 			logging.warning("Key Error 0 on SetID, continuing")
@@ -198,13 +200,13 @@ def setID():
 	# Report mapping issues
 	if missing_led:
 		logging.warning("=== PARISHES MISSING LED MAPPINGS (%d) ===", len(missing_led))
-		for name in sorted(missing_led):
-			logging.warning("  No LED mapping: %s", name)
+		for name, notion_id in sorted(missing_led):
+			logging.warning("  No LED mapping: %s (NotionID: %s)", name, notion_id)
 
 	if orphan_led:
-		logging.warning("=== ORPHAN LED ENTRIES (%d) - in leds.json but no matching parish ===", len(orphan_led))
-		for name in sorted(orphan_led):
-			logging.warning("  Orphan LED %d: %s", leddict[name], name)
+		logging.warning("=== ORPHAN LED ENTRIES (%d) - in leds.json but no matching NotionID ===", len(orphan_led))
+		for notion_id in sorted(orphan_led):
+			logging.warning("  Orphan LED %d: NotionID %s", leddict[notion_id], notion_id)
 
 	if DRY_RUN:
 		print("\n" + "="*60)
@@ -213,15 +215,16 @@ def setID():
 		print(f"Total parishes in data: {len(iddict)}")
 		print(f"Total LED mappings: {len(leddict)}")
 		print(f"Parishes missing LED mappings: {len(missing_led)}")
-		print(f"Orphan LED entries (old names?): {len(orphan_led)}")
-		if missing_led and orphan_led:
-			print("\n--- Possible matches (compare names) ---")
-			print("Missing parishes:")
-			for name in sorted(missing_led):
-				print(f"  - {name}")
-			print("\nOrphan LED entries:")
-			for name in sorted(orphan_led):
-				print(f"  - {name} (LED {leddict[name]})")
+		print(f"Orphan LED entries: {len(orphan_led)}")
+		if missing_led:
+			print("\n--- Parishes needing LED mapping ---")
+			for name, notion_id in sorted(missing_led):
+				print(f"  {name}")
+				print(f"    NotionID: {notion_id}")
+		if orphan_led:
+			print("\n--- Orphan LED entries (NotionIDs in leds.json with no parish) ---")
+			for notion_id in sorted(orphan_led):
+				print(f"  NotionID: {notion_id} (LED {leddict[notion_id]})")
 		print("="*60)
 		sys.exit(0)
 
