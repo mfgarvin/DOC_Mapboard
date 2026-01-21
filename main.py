@@ -45,6 +45,7 @@ LOG_FILE = 'mapboard.log'
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG if debugSet else logging.INFO)
+logger.propagate = False  # Prevent duplicate logs to root logger
 
 # Console handler
 console_handler = logging.StreamHandler(sys.stdout)
