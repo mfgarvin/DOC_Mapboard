@@ -446,6 +446,9 @@ def clockmaker(strf):
 	return time
 
 def checkNightMode():
+	# If night mode is disabled, always return False
+	if enableNightMode == False:
+		return False
 	if debugSet == False:
 		time = clockmaker(dt.datetime.now())
 		if time > nightModeStart:
@@ -456,11 +459,6 @@ def checkNightMode():
 		else:
 			return(False)
 	else:
-#		time = clockmaker(dt.datetime.now())
-#		if nightModeStart > time > nightModeEnd:
-#			return(True)
-#		else:
-#			return(False)
 		return(False)
 
 # This function runs for each parish. It's called and receives its assigned ID from wakeUpParish(),
