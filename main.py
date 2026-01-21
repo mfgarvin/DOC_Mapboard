@@ -150,23 +150,42 @@ def fetchLiturgicalColor():
 	"""Fetches the current liturgical color from USCCB website"""
 	url = os.getenv("LITURGICAL_COLOR_URL")
 	if not url:
-		logging.warning("LITURGICAL_COLOR_URL not set, skipping backlight")
+		logger.warning("LITURGICAL_COLOR_URL not set, skipping backlight")
 		return None
 	try:
+		logger.info("Fetching liturgical color from: %s", url)
 		response = requests.get(url, timeout=10)
 		response.raise_for_status()
+		logger.debug("Fetched %d bytes from USCCB", len(response.text))
 		soup = BeautifulSoup(response.text, 'html.parser')
+
+		# Method 1: Try data-colors attribute on first teaser link (today's reading)
+		teaser_link = soup.select_one('li.teaser a[data-colors]')
+		if teaser_link:
+			color = teaser_link.get('data-colors')
+			if color and color in LITURGICAL_COLORS:
+				logger.info("Liturgical color (from data-colors): %s", color)
+				return color
+			logger.debug("data-colors found but value '%s' not recognized", color)
+
+		# Method 2: Fall back to event-color span class
 		color_span = soup.select_one('.four .event-color')
 		if color_span:
 			classes = color_span.get('class', [])
+			logger.debug("event-color span classes: %s", classes)
 			for cls in classes:
 				if cls in LITURGICAL_COLORS:
-					logging.info("Liturgical color: %s", cls)
+					logger.info("Liturgical color (from event-color class): %s", cls)
 					return cls
-		logging.warning("Could not find liturgical color element")
+
+		# Debug: log what we did find
+		teasers = soup.select('li.teaser')
+		logger.warning("Could not find liturgical color. Found %d teaser elements", len(teasers))
+		if teasers:
+			logger.debug("First teaser HTML: %s", str(teasers[0])[:500])
 		return None
 	except Exception as e:
-		logging.error("Error fetching liturgical color: %s", e)
+		logger.error("Error fetching liturgical color: %s", e, exc_info=True)
 		return None
 
 def setBacklight(color_name):
