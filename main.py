@@ -30,7 +30,7 @@ LITURGICAL_COLORS = {
 	"gold": (255, 215, 0),
 	"black": (25, 25, 25),
 }
-BACKLIGHT_BRIGHTNESS = 0.15
+BACKLIGHT_BRIGHTNESS = 0.3
 
 # Easily accessible debug stuff
 # Set debugSet to True to enable manual time/weekday. Set to false for realtime.
