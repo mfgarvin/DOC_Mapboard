@@ -37,10 +37,26 @@ BACKLIGHT_BRIGHTNESS = 0.15
 debugSet = True
 DEBUG_TIME_SET = 1430
 DEBUG_DAY = "Saturday"
-if debugSet == True:
-  logging.basicConfig(level=logging.DEBUG)
-else:
-  logging.basicConfig(filename='info.log', format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S', level=logging.INFO)
+
+# Configure logging - log to both stdout and file with timestamps and thread names
+LOG_FORMAT = '%(asctime)s [%(levelname)s] %(threadName)s: %(message)s'
+LOG_DATEFMT = '%Y-%m-%d %H:%M:%S'
+LOG_FILE = 'mapboard.log'
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG if debugSet else logging.INFO)
+
+# Console handler
+console_handler = logging.StreamHandler(sys.stdout)
+console_handler.setLevel(logging.DEBUG if debugSet else logging.INFO)
+console_handler.setFormatter(logging.Formatter(LOG_FORMAT, LOG_DATEFMT))
+logger.addHandler(console_handler)
+
+# File handler (always logs everything)
+file_handler = logging.FileHandler(LOG_FILE)
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(logging.Formatter(LOG_FORMAT, LOG_DATEFMT))
+logger.addHandler(file_handler)
 
 # Local development? Set to true if running on something other than the mapboard itself.
 LOCAL_MODE = True
@@ -98,21 +114,31 @@ def convertToDT(value):
 #Functions? *Raises hand*
 def ingest():
 	global rawjson, leddict, iddict
+	logger.info("=== Starting data ingestion ===")
 	parish_url = os.getenv("PARISH_DATA_URL")
 	if parish_url:
+		logger.info("Fetching parish data from URL: %s", parish_url)
 		try:
 			response = requests.get(parish_url, timeout=10)
 			response.raise_for_status()
 			rawjson = response.json()
+			logger.info("Successfully fetched parish data from URL (%d parishes)", len(rawjson))
 		except requests.exceptions.RequestException as e:
-			logging.warning("Failed to fetch parish data from URL: %s. Falling back to local file.", e)
+			logger.warning("Failed to fetch parish data from URL: %s. Falling back to local file.", e)
 			with open(JSON_LOCATION, "r") as readfile:
 				rawjson = json.load(readfile)
+			logger.info("Loaded parish data from local file: %s (%d parishes)", JSON_LOCATION, len(rawjson))
 	else:
+		logger.info("No PARISH_DATA_URL set, loading from local file: %s", JSON_LOCATION)
 		with open(JSON_LOCATION, "r") as readfile:
 			rawjson = json.load(readfile)
+		logger.info("Loaded parish data from local file (%d parishes)", len(rawjson))
+
+	logger.info("Loading LED allocation from: %s", LED_ALLOCATION)
 	leddict = json.loads(open(LED_ALLOCATION, "r").read())
+	logger.info("Loaded LED mappings (%d entries)", len(leddict))
 	iddict = rawjson
+	logger.info("=== Data ingestion complete ===")
 
 def getUnusedLEDs():
 	"""Returns list of LED indices not used by parishes"""
@@ -158,31 +184,38 @@ def setBacklight(color_name):
 
 def backlightWatcher():
 	"""Thread that updates backlight color daily"""
+	logger.info("backlightWatcher thread starting")
 	last_date = None
 	while stopLED.is_set() == False and shutdown.is_set() == False:
 		today = dt.date.today()
 		if today != last_date:
+			logger.info("backlightWatcher: Checking liturgical color for %s", today)
 			color = fetchLiturgicalColor()
 			if color:
 				setBacklight(color)
+			else:
+				logger.warning("backlightWatcher: No liturgical color fetched")
 			last_date = today
 		time.sleep(3600)  # Check every hour
+	logger.info("backlightWatcher thread exiting")
 
 
 #Combining Parish NotionID, ID, and LED Allocation into one dictionary
 def setID():
 	global allocation
+	logger.info("=== Building parish-to-LED allocation map ===")
 	#creating a 2D array for the following data
 	rows, cols = (190, 3)
 	allocation = [[0 for i in range(cols)] for j in range(rows)]
 	missing_led = []  # Parishes without LED mapping (NotionID not in leds.json)
 	orphan_led = set(leddict.keys())  # LEDs with no matching parish (will remove matches)
+	parishes_processed = 0
 	try:
 		# JSON structure: key is NotionID, value has ID, Name, Mass Times, etc.
 		for notionID in iddict:
 			parishData = iddict[notionID]
 			if parishData == {}:
-				print("The record seems to be empty for " + notionID +", continuing...")
+				logger.warning("Empty record for NotionID: %s, skipping", notionID)
 			else:
 				parishID = parishData["ID"]
 				parishName = parishData.get("Name", notionID)
@@ -195,9 +228,12 @@ def setID():
 					missing_led.append((parishName, notionID))
 				else:
 					orphan_led.discard(notionID)
+				parishes_processed += 1
+		logger.info("Processed %d parishes", parishes_processed)
 	except KeyError as e:
+		logger.error("KeyError in setID while processing parish: %s", e, exc_info=True)
 		if str(e) == 0:
-			logging.warning("Key Error 0 on SetID, continuing")
+			logger.warning("Key Error 0 on SetID, continuing")
 
 	# Report mapping issues
 	if missing_led:
@@ -239,17 +275,17 @@ def liturgyLength(whatDayItIs):
 
 def chronos2():
 # All this is doing is advancing the time.
+	logger.info("chronos2 clock thread starting")
 	try:
 		global currentTime, weekday, pocketWatchThread
 		pocketWatchThread = threading.current_thread()
 		aMinuteAgo = 0
 		DEBUG_TIME = str(DEBUG_TIME_SET)
+		logger.debug("chronos2: debugSet=%s, stopLED=%s, nightLED=%s", debugSet, stopLED.is_set(), nightLED.is_set())
 		while debugSet == False and stopLED.is_set() == False and nightLED.is_set() == False:
 			if aMinuteAgo != dt.datetime.now().strftime("%H%M"):
 				aMinuteAgo = dt.datetime.now().strftime("%H%M")
-				print(aMinuteAgo)
-#				logging.info('%s %s %s', stopLED.is_set(), nightLED.is_set(), shutdown.is_set())
-				logging.debug('The time is %s', aMinuteAgo)
+				logger.info('Time tick: %s', aMinuteAgo)
 				currentTime = dt.datetime.now()
 				weekday = currentTime.strftime("%A")
 				liturgyLength(weekday)
@@ -265,15 +301,17 @@ def chronos2():
 			time.sleep(0.1)
 			DEBUG_TIME = convertToDT(DEBUG_TIME) + timedelta(minutes=1)
 			DEBUG_TIME = DEBUG_TIME.strftime("%H%M")
-			print(DEBUG_TIME, weekday)
-		logging.debug('%s, %s', weekday, currentTime)
+			logger.info("Debug time advanced to: %s %s", DEBUG_TIME, weekday)
+		logger.info('chronos2 exiting: weekday=%s, currentTime=%s', weekday, currentTime)
 	except KeyboardInterrupt:
+		logger.info("chronos2 received KeyboardInterrupt")
 		raise
 	except Exception as e:
-		logging.error('Error in chronos2(): %s', e)
+		logger.error('Error in chronos2(): %s', e, exc_info=True)
 
 def driver(led, state, EStop=""):
   if led is None:
+    logger.debug("driver called with led=None, state=%s - skipping", state)
     return
   updated = False
   stopEvent = Event()
@@ -299,13 +337,13 @@ def driver(led, state, EStop=""):
       if (style == "solid"):                                # Sets an LED to a solid color
         if LOCAL_MODE is False:
           pixels[led] = color
-        logging.debug('solid: %s, color: %s', led, color)
+        logger.debug('LED %s -> %s (color: %s)', led, state, color)
         updated = True
       elif (style == "pulse"):
       # Moved to thePastor for easier thread management Sets an LED to pulse
         pass
     except Exception as e:
-      logging.error('Error in driver(): %s', e)
+      logger.error('Error in driver() for LED %s, state %s: %s', led, state, e, exc_info=True)
       raise
 
 def fadingLED(led, color, stopEvent):
@@ -340,39 +378,49 @@ def breathingEffect(adjustment):        # Background code called by "pulse" abov
 
 def startTheClock():
 	try:
-		pocketWatch = threading.Thread(target=chronos2)
+		logger.info("=== Starting clock thread (chronos2) ===")
+		pocketWatch = threading.Thread(target=chronos2, name="Clock")
 		pocketWatch.start()
-		logging.info("Starting the Display")
-		#pocketWatch.join()
+		logger.info("Clock thread started successfully")
 	except KeyboardInterrupt:
+		logger.warning("KeyboardInterrupt in startTheClock")
 		print("\n\n\n======== Stopping the System ========")
 		stopLED.set()
-		logging.debug("======== Press Enter to Continue With the Shutdown ========")
+		logger.debug("======== Press Enter to Continue With the Shutdown ========")
 
 def watchTheClock():
+	logger.debug("watchTheClock: Waiting for clock thread to finish")
 	try:
 		pocketWatchThread.join() #how do I join a thread that's already running? See .enumerate,.current_thread, etc. Can look through all threads, act on a certain one.
+		logger.debug("watchTheClock: Clock thread joined")
 		if nightLED.is_set():
+			logger.info("watchTheClock: Entering night mode sleep loop")
 			while checkNightMode() == True:
 				pixels.fill((0,0,0))
 				time.sleep(60)
-				logging.debug("watch the clock has gone into sleep mode")
+				logger.debug("watchTheClock: Still in night mode")
 				continue
 			if checkNightMode() == False:
 				time.sleep(3) #Give the main thread a moment to notice that things switched back...
-				logging.debug("Watch The clock has gone out of sleep mode.")
+				logger.info("watchTheClock: Exiting night mode")
 	except KeyboardInterrupt:
 		print("\n\n\n======== Stopping the System ========")
-		logging.info('User initiated shutdown')
+		logger.warning('User initiated shutdown in watchTheClock')
 		stopLED.set()
-		logging.debug("======== Press Enter to Continue With the Shutdown ========")
+		logger.debug("======== Press Enter to Continue With the Shutdown ========")
 
 def wakeUpParish():
+	logger.info("=== Starting parish threads ===")
+	thread_count = 0
 	for parishID in allocation:
 		# print(parishID)
 		#if parishID[1] == 10: # For debugging individual parishes / only running one parish
 		if parishID[0] != 0:
-			threading.Thread(target=thePastor, args=([parishID[1], parishID[0], parishID[2]])).start()
+			thread_name = f"Parish-{parishID[1]}"
+			t = threading.Thread(target=thePastor, args=([parishID[1], parishID[0], parishID[2]]), name=thread_name)
+			t.start()
+			thread_count += 1
+	logger.info("Started %d parish threads", thread_count)
 
 def clockmaker(strf):
 	time = int(strf.strftime("%H%M"))
@@ -401,10 +449,14 @@ def checkNightMode():
 # commands leds to be powered on and off via driver()
 def thePastor(id, notionID, led):
 	global weekday, liturgyDuration
+	logger.debug("thePastor starting: id=%s, notionID=%s, led=%s", id, notionID, led)
 	try:
 		parishCalendar = rawjson[notionID]
+		name = parishCalendar.get("Name", f"Parish-{id}")
+		logger.debug("Loaded calendar for %s (ID: %s)", name, id)
 	except KeyError as e:
-		print("Key Error for NotionID: " + str(notionID))
+		logger.error("KeyError in thePastor - NotionID not found in rawjson: %s", notionID)
+		return  # Exit gracefully instead of continuing with undefined parishCalendar
 	notifyStart = False
 	notifyProgress = False
 	MresetEnable = False
@@ -418,8 +470,8 @@ def thePastor(id, notionID, led):
 	flipflop = 0
 	timeRemaining = 0
 	if parishCalendar["ID"] != id:
-		logging.error("There's an ID mismatch with thePastor!!!")
-		raise
+		logger.error("ID mismatch in thePastor! Expected %s but calendar has %s", id, parishCalendar["ID"])
+		raise ValueError(f"ID mismatch: expected {id}, got {parishCalendar['ID']}")
 	while stopLED.is_set() == False and nightLED.is_set() == False:
 		try:
 			if checkNightMode() == True:
@@ -625,9 +677,11 @@ def thePastor(id, notionID, led):
 							break
 			time.sleep(15)
 		except KeyboardInterrupt:
+			logger.info("KeyboardInterrupt in thePastor for parish %s", id)
 			raise
 		except Exception as e:
-			logging.error('Issue in thePastor(): %s', e)
+			logger.error('Exception in thePastor() for parish %s (notionID=%s, led=%s): %s',
+						 id, notionID, led, e, exc_info=True)
 			raise
 
 def stopTheClock():
@@ -636,17 +690,18 @@ def stopTheClock():
 
 def goToBed(*args):
 	global stopLED
+	logger.info("goToBed called with signal: %s", args[0] if args else "unknown")
 	if args[0] == 2:
 		print("\n\n\n======== Stopping the System - Ctrl C ========")
 		if debugSet == True:
 			print("======== (Press Enter...) ========")
-		logging.warning('User initiated shutdown\n')
+		logger.warning('User initiated shutdown (SIGINT)')
 		stopLED.set()
 		shutdown.set()
 	else:
 		stopLED.set()
 		shutdown.set()
-		logging.warning('Shutting Down - %s\n', args[0])
+		logger.warning('Shutting down due to signal: %s', args[0])
 
 def parishUpdate(ID, action):
 #	if action == "off":
@@ -655,52 +710,79 @@ def parishUpdate(ID, action):
 	global parishStatus
 	if action == "verify":
 		if ID in parishStatus:
+			logger.debug("parishUpdate verify: parish %s already active (%s)", ID, parishStatus.get(ID))
 			return False
 		else:
 			return True
 	elif action == "reset":
+		logger.info("parishUpdate: Resetting all parish statuses")
 		parishStatus.clear()
 	else:
 		if action != "off":
 			if ID in parishStatus:
-				logging.error('Tried to do too much at %s', ID)
+				logger.error('parishUpdate: Conflict at parish %s - already has %s, tried to set %s',
+							 ID, parishStatus[ID], action)
 				raise AssertionError("Can't have two things going on at once")
 			else:
+				logger.info("parishUpdate: Parish %s -> %s", ID, action)
 				parishStatus[ID] = action
 		else:
-			parishStatus.pop(ID)
+			prev = parishStatus.get(ID, "unknown")
+			logger.info("parishUpdate: Parish %s -> off (was: %s)", ID, prev)
+			parishStatus.pop(ID, None)  # Use pop with default to avoid KeyError
 
 try:
+	logger.info("=" * 60)
+	logger.info("=== MAPBOARD STARTING ===")
+	logger.info("=" * 60)
+	logger.info("Configuration: debugSet=%s, LOCAL_MODE=%s, DRY_RUN=%s", debugSet, LOCAL_MODE, DRY_RUN)
+	logger.info("Night mode: enabled=%s, start=%s, end=%s", enableNightMode, nightModeStart, nightModeEnd)
+	if debugSet:
+		logger.info("Debug time: %s, Debug day: %s", DEBUG_TIME_SET, DEBUG_DAY)
+
 	#Signal catching stuff
 	parishClosing = stopTheClock()
+	logger.info("Signal handlers registered")
 
 	ingest()
 	setID()
 
 	# Start backlight with liturgical color
-	threading.Thread(target=backlightWatcher, daemon=True).start()
+	logger.info("Starting backlight watcher thread")
+	threading.Thread(target=backlightWatcher, daemon=True, name="Backlight").start()
 
 	global inhibit
 	ticktock = 0
+	logger.info("=== Entering main loop ===")
 	while shutdown.is_set() == False:
 		while checkNightMode() == False and stopLED.is_set() == False:
 #		while checkNightMode() == False:
-			print("looping at __main...")
+			logger.info("Main loop iteration starting (nightMode=False, stopLED=False)")
 			nightLED.clear()
 			startTheClock()
 			time.sleep(1)
 			wakeUpParish()
 			watchTheClock()
+			logger.debug("watchTheClock returned, sleeping 0.5s")
 			time.sleep(0.5)
 		if stopLED.is_set():
+			logger.info("stopLED is set, turning off all LEDs")
 			pixels.fill(off)
 		while checkNightMode() == True and shutdown.is_set() == False:
-			logging.debug("Sleeping... Currently in Night Mode")
+			logger.debug("Night mode active, sleeping 5s")
 			time.sleep(5)
 
+	logger.info("=== Main loop exited (shutdown=%s) ===", shutdown.is_set())
+
 except Exception as err:
-#	err = sys.exc_info()[1]
-	logging.exception("############ Crash! :/ ############")
+	logger.exception("=" * 60)
+	logger.exception("=== CRASH DETECTED ===")
+	logger.exception("Exception type: %s", type(err).__name__)
+	logger.exception("Exception message: %s", str(err))
+	logger.exception("Active threads at crash: %d", threading.active_count())
+	for t in threading.enumerate():
+		logger.exception("  Thread: %s (alive=%s, daemon=%s)", t.name, t.is_alive(), t.daemon)
+	logger.exception("=" * 60)
 	pixels.fill(off)
 	if LOCAL_MODE is False:
 		pixels[99] = (150, 0, 0)
