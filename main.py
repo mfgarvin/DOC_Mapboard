@@ -169,25 +169,27 @@ def backlightWatcher():
 		time.sleep(3600)  # Check every hour
 
 
-#Combining Parish Name, ID, and LED Allocation into one dictionary
+#Combining Parish NotionID, ID, and LED Allocation into one dictionary
 def setID():
 	global allocation
 	#creating a 2D array for the following data
-	rows, cols = (189, 3)
+	rows, cols = (190, 3)
 	allocation = [[0 for i in range(cols)] for j in range(rows)]
 	missing_led = []  # Parishes without LED mapping (NotionID not in leds.json)
 	orphan_led = set(leddict.keys())  # LEDs with no matching parish (will remove matches)
 	try:
-		for parishName in iddict:
-			if iddict[parishName] == {}:
-				print("The record seems to be empty for " + parishName +", continuing...")
+		# JSON structure: key is NotionID, value has ID, Name, Mass Times, etc.
+		for notionID in iddict:
+			parishData = iddict[notionID]
+			if parishData == {}:
+				print("The record seems to be empty for " + notionID +", continuing...")
 			else:
-				parishID = iddict[parishName]["ID"]
-				notionID = iddict[parishName].get("NotionID")
-				allocation[parishID - 1][0] = parishName
+				parishID = parishData["ID"]
+				parishName = parishData.get("Name", notionID)
+				allocation[parishID - 1][0] = notionID  # Store NotionID for lookup
 				allocation[parishID - 1][1] = parishID
-				# Look up LED by NotionID instead of parish name
-				led = leddict.get(notionID) if notionID else None
+				# Look up LED by NotionID
+				led = leddict.get(notionID)
 				allocation[parishID - 1][2] = led
 				if led is None:
 					missing_led.append((parishName, notionID))
@@ -394,15 +396,15 @@ def checkNightMode():
 #			return(False)
 		return(False)
 
-# This function runs for each parish. It's called and receives its assigned ID from wakeUpParish(), 
+# This function runs for each parish. It's called and receives its assigned ID from wakeUpParish(),
 # loads all of the applicable data (times, etc), watches the clock, and then as events come and go,
 # commands leds to be powered on and off via driver()
-def thePastor(id, name, led):
+def thePastor(id, notionID, led):
 	global weekday, liturgyDuration
 	try:
-		parishCalendar = rawjson[name]
+		parishCalendar = rawjson[notionID]
 	except KeyError as e:
-		print("Key Error for" + str(name))
+		print("Key Error for NotionID: " + str(notionID))
 	notifyStart = False
 	notifyProgress = False
 	MresetEnable = False
