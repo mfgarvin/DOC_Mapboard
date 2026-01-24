@@ -78,6 +78,7 @@ if LOCAL_MODE is True:
 enableNightMode = False
 nightModeStart = 2200
 nightModeEnd = 658
+BACKLIGHT_BYPASS_NIGHT_MODE = False  # If True, backlight stays on during night mode
 
 #Variables we need to set go here:
 stopLED = threading.Event()
@@ -147,6 +148,12 @@ def getUnusedLEDs():
 	all_leds = set(range(400))
 	return list(all_leds - used_leds)
 
+def turnOffParishLEDs():
+	"""Turn off only parish LEDs, leaving backlight alone"""
+	if LOCAL_MODE is False:
+		for led in leddict.values():
+			pixels[led] = (0, 0, 0)
+
 def fetchLiturgicalColor():
 	"""Fetches the current liturgical color from USCCB website"""
 	url = os.getenv("LITURGICAL_COLOR_URL")
@@ -203,20 +210,41 @@ def setBacklight(color_name):
 			pixels[led] = dimmed
 
 def backlightWatcher():
-	"""Thread that updates backlight color daily"""
+	"""Thread that updates backlight color daily and handles night mode transitions"""
 	logger.info("backlightWatcher thread starting")
 	last_date = None
+	was_in_night_mode = False
+	current_color = None
 	while stopLED.is_set() == False and shutdown.is_set() == False:
 		today = dt.date.today()
+		in_night_mode = nightLED.is_set()
+
+		# Check if we need to refresh the backlight:
+		# 1. New day
+		# 2. Just exited night mode
+		# 3. Bypass enabled and we're in night mode (re-apply after pixels.fill clears it)
+		exited_night_mode = was_in_night_mode and not in_night_mode
+		bypass_active = BACKLIGHT_BYPASS_NIGHT_MODE and in_night_mode
+
 		if today != last_date:
 			logger.info("backlightWatcher: Checking liturgical color for %s", today)
 			color = fetchLiturgicalColor()
 			if color:
-				setBacklight(color)
+				current_color = color
+				if not in_night_mode or BACKLIGHT_BYPASS_NIGHT_MODE:
+					setBacklight(color)
 			else:
 				logger.warning("backlightWatcher: No liturgical color fetched")
 			last_date = today
-		time.sleep(3600)  # Check every hour
+		elif exited_night_mode and current_color:
+			logger.info("backlightWatcher: Exited night mode, re-applying backlight")
+			setBacklight(current_color)
+		elif bypass_active and current_color:
+			# Re-apply backlight during night mode when bypass is enabled
+			setBacklight(current_color)
+
+		was_in_night_mode = in_night_mode
+		time.sleep(60)  # Check every minute to catch night mode transitions
 	logger.info("backlightWatcher thread exiting")
 
 
@@ -416,7 +444,10 @@ def watchTheClock():
 		if nightLED.is_set():
 			logger.info("watchTheClock: Entering night mode sleep loop")
 			while checkNightMode() == True:
-				pixels.fill((0,0,0))
+				if BACKLIGHT_BYPASS_NIGHT_MODE:
+					turnOffParishLEDs()
+				else:
+					pixels.fill((0,0,0))
 				time.sleep(60)
 				logger.debug("watchTheClock: Still in night mode")
 				continue
@@ -754,7 +785,7 @@ try:
 	logger.info("=== MAPBOARD STARTING ===")
 	logger.info("=" * 60)
 	logger.info("Configuration: debugSet=%s, LOCAL_MODE=%s, DRY_RUN=%s", debugSet, LOCAL_MODE, DRY_RUN)
-	logger.info("Night mode: enabled=%s, start=%s, end=%s", enableNightMode, nightModeStart, nightModeEnd)
+	logger.info("Night mode: enabled=%s, start=%s, end=%s, backlight_bypass=%s", enableNightMode, nightModeStart, nightModeEnd, BACKLIGHT_BYPASS_NIGHT_MODE)
 	if debugSet:
 		logger.info("Debug time: %s, Debug day: %s", DEBUG_TIME_SET, DEBUG_DAY)
 
