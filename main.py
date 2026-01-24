@@ -209,6 +209,28 @@ def setBacklight(color_name):
 		for led in unused_leds:
 			pixels[led] = dimmed
 
+def dataRefreshWatcher():
+	"""Thread that refreshes parish data daily at noon"""
+	logger.info("dataRefreshWatcher thread starting")
+	last_refresh_date = None
+	while stopLED.is_set() == False and shutdown.is_set() == False:
+		now = dt.datetime.now()
+		today = now.date()
+		current_hour = now.hour
+
+		# Refresh at noon if we haven't already today
+		if current_hour >= 12 and last_refresh_date != today:
+			logger.info("dataRefreshWatcher: Refreshing parish data at noon")
+			try:
+				ingest()
+				last_refresh_date = today
+				logger.info("dataRefreshWatcher: Parish data refreshed successfully")
+			except Exception as e:
+				logger.error("dataRefreshWatcher: Failed to refresh data: %s", e)
+
+		time.sleep(60)  # Check every minute
+	logger.info("dataRefreshWatcher thread exiting")
+
 def backlightWatcher():
 	"""Thread that updates backlight color daily and handles night mode transitions"""
 	logger.info("backlightWatcher thread starting")
@@ -799,6 +821,10 @@ try:
 	# Start backlight with liturgical color
 	logger.info("Starting backlight watcher thread")
 	threading.Thread(target=backlightWatcher, daemon=True, name="Backlight").start()
+
+	# Start data refresh watcher (refreshes parish data at noon)
+	logger.info("Starting data refresh watcher thread")
+	threading.Thread(target=dataRefreshWatcher, daemon=True, name="DataRefresh").start()
 
 	global inhibit
 	ticktock = 0
